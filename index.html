@@ -3,9 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Consulting Service</title>
+  <title>CSFOX.com</title>
   <!-- Angular CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js"
+		data-dojo-config="async: true"></script>
 </head>
 <body ng-app="consultingApp">
   <header>
@@ -24,6 +26,24 @@
     <section>
       <h2>Welcome to Our Consulting Service</h2>
       <p>{{ description }}</p>
+	<script>
+    require([
+        'dojo/dom',
+        'dojo/fx',
+        'dojo/domReady!'
+    ], function (dom, fx) {
+        // The piece we had before...
+        var greeting = dom.byId('greeting');
+        greeting.innerHTML += ' csfox.com';
+
+        // ...but now, with an animation!
+        fx.slideTo({
+            node: greeting,
+            top: 100,
+            left: 200
+        }).play();
+    });
+    </script>
     </section>
 
     <section>
