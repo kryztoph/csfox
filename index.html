@@ -1,32 +1,76 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<title>CSFOX.com</title>
-<script src="//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js"
-		data-dojo-config="async: true"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consulting Service</title>
+  <!-- Angular CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js"></script>
 </head>
-<body>
-	<h1 id="greeting">Welcome to</h1>
+<body ng-app="consultingApp">
+  <header>
+    <h1>Consulting Service</h1>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-	<script>
-    require([
-        'dojo/dom',
-        'dojo/fx',
-        'dojo/domReady!'
-    ], function (dom, fx) {
-        // The piece we had before...
-        var greeting = dom.byId('greeting');
-        greeting.innerHTML += ' csfox.com';
+  <main ng-controller="MainController">
+    <section>
+      <h2>Welcome to Our Consulting Service</h2>
+      <p>{{ description }}</p>
+    </section>
 
-        // ...but now, with an animation!
-        fx.slideTo({
-            node: greeting,
-            top: 100,
-            left: 200
-        }).play();
-    });
-    </script>
+    <section>
+      <h2>Our Services</h2>
+      <ul>
+        <li ng-repeat="service in services">{{ service }}</li>
+      </ul>
+    </section>
 
+    <section>
+      <h2>Contact Us</h2>
+      <form ng-submit="submitForm()">
+        <label for="name">Name:</label>
+        <input type="text" id="name" ng-model="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" ng-model="email" required>
+
+        <label for="message">Message:</label>
+        <textarea id="message" ng-model="message" required></textarea>
+
+        <button type="submit">Send</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Consulting Service. All rights reserved.</p>
+  </footer>
+
+  <script>
+    angular.module('consultingApp', [])
+      .controller('MainController', function($scope) {
+        $scope.description = 'We provide expert consulting services to help your business succeed.';
+        $scope.services = ['Strategy Consulting', 'Operations Consulting', 'Technology Consulting', 'Change Management'];
+
+        $scope.submitForm = function() {
+          // Handle form submission logic here
+          console.log('Name:', $scope.name);
+          console.log('Email:', $scope.email);
+          console.log('Message:', $scope.message);
+          // Reset form fields
+          $scope.name = '';
+          $scope.email = '';
+          $scope.message = '';
+        };
+      });
+  </script>
 </body>
 </html>
