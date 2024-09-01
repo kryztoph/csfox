@@ -1,10 +1,10 @@
-<html lang="en" ng-app="MyApp">
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>csfox.com</title>
-    <script src="//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js"
-            data-dojo-config="async: true"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -49,7 +49,6 @@
             padding: 10px 0;
             margin-top: 20px;
         }
-
     </style>
 </head>
 <body ng-controller="MainController" ng-style="{'background-color': currentColor}">
@@ -59,25 +58,6 @@
 </header>
 
 <h1 id="greeting">Welcome to</h1>
-<script>
-    require([
-        'dojo/dom',
-        'dojo/fx',
-        'dojo/domReady!'
-    ], function (dom, fx) {
-        // The piece we had before...
-        var greeting = dom.byId('greeting');
-        greeting.innerHTML += ' csfox.com';
-
-        // ...but now, with an animation!
-        fx.slideTo({
-            node: greeting,
-            top: 100,
-            left: 200
-        }).play();
-    });
-
-</script>
 
 <section>
     <h2>About Me</h2>
@@ -128,10 +108,9 @@
     <p>&copy; 2024 csfox.com</p>
 </footer>
 
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
 <script>
         angular.module('myApp', [])
-        .controller('MainController', function($scope) {
+        .controller('MainController', function($scope, $interval) {
             $scope.aboutMe = "I am a developer with experience in creating dynamic and responsive web applications.";
             $scope.skills = ["HTML", "CSS", "JavaScript", "Angular", "TypeScript"];
             $scope.projects = [
@@ -159,8 +138,7 @@
             // Change background color every 5 seconds
             $interval(changeBackgroundColor, 5000);
         });
-
-</script>
+    </script>
 
 </body>
 </html>
