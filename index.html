@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>csfox.com</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js"
+            data-dojo-config="async: true"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js"
+            data-dojo-config="async: true"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -58,7 +61,24 @@
 </header>
 
 <h1 id="greeting">Welcome to</h1>
+<script>
+    require([
+        'dojo/dom',
+        'dojo/fx',
+        'dojo/domReady!'
+    ], function (dom, fx) {
+        // The piece we had before...
+        var greeting = dom.byId('greeting');
+        greeting.innerHTML += ' csfox.com';
 
+        // ...but now, with an animation!
+        fx.slideTo({
+            node: greeting,
+            top: 100,
+            left: 200
+        }).play();
+    });
+</script>
 <section>
     <h2>About Me</h2>
     <p>{{aboutMe}} You can learn more about me on my <a href="https://www.linkedin.com/in/csfox" target="_blank">LinkedIn</a>
