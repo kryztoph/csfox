@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>csfox.com</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js"
-            data-dojo-config="async: true"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js" data-dojo-config="async: true"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -14,7 +13,7 @@
             padding: 0;
             color: #333;
             text-align: center;
-            transition: background-color 1s ease-in-out;
+            transition: background 1s ease-in-out; /* Changed from background-color to background */
         }
         header {
             background-color: #007ACC;
@@ -53,7 +52,7 @@
         }
     </style>
 </head>
-<body ng-controller="MainController" ng-style="{'background-color': currentGradient}">
+<body ng-controller="MainController" ng-style="{'background': currentGradient}"> <!-- Corrected here -->
 
 <header>
     <h1>Christopher Fox Enterprises</h1>
@@ -128,38 +127,37 @@
 </footer>
 
 <script>
-        angular.module('myApp', [])
-        .controller('MainController', function($scope, $interval) {
-            $scope.aboutMe = "I am a developer with experience in creating dynamic and responsive web applications.";
-            $scope.skills = ["HTML", "CSS", "JavaScript", "Angular", "TypeScript"];
-            $scope.projects = [
-                {name: "Project 1", description: "Description of project 1."},
-                {name: "Project 3", description: "Description of project 3."}
-            ];
-            $scope.blogPosts = [
-                {title: "Random Technical Blog", excerpt: "notes from various queries", link: "https://www.blogger.com/blog/posts/3956909733799623273"},
-                {title: "Meals by Missy", excerpt: "Recepies", link: "https://mealsbymissy.wordpress.com/"}
-            ];
-            $scope.contactForm = {};
-            $scope.submitContactForm = function() {
-                alert('Form submitted: ' + JSON.stringify($scope.contactForm));
-            };
+    angular.module('myApp', [])
+    .controller('MainController', function($scope, $interval) {
+        $scope.aboutMe = "I am a developer with experience in creating dynamic and responsive web applications.";
+        $scope.skills = ["HTML", "CSS", "JavaScript", "Angular", "TypeScript"];
+        $scope.projects = [
+            {name: "Project 1", description: "Description of project 1."},
+            {name: "Project 3", description: "Description of project 3."}
+        ];
+        $scope.blogPosts = [
+            {title: "Random Technical Blog", excerpt: "notes from various queries", link: "https://www.blogger.com/blog/posts/3956909733799623273"},
+            {title: "Meals by Missy", excerpt: "Recepies", link: "https://mealsbymissy.wordpress.com/"}
+        ];
+        $scope.contactForm = {};
+        $scope.submitContactForm = function() {
+            alert('Form submitted: ' + JSON.stringify($scope.contactForm));
+        };
 
-             // Dynamic gradient background color change
-            $scope.colors = ['#FF5733', '#33FF57', '#3357FF', '#F333FF', '#FF33AA', '#33FFF9'];
-            $scope.currentGradient = `linear-gradient(45deg, ${$scope.colors[0]}, ${$scope.colors[1]})`;
+        // Dynamic gradient background color change
+        $scope.colors = ['#FF5733', '#33FF57', '#3357FF', '#F333FF', '#FF33AA', '#33FFF9'];
+        $scope.currentGradient = `linear-gradient(45deg, ${$scope.colors[0]}, ${$scope.colors[1]})`;
 
-            function changeBackgroundGradient() {
-                const color1 = $scope.colors[Math.floor(Math.random() * $scope.colors.length)];
-                const color2 = $scope.colors[Math.floor(Math.random() * $scope.colors.length)];
-                $scope.currentGradient = `linear-gradient(45deg, ${color1}, ${color2})`;
-            }
+        function changeBackgroundGradient() {
+            const color1 = $scope.colors[Math.floor(Math.random() * $scope.colors.length)];
+            const color2 = $scope.colors[Math.floor(Math.random() * $scope.colors.length)];
+            $scope.currentGradient = `linear-gradient(45deg, ${color1}, ${color2})`;
+        }
 
-            // Change background gradient every 5 seconds
-            $interval(changeBackgroundGradient, 5000);
-
-        });
-    </script>
+        // Change background gradient every 5 seconds
+        $interval(changeBackgroundGradient, 5000);
+    });
+</script>
 
 </body>
 </html>
