@@ -1,96 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CSFOX.com</title>
-  <!-- Angular CDN -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js"
-		data-dojo-config="async: true"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Webpage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            text-align: center;
+        }
+        header {
+            background-color: #007ACC;
+            color: white;
+            padding: 10px 0;
+            margin-bottom: 20px;
+        }
+        section {
+            margin: 20px 0;
+        }
+        h1, h2 {
+            margin: 10px;
+        }
+        .skills, .projects, .blog {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            width: 250px;
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+        }
+        footer {
+            background-color: #007ACC;
+            color: white;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+    </style>
 </head>
-<body ng-app="consultingApp">
-  <header>
-    <h1>Consulting Service</h1>
-    <nav>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Services</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+<body>
 
-  <main ng-controller="MainController">
-    <section>
-      <h2>Welcome to Our Consulting Service</h2>
-      <p>{{ description }}</p>
-	<script>
-    require([
-        'dojo/dom',
-        'dojo/fx',
-        'dojo/domReady!'
-    ], function (dom, fx) {
-        // The piece we had before...
-        var greeting = dom.byId('greeting');
-        greeting.innerHTML += ' csfox.com';
+    <header>
+        <h1>Welcome to My Personal Webpage</h1>
+    </header>
 
-        // ...but now, with an animation!
-        fx.slideTo({
-            node: greeting,
-            top: 100,
-            left: 200
-        }).play();
-    });
+    <section ng-app="myApp" ng-controller="MainController">
+        <h2>About Me</h2>
+        <p>{{aboutMe}}</p>
+        
+        <h2>Skills</h2>
+        <div class="skills">
+            <div class="card" ng-repeat="skill in skills">{{skill}}</div>
+        </div>
+
+        <h2>Projects</h2>
+        <div class="projects">
+            <div class="card" ng-repeat="project in projects">
+                <h3>{{project.name}}</h3>
+                <p>{{project.description}}</p>
+            </div>
+        </div>
+
+        <h2>Blog</h2>
+        <div class="blog">
+            <div class="card" ng-repeat="post in blogPosts">
+                <h3>{{post.title}}</h3>
+                <p>{{post.excerpt}}</p>
+            </div>
+        </div>
+
+        <h2>Contact</h2>
+        <form ng-submit="submitContactForm()">
+            <div>
+                <label>Name:</label>
+                <input type="text" ng-model="contactForm.name" required>
+            </div>
+            <div>
+                <label>Email:</label>
+                <input type="email" ng-model="contactForm.email" required>
+            </div>
+            <div>
+                <label>Message:</label>
+                <textarea ng-model="contactForm.message" required></textarea>
+            </div>
+            <button type="submit">Send</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 My Personal Webpage</p>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script>
+        angular.module('myApp', [])
+        .controller('MainController', function($scope) {
+            $scope.aboutMe = "I am a web developer with experience in creating dynamic and responsive web applications.";
+            $scope.skills = ["HTML", "CSS", "JavaScript", "Angular", "TypeScript"];
+            $scope.projects = [
+                {name: "Project 1", description: "Description of project 1."},
+                {name: "Project 2", description: "Description of project 2."},
+                {name: "Project 3", description: "Description of project 3."}
+            ];
+            $scope.blogPosts = [
+                {title: "Blog Post 1", excerpt: "Summary of blog post 1."},
+                {title: "Blog Post 2", excerpt: "Summary of blog post 2."},
+                {title: "Blog Post 3", excerpt: "Summary of blog post 3."}
+            ];
+            $scope.contactForm = {};
+            $scope.submitContactForm = function() {
+                alert('Form submitted: ' + JSON.stringify($scope.contactForm));
+            };
+        });
     </script>
-    </section>
 
-    <section>
-      <h2>Our Services</h2>
-      <ul>
-        <li ng-repeat="service in services">{{ service }}</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Contact Us</h2>
-      <form ng-submit="submitForm()">
-        <label for="name">Name:</label>
-        <input type="text" id="name" ng-model="name" required>
-
-        <label for="email">Email:</label>
-        <input type="email" id="email" ng-model="email" required>
-
-        <label for="message">Message:</label>
-        <textarea id="message" ng-model="message" required></textarea>
-
-        <button type="submit">Send</button>
-      </form>
-    </section>
-  </main>
-
-  <footer>
-    <p>&copy; 2024 csfox.com All rights reserved.</p>
-  </footer>
-
-  <script>
-    angular.module('consultingApp', [])
-      .controller('MainController', function($scope) {
-        $scope.description = 'We provide expert consulting services to help your business succeed.';
-        $scope.services = ['Strategy Consulting', 'Operations Consulting', 'Technology Consulting', 'Change Management'];
-
-        $scope.submitForm = function() {
-          // Handle form submission logic here
-          console.log('Name:', $scope.name);
-          console.log('Email:', $scope.email);
-          console.log('Message:', $scope.message);
-          // Reset form fields
-          $scope.name = '';
-          $scope.email = '';
-          $scope.message = '';
-        };
-      });
-  </script>
 </body>
 </html>
