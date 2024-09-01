@@ -1,4 +1,4 @@
-<html lang="en">
+<html lang="en" ng-app="MyApp">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,9 +10,9 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
             color: #333;
             text-align: center;
+            transition: background-color 1s ease-in-out;
         }
         header {
             background-color: #007ACC;
@@ -52,7 +52,7 @@
 
     </style>
 </head>
-<body>
+<body ng-controller="MainController" ng-style="{'background-color': currentColor}">
 
 <header>
     <h1>Christopher Fox Enterprises</h1>
@@ -79,7 +79,7 @@
 
 </script>
 
-<section ng-app="myApp" ng-controller="MainController">
+<section>
     <h2>About Me</h2>
     <p>{{aboutMe}} You can learn more about me on my <a href="https://www.linkedin.com/in/csfox" target="_blank">LinkedIn</a>
         profile.</p>
