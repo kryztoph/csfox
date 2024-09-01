@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Personal Webpage</title>
+    <title>csfox.com</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -53,12 +53,12 @@
 <body>
 
     <header>
-        <h1>Welcome to My Personal Webpage</h1>
+        <h1>csfox.com</h1>
     </header>
 
     <section ng-app="myApp" ng-controller="MainController">
         <h2>About Me</h2>
-        <p>{{aboutMe}}</p>
+        <p>{{aboutMe}} You can learn more about me on my <a href="https://www.linkedin.com" target="_blank">LinkedIn</a> profile.</p>
         
         <h2>Skills</h2>
         <div class="skills">
@@ -100,7 +100,7 @@
     </section>
 
     <footer>
-        <p>&copy; 2024 My Personal Webpage</p>
+        <p>&copy; 2024 csfox.com</p>
     </footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
@@ -111,13 +111,11 @@
             $scope.skills = ["HTML", "CSS", "JavaScript", "Angular", "TypeScript"];
             $scope.projects = [
                 {name: "Project 1", description: "Description of project 1."},
-                {name: "Project 2", description: "Description of project 2."},
                 {name: "Project 3", description: "Description of project 3."}
             ];
             $scope.blogPosts = [
-                {title: "Blog Post 1", excerpt: "Summary of blog post 1."},
-                {title: "Blog Post 2", excerpt: "Summary of blog post 2."},
-                {title: "Blog Post 3", excerpt: "Summary of blog post 3."}
+                {title: "Random Technical Blog", excerpt: "notes from various queries", link: "https://www.blogger.com/blog/posts/3956909733799623273"},
+                {title: "Meals by Missy", excerpt: "Recepies", link: "https://mealsbymissy.wordpress.com/"}
             ];
             $scope.contactForm = {};
             $scope.submitContactForm = function() {
