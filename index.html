@@ -1,9 +1,10 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>csfox.com</title>
+    <script src="//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js"
+            data-dojo-config="async: true"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -56,10 +57,30 @@
         <h1>csfox.com</h1>
     </header>
 
+    <h1 id="greeting">Welcome to</h1>
+    <script>
+    require([
+        'dojo/dom',
+        'dojo/fx',
+        'dojo/domReady!'
+    ], function (dom, fx) {
+        // The piece we had before...
+        var greeting = dom.byId('greeting');
+        greeting.innerHTML += ' csfox.com';
+
+        // ...but now, with an animation!
+        fx.slideTo({
+            node: greeting,
+            top: 100,
+            left: 200
+        }).play();
+    });
+    </script>
+
     <section ng-app="myApp" ng-controller="MainController">
         <h2>About Me</h2>
-        <p>{{aboutMe}} You can learn more about me on my <a href="https://www.linkedin.com" target="_blank">LinkedIn</a> profile.</p>
-        
+        <p>{{aboutMe}} You can learn more about me on my <a href="https://www.linkedin.com/in/csfox" target="_blank">LinkedIn</a> profile.</p>
+
         <h2>Skills</h2>
         <div class="skills">
             <div class="card" ng-repeat="skill in skills">{{skill}}</div>
@@ -78,6 +99,7 @@
             <div class="card" ng-repeat="post in blogPosts">
                 <h3>{{post.title}}</h3>
                 <p>{{post.excerpt}}</p>
+                <a href="{{post.link}}" target="_blank">Read More</a>
             </div>
         </div>
 
