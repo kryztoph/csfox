@@ -145,17 +145,19 @@
                 alert('Form submitted: ' + JSON.stringify($scope.contactForm));
             };
 
-            // Dynamic background color change
+             // Dynamic gradient background color change
             $scope.colors = ['#FF5733', '#33FF57', '#3357FF', '#F333FF', '#FF33AA', '#33FFF9'];
-            $scope.currentColor = $scope.colors[0];
+            $scope.currentGradient = `linear-gradient(45deg, ${$scope.colors[0]}, ${$scope.colors[1]})`;
 
-            function changeBackgroundColor() {
-                const randomIndex = Math.floor(Math.random() * $scope.colors.length);
-                $scope.currentColor = $scope.colors[randomIndex];
+            function changeBackgroundGradient() {
+                const color1 = $scope.colors[Math.floor(Math.random() * $scope.colors.length)];
+                const color2 = $scope.colors[Math.floor(Math.random() * $scope.colors.length)];
+                $scope.currentGradient = `linear-gradient(45deg, ${color1}, ${color2})`;
             }
 
-            // Change background color every 5 seconds
-            $interval(changeBackgroundColor, 5000);
+            // Change background gradient every 5 seconds
+            $interval(changeBackgroundGradient, 5000);
+
         });
     </script>
 
