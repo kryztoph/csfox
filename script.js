@@ -15,16 +15,38 @@ document.addEventListener('DOMContentLoaded', () => {
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
             const formData = new FormData(contactForm);
-            const data = Object.fromEntries(formData);
+            // Formspree AJAX submission
+            const btn = contactForm.querySelector('button[type="submit"]');
+            const originalText = btn.textContent;
 
-            // Construct mailto link
-            const subject = `Website Inquiry from ${data.name}`;
-            const body = `Name: ${data.name}\nEmail: ${data.email}\n\nMessage:\n${data.message}`;
+            btn.textContent = 'Sending...';
+            btn.disabled = true;
 
-            // Open default mail client
-            window.location.href = `mailto:chris@csfox.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-            contactForm.reset();
+            fetch(contactForm.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    alert('Thank you! Your message has been sent successfully.');
+                    contactForm.reset();
+                } else {
+                    response.json().then(data => {
+                        if (Object.hasOwn(data, 'errors')) {
+                            alert(data["errors"].map(error => error["message"]).join(", "));
+                        } else {
+                            alert('Oops! There was a problem submitting your form');
+                        }
+                    });
+                }
+            }).catch(error => {
+                alert('Oops! There was a problem submitting your form');
+            }).finally(() => {
+                btn.textContent = originalText;
+                btn.disabled = false;
+            });
         });
     }
 
