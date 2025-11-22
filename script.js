@@ -16,20 +16,15 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             const formData = new FormData(contactForm);
             const data = Object.fromEntries(formData);
-            
-            // Simulate form submission
-            const btn = contactForm.querySelector('button[type="submit"]');
-            const originalText = btn.textContent;
-            
-            btn.textContent = 'Sending...';
-            btn.disabled = true;
 
-            setTimeout(() => {
-                alert(`Thank you, ${data.name}! We have received your message regarding "${data.subject || 'Inquiry'}". We will get back to you at ${data.email} shortly.`);
-                contactForm.reset();
-                btn.textContent = originalText;
-                btn.disabled = false;
-            }, 1500);
+            // Construct mailto link
+            const subject = `Website Inquiry from ${data.name}`;
+            const body = `Name: ${data.name}\nEmail: ${data.email}\n\nMessage:\n${data.message}`;
+
+            // Open default mail client
+            window.location.href = `mailto:chris@csfox.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+            contactForm.reset();
         });
     }
 
