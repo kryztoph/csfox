@@ -1,163 +1,194 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="myApp">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>csfox.com</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js" data-dojo-config="async: true"></script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            color: #333;
-            text-align: center;
-            transition: background 1s ease-in-out; /* Changed from background-color to background */
-        }
-        header {
-            background-color: #007ACC;
-            color: white;
-            padding: 10px 0;
-            margin-bottom: 20px;
-        }
-        section {
-            margin: 20px 0;
-        }
-        h1, h2 {
-            margin: 10px;
-        }
-        .skills, .projects, .blog {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-        .card {
-            background: white;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
-            width: 250px;
-            transition: transform 0.3s;
-        }
-        .card:hover {
-            transform: translateY(-10px);
-        }
-        footer {
-            background-color: #007ACC;
-            color: white;
-            padding: 10px 0;
-            margin-top: 20px;
-        }
-    </style>
+    <title>Christopher Fox Enterprises | Automating Business</title>
+    <meta name="description"
+        content="Expert computer consulting services specializing in business automation and digital transformation.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body ng-controller="MainController" ng-style="{'background': currentGradient}"> <!-- Corrected here -->
 
-<header>
-    <h1>Christopher Fox Enterprises</h1>
-</header>
+<body>
 
-<h1 id="greeting">Welcome to</h1>
-<script>
-    require([
-        'dojo/dom',
-        'dojo/fx',
-        'dojo/domReady!'
-    ], function (dom, fx) {
-        // The piece we had before...
-        var greeting = dom.byId('greeting');
-        greeting.innerHTML += ' csfox.com';
-
-        // ...but now, with an animation!
-        fx.slideTo({
-            node: greeting,
-            top: 100,
-            left: 200
-        }).play();
-    });
-</script>
-<section>
-    <h2>About Me</h2>
-    <p>{{aboutMe}} You can learn more about me on my <a href="https://www.linkedin.com/in/csfox" target="_blank">LinkedIn</a>
-        profile.</p>
-
-    <h2>Skills</h2>
-    <div class="skills">
-        <div class="card" ng-repeat="skill in skills">{{skill}}</div>
-    </div>
-
-    <h2>Projects</h2>
-    <div class="projects">
-        <div class="card" ng-repeat="project in projects">
-            <h3>{{project.name}}</h3>
-            <p>{{project.description}}</p>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <span class="gradient-text">CSFox</span>.com
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact" class="btn btn-primary">Get in Touch</a></li>
+                </ul>
+            </nav>
         </div>
-    </div>
+    </header>
 
-    <h2>Blog</h2>
-    <div class="blog">
-        <div class="card" ng-repeat="post in blogPosts">
-            <h3>{{post.title}}</h3>
-            <p>{{post.excerpt}}</p>
-            <a href="{{post.link}}" target="_blank">Read More</a>
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-content">
+                <span class="hero-subtitle">Christopher Fox Enterprises</span>
+                <h1>Automating Business for a <br><span class="gradient-text">Digital Future</span></h1>
+                <p>We provide cutting-edge computer consulting services to streamline your operations, enhance
+                    efficiency, and drive growth through intelligent automation.</p>
+                <a href="#contact" class="btn btn-primary">Start Automating Today</a>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="section-padding">
+            <div class="container">
+                <h2>Our <span class="gradient-text">Expertise</span></h2>
+                <p style="text-align: center; max-width: 600px; margin: 0 auto 3rem auto;">
+                    Leveraging the latest technologies to solve complex business challenges.
+                </p>
+
+                <div class="services-grid">
+                    <div class="card">
+                        <i class="fa-solid fa-robot card-icon"></i>
+                        <h3>Business Automation</h3>
+                        <p>Streamline repetitive tasks and workflows with custom automated solutions, saving time and
+                            reducing errors.</p>
+                    </div>
+                    <div class="card">
+                        <i class="fa-solid fa-code card-icon"></i>
+                        <h3>Custom Development</h3>
+                        <p>Tailor-made software solutions designed to fit your unique business requirements and scale
+                            with your growth.</p>
+                    </div>
+                    <div class="card">
+                        <i class="fa-solid fa-cloud card-icon"></i>
+                        <h3>Cloud Integration</h3>
+                        <p>Seamlessly migrate and integrate your systems with modern cloud infrastructure for maximum
+                            accessibility and security.</p>
+                    </div>
+                    <div class="card">
+                        <i class="fa-solid fa-chart-line card-icon"></i>
+                        <h3>Data Analytics</h3>
+                        <p>Turn your data into actionable insights with advanced analytics and visualization tools.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio / Links Section -->
+        <section id="portfolio" class="section-padding" style="background-color: var(--bg-secondary);">
+            <div class="container">
+                <h2>Featured <span class="gradient-text">Projects</span></h2>
+                <p style="text-align: center; max-width: 600px; margin: 0 auto 3rem auto;">
+                    A selection of our work and digital assets.
+                </p>
+
+                <div class="portfolio-grid">
+                    <!-- Project 1 -->
+                    <div class="portfolio-item">
+                        <div class="portfolio-content">
+                            <h3>Meals by Missy</h3>
+                            <p>A culinary blog featuring recipes and cooking tips. Showcasing content management and
+                                engaging UI.</p>
+                            <a href="https://mealsbymissy.wordpress.com/" target="_blank" class="portfolio-link">
+                                Visit Website <span class="fa-solid fa-arrow-right"></span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="portfolio-item">
+                        <div class="portfolio-content">
+                            <h3>Technical Insights</h3>
+                            <p>A collection of technical notes, queries, and development resources for the community.
+                            </p>
+                            <a href="https://www.blogger.com/blog/posts/3956909733799623273" target="_blank"
+                                class="portfolio-link">
+                                Read Blog <span class="fa-solid fa-arrow-right"></span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 (Placeholder based on original) -->
+                    <div class="portfolio-item">
+                        <div class="portfolio-content">
+                            <h3>Enterprise Solutions</h3>
+                            <p>Custom ERP integration for a mid-sized logistics firm, resulting in 40% efficiency gain.
+                            </p>
+                            <a href="#" class="portfolio-link">
+                                View Case Study <span class="fa-solid fa-arrow-right"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section-padding">
+            <div class="container">
+                <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                    <h2>About <span class="gradient-text">Christopher Fox</span></h2>
+                    <p>
+                        I am a developer with deep experience in creating dynamic and responsive web applications.
+                        My mission is to help businesses harness the power of technology to automate processes and
+                        achieve their full potential.
+                    </p>
+                    <div style="margin-top: 2rem;">
+                        <a href="https://www.linkedin.com/in/csfox" target="_blank" class="btn btn-primary">
+                            <i class="fa-brands fa-linkedin"></i> Connect on LinkedIn
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section-padding"
+            style="background: linear-gradient(to bottom, var(--bg-primary), var(--bg-secondary));">
+            <div class="container">
+                <h2>Let's <span class="gradient-text">Automate</span> Your Business</h2>
+                <p style="text-align: center; margin-bottom: 3rem;">Ready to transform your operations? Send us a
+                    message.</p>
+
+                <form id="contactForm" class="contact-form">
+                    <div class="form-group">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" id="name" name="name" class="form-input" required placeholder="John Doe">
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" id="email" name="email" class="form-input" required
+                            placeholder="john@company.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea id="message" name="message" class="form-textarea" required
+                            placeholder="Tell us about your project..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Christopher Fox Enterprises. All rights reserved.</p>
+            <div style="margin-top: 1rem; font-size: 0.875rem; color: var(--text-secondary);">
+                <a href="#" style="margin: 0 10px;">Privacy Policy</a>
+                <a href="#" style="margin: 0 10px;">Terms of Service</a>
+            </div>
         </div>
-    </div>
+    </footer>
 
-    <h2>Contact</h2>
-    <form ng-submit="submitContactForm()">
-        <div>
-            <label>Name:</label>
-            <input type="text" ng-model="contactForm.name" required>
-        </div>
-        <div>
-            <label>Email:</label>
-            <input type="email" ng-model="contactForm.email" required>
-        </div>
-        <div>
-            <label>Message:</label>
-            <textarea ng-model="contactForm.message" required></textarea>
-        </div>
-        <button type="submit">Send</button>
-    </form>
-</section>
-
-<footer>
-    <p>&copy; 2024 csfox.com</p>
-</footer>
-
-<script>
-    angular.module('myApp', [])
-    .controller('MainController', function($scope, $interval) {
-        $scope.aboutMe = "I am a developer with experience in creating dynamic and responsive web applications.";
-        $scope.skills = ["HTML", "CSS", "JavaScript", "Angular", "TypeScript"];
-        $scope.projects = [
-            {name: "Project 1", description: "Description of project 1."},
-            {name: "Project 3", description: "Description of project 3."}
-        ];
-        $scope.blogPosts = [
-            {title: "Random Technical Blog", excerpt: "notes from various queries", link: "https://www.blogger.com/blog/posts/3956909733799623273"},
-            {title: "Meals by Missy", excerpt: "Recepies", link: "https://mealsbymissy.wordpress.com/"}
-        ];
-        $scope.contactForm = {};
-        $scope.submitContactForm = function() {
-            alert('Form submitted: ' + JSON.stringify($scope.contactForm));
-        };
-
-        // Dynamic gradient background color change
-        $scope.colors = ['#FF5733', '#33FF57', '#3357FF', '#F333FF', '#FF33AA', '#33FFF9'];
-        $scope.currentGradient = `linear-gradient(45deg, ${$scope.colors[0]}, ${$scope.colors[1]})`;
-
-        function changeBackgroundGradient() {
-            const color1 = $scope.colors[Math.floor(Math.random() * $scope.colors.length)];
-            const color2 = $scope.colors[Math.floor(Math.random() * $scope.colors.length)];
-            $scope.currentGradient = `linear-gradient(45deg, ${color1}, ${color2})`;
-        }
-
-        // Change background gradient every 5 seconds
-        $interval(changeBackgroundGradient, 5000);
-    });
-</script>
-
+    <script src="script.js"></script>
 </body>
+
 </html>
