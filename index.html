@@ -20,10 +20,10 @@
 
     <header>
         <div class="container">
-            <nav>
-                <div class="logo">
+            <nav aria-label="Primary">
+                <a href="#top" class="logo" aria-label="CSFox home">
                     <span class="gradient-text">CSFox</span>.com
-                </div>
+                </a>
                 <ul class="nav-links">
                     <li><a href="#services">Services</a></li>
                     <li><a href="#ai-engineering">AI Engineering</a></li>
@@ -35,7 +35,7 @@
         </div>
     </header>
 
-    <main>
+    <main id="top">
         <!-- Hero Section -->
         <section class="hero">
             <div class="container hero-content">
@@ -51,7 +51,7 @@
         <section id="services" class="section-padding">
             <div class="container">
                 <h2>Our <span class="gradient-text">Services</span></h2>
-                <p style="text-align: center; max-width: 600px; margin: 0 auto 3rem auto;">
+                <p class="section-intro">
                     Leveraging the latest technologies to solve complex business challenges.
                 </p>
 
@@ -84,19 +84,19 @@
         </section>
 
         <!-- AI & Automation Engineering Section -->
-        <section id="ai-engineering" class="section-padding" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);">
+        <section id="ai-engineering" class="section-padding ai-section">
             <div class="container">
-                <div style="text-align: center; margin-bottom: 3rem;">
-                    <span style="display: inline-block; padding: 0.5rem 1.5rem; background: rgba(255,255,255,0.1); border-radius: 20px; font-size: 0.9rem; margin-bottom: 1rem;">
+                <div class="section-center-spaced">
+                    <span class="specialty-badge">
                         🤖 Specialty Services
                     </span>
                     <h2>AI & Automation <span class="gradient-text">Engineering</span></h2>
-                    <p style="max-width: 700px; margin: 0 auto; font-size: 1.1rem; line-height: 1.6;">
+                    <p class="section-subtitle">
                         Cutting-edge AI and automation solutions leveraging LLMs, machine learning, and intelligent process orchestration.
                     </p>
                 </div>
 
-                <div class="services-grid" style="margin-bottom: 4rem;">
+                <div class="services-grid services-grid-spaced">
                     <div class="card">
                         <i class="fa-solid fa-robot card-icon"></i>
                         <h3>AI Agent Development</h3>
@@ -120,69 +120,69 @@
                 </div>
 
                 <!-- Tech Stack -->
-                <div style="max-width: 900px; margin: 0 auto;">
-                    <h3 style="text-align: center; margin-bottom: 2rem; font-size: 1.5rem;">
+                <div class="tech-stack">
+                    <h3 class="tech-stack-title">
                         Technology <span class="gradient-text">Stack</span>
                     </h3>
                     
-                    <div style="margin-bottom: 2.5rem;">
-                        <h4 style="color: var(--primary-color); font-size: 1.1rem; margin-bottom: 1rem;">
+                    <div class="tech-stack-group">
+                        <h4 class="tech-stack-heading">
                             <i class="fa-solid fa-robot"></i> AI & Machine Learning
                         </h4>
-                        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
-                            <span style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; font-size: 0.9rem;">OpenAI GPT</span>
-                            <span style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; font-size: 0.9rem;">Anthropic Claude</span>
-                            <span style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; font-size: 0.9rem;">LangChain</span>
-                            <span style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; font-size: 0.9rem;">llama.cpp</span>
-                            <span style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; font-size: 0.9rem;">scikit-learn</span>
-                            <span style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; font-size: 0.9rem;">TensorFlow</span>
+                        <div class="tech-tag-list">
+                            <span class="tech-tag">OpenAI GPT</span>
+                            <span class="tech-tag">Anthropic Claude</span>
+                            <span class="tech-tag">LangChain</span>
+                            <span class="tech-tag">llama.cpp</span>
+                            <span class="tech-tag">scikit-learn</span>
+                            <span class="tech-tag">TensorFlow</span>
                         </div>
                     </div>
 
-                    <div style="margin-bottom: 2.5rem;">
-                        <h4 style="color: var(--primary-color); font-size: 1.1rem; margin-bottom: 1rem;">
+                    <div class="tech-stack-group">
+                        <h4 class="tech-stack-heading">
                             <i class="fa-solid fa-code"></i> Development
                         </h4>
-                        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
-                            <span style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; font-size: 0.9rem;">🐍 Python</span>
-                            <span style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; font-size: 0.9rem;">☕ Java</span>
-                            <span style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; font-size: 0.9rem;">Spring Boot</span>
-                            <span style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; font-size: 0.9rem;">Flask</span>
-                            <span style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; font-size: 0.9rem;">FastAPI</span>
-                            <span style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; font-size: 0.9rem;">REST APIs</span>
+                        <div class="tech-tag-list">
+                            <span class="tech-tag">🐍 Python</span>
+                            <span class="tech-tag">☕ Java</span>
+                            <span class="tech-tag">Spring Boot</span>
+                            <span class="tech-tag">Flask</span>
+                            <span class="tech-tag">FastAPI</span>
+                            <span class="tech-tag">REST APIs</span>
                         </div>
                     </div>
 
-                    <div style="margin-bottom: 2.5rem;">
-                        <h4 style="color: var(--primary-color); font-size: 1.1rem; margin-bottom: 1rem;">
+                    <div class="tech-stack-group">
+                        <h4 class="tech-stack-heading">
                             <i class="fa-solid fa-database"></i> Data & Infrastructure
                         </h4>
-                        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
-                            <span style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; font-size: 0.9rem;">PostgreSQL</span>
-                            <span style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; font-size: 0.9rem;">Redis</span>
-                            <span style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; font-size: 0.9rem;">🐳 Docker</span>
-                            <span style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; font-size: 0.9rem;">Kubernetes</span>
-                            <span style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; font-size: 0.9rem;">Git</span>
-                            <span style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; font-size: 0.9rem;">CI/CD</span>
+                        <div class="tech-tag-list">
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">Redis</span>
+                            <span class="tech-tag">🐳 Docker</span>
+                            <span class="tech-tag">Kubernetes</span>
+                            <span class="tech-tag">Git</span>
+                            <span class="tech-tag">CI/CD</span>
                         </div>
                     </div>
 
                     <div>
-                        <h4 style="color: var(--primary-color); font-size: 1.1rem; margin-bottom: 1rem;">
+                        <h4 class="tech-stack-heading">
                             <i class="fa-solid fa-puzzle-piece"></i> Integration & Automation
                         </h4>
-                        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
-                            <span style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; font-size: 0.9rem;">IBM MQ</span>
-                            <span style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; font-size: 0.9rem;">Message Queues</span>
-                            <span style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; font-size: 0.9rem;">Webhooks</span>
-                            <span style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; font-size: 0.9rem;">Web3.js</span>
-                            <span style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; font-size: 0.9rem;">Ethereum</span>
+                        <div class="tech-tag-list">
+                            <span class="tech-tag">IBM MQ</span>
+                            <span class="tech-tag">Message Queues</span>
+                            <span class="tech-tag">Webhooks</span>
+                            <span class="tech-tag">Web3.js</span>
+                            <span class="tech-tag">Ethereum</span>
                         </div>
                     </div>
                 </div>
 
-                <div style="text-align: center; margin-top: 3rem;">
-                    <a href="https://github.com/kryztoph" target="_blank" class="btn btn-primary">
+                <div class="section-cta">
+                    <a href="https://github.com/kryztoph" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
                         <i class="fa-brands fa-github"></i> View My Work on GitHub
                     </a>
                 </div>
@@ -190,10 +190,10 @@
         </section>
 
         <!-- Portfolio / Links Section -->
-        <section id="portfolio" class="section-padding" style="background-color: var(--bg-secondary);">
+        <section id="portfolio" class="section-padding portfolio-section">
             <div class="container">
                 <h2>Featured <span class="gradient-text">Projects</span></h2>
-                <p style="text-align: center; max-width: 600px; margin: 0 auto 3rem auto;">
+                <p class="section-intro">
                     A selection of our work and digital assets.
                 </p>
 
@@ -204,9 +204,9 @@
                             <h3>Meals by Missy</h3>
                             <p>A culinary blog featuring recipes and cooking tips. Showcasing content management and
                                 engaging UI.</p>
-                            <a href="https://mealsbymissy.wordpress.com/" target="_blank" class="portfolio-link">
-                                Visit Website <span class="fa-solid fa-arrow-right"></span>
-                            </a>
+                    <a href="https://mealsbymissy.wordpress.com/" target="_blank" rel="noopener noreferrer" class="portfolio-link">
+                        Visit Website <span class="fa-solid fa-arrow-right"></span>
+                    </a>
                         </div>
                     </div>
 
@@ -216,7 +216,7 @@
                             <h3>Technical Insights</h3>
                             <p>A collection of technical notes, queries, and development resources for the community.
                             </p>
-                            <a href="https://csfoxcom.blogspot.com/" target="_blank" class="portfolio-link">
+                            <a href="https://csfoxcom.blogspot.com/" target="_blank" rel="noopener noreferrer" class="portfolio-link">
                                 Read Blog <span class="fa-solid fa-arrow-right"></span>
                             </a>
                         </div>
@@ -228,9 +228,9 @@
                             <h3>Enterprise Solutions</h3>
                             <p>Custom ERP integration for a mid-sized logistics firm, resulting in 40% efficiency gain.
                             </p>
-                            <a href="#" class="portfolio-link">
-                                View Case Study <span class="fa-solid fa-arrow-right"></span>
-                            </a>
+                            <span class="portfolio-link portfolio-meta" aria-label="Case study coming soon">
+                                Case Study Coming Soon <span class="fa-solid fa-clock" aria-hidden="true"></span>
+                            </span>
                         </div>
                     </div>
 
@@ -239,7 +239,7 @@
                         <div class="portfolio-content">
                             <h3>🐍 Project Dashboard</h3>
                             <p>A Flask-based web dashboard for managing and monitoring projects. Automatically detects project technologies, tracks Git status, monitors running services, and provides quick actions.</p>
-                            <span class="portfolio-link" style="color: var(--text-secondary);">
+                            <span class="portfolio-link portfolio-meta">
                                 Python • Flask • Bootstrap <span class="fa-solid fa-code"></span>
                             </span>
                         </div>
@@ -249,7 +249,7 @@
                         <div class="portfolio-content">
                             <h3>☕ Trading Signal Agent</h3>
                             <p>AI-powered trading signal generation system that scans financial data to identify trading opportunities using technical analysis, sentiment analysis, and machine learning.</p>
-                            <span class="portfolio-link" style="color: var(--text-secondary);">
+                            <span class="portfolio-link portfolio-meta">
                                 Java • Spring Boot • Docker <span class="fa-solid fa-chart-line"></span>
                             </span>
                         </div>
@@ -259,7 +259,7 @@
                         <div class="portfolio-content">
                             <h3>🐍 CGI Chat - Conversational Database Interface</h3>
                             <p>A powerful CLI tool that combines natural language to SQL generation, conversational memory, and RAG using PostgreSQL, llama.cpp, and Python.</p>
-                            <a href="https://github.com/kryztoph/conversational-database-interface" target="_blank" class="portfolio-link">
+                            <a href="https://github.com/kryztoph/conversational-database-interface" target="_blank" rel="noopener noreferrer" class="portfolio-link">
                                 View on GitHub <span class="fa-solid fa-arrow-right"></span>
                             </a>
                         </div>
@@ -269,7 +269,7 @@
                         <div class="portfolio-content">
                             <h3>🏥 Health Exchange Platform</h3>
                             <p>A comprehensive Health Insurance Exchange platform built with Spring Boot and Java 21, designed to handle plan management, eligibility determination, enrollment processing, and billing operations.</p>
-                            <span class="portfolio-link" style="color: var(--text-secondary);">
+                            <span class="portfolio-link portfolio-meta">
                                 Java • Spring Boot • PostgreSQL • Docker <span class="fa-solid fa-hospital"></span>
                             </span>
                         </div>
@@ -279,7 +279,7 @@
                         <div class="portfolio-content">
                             <h3>📊 CFTC Commitments of Traders System</h3>
                             <p>Modern Spring Boot application for downloading, processing, and analyzing CFTC Commitments of Traders data for financial market insights.</p>
-                            <span class="portfolio-link" style="color: var(--text-secondary);">
+                            <span class="portfolio-link portfolio-meta">
                                 Java • Spring Boot • H2/PostgreSQL <span class="fa-solid fa-database"></span>
                             </span>
                         </div>
@@ -289,7 +289,7 @@
                         <div class="portfolio-content">
                             <h3>⚡ Ethereum Smart Contracts with Spring Boot</h3>
                             <p>A beginner-friendly Spring Boot application demonstrating how to deploy and interact with Ethereum smart contracts using Java and Web3j.</p>
-                            <span class="portfolio-link" style="color: var(--text-secondary);">
+                            <span class="portfolio-link portfolio-meta">
                                 Java • Ethereum • Web3j <span class="fa-brands fa-ethereum"></span>
                             </span>
                         </div>
@@ -299,7 +299,7 @@
                         <div class="portfolio-content">
                             <h3>🐳 Streamlit + PostgreSQL Docker Template</h3>
                             <p>A production-ready template for building Streamlit applications with PostgreSQL database, fully containerized with Docker.</p>
-                            <a href="https://github.com/kryztoph/ai-template" target="_blank" class="portfolio-link">
+                            <a href="https://github.com/kryztoph/ai-template" target="_blank" rel="noopener noreferrer" class="portfolio-link">
                                 View on GitHub <span class="fa-solid fa-arrow-right"></span>
                             </a>
                         </div>
@@ -309,7 +309,7 @@
                         <div class="portfolio-content">
                             <h3>📨 MQ Reader with Idempotency</h3>
                             <p>A Spring Boot application for reading IBM MQ messages with built-in idempotent message handling to prevent duplicate processing.</p>
-                            <span class="portfolio-link" style="color: var(--text-secondary);">
+                            <span class="portfolio-link portfolio-meta">
                                 Java • Spring Boot • IBM MQ <span class="fa-solid fa-message"></span>
                             </span>
                         </div>
@@ -321,38 +321,38 @@
         <!-- About Section -->
         <section id="about" class="section-padding">
             <div class="container">
-                <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <div class="about-content">
                     <h2>About <span class="gradient-text">Christopher Fox</span></h2>
-                    <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem;">
+                    <p class="about-lead">
                         I am a technology consultant and developer with deep experience in creating dynamic, automated solutions for modern businesses.
                     </p>
-                    <p style="line-height: 1.8; margin-bottom: 1.5rem;">
+                    <p class="about-copy">
                         With expertise across <strong>business automation, AI/ML integration, and custom software development</strong>, I've built systems ranging from enterprise platforms to cutting-edge AI agents. My work spans <strong>Python, Java, Spring Boot, LLM integration, blockchain, and cloud infrastructure</strong>.
                     </p>
-                    <p style="line-height: 1.8; margin-bottom: 2rem;">
+                    <p class="about-copy-last">
                         My mission is to help businesses harness the power of technology—whether through intelligent automation, AI solutions, or custom development—to achieve their full potential and drive meaningful transformation.
                     </p>
                     
-                    <div style="display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; margin-top: 2.5rem;">
-                        <div style="text-align: center;">
-                            <div style="font-size: 2rem; font-weight: bold; color: var(--primary-color);">10+</div>
-                            <div style="font-size: 0.9rem; color: var(--text-secondary);">Projects</div>
+                    <div class="stats-row">
+                        <div class="stat">
+                            <div class="stat-value">10+</div>
+                            <div class="stat-label">Projects</div>
                         </div>
-                        <div style="text-align: center;">
-                            <div style="font-size: 2rem; font-weight: bold; color: var(--primary-color);">5+</div>
-                            <div style="font-size: 0.9rem; color: var(--text-secondary);">Tech Stacks</div>
+                        <div class="stat">
+                            <div class="stat-value">5+</div>
+                            <div class="stat-label">Tech Stacks</div>
                         </div>
-                        <div style="text-align: center;">
-                            <div style="font-size: 2rem; font-weight: bold; color: var(--primary-color);">100%</div>
-                            <div style="font-size: 0.9rem; color: var(--text-secondary);">Commitment</div>
+                        <div class="stat">
+                            <div class="stat-value">100%</div>
+                            <div class="stat-label">Commitment</div>
                         </div>
                     </div>
 
-                    <div style="margin-top: 3rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
-                        <a href="https://www.linkedin.com/in/csfox" target="_blank" class="btn btn-primary">
+                    <div class="button-row">
+                        <a href="https://www.linkedin.com/in/csfox" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
                             <i class="fa-brands fa-linkedin"></i> Connect on LinkedIn
                         </a>
-                        <a href="https://github.com/kryztoph" target="_blank" class="btn" style="background: transparent; border: 2px solid var(--primary-color);">
+                        <a href="https://github.com/kryztoph" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
                             <i class="fa-brands fa-github"></i> View GitHub
                         </a>
                     </div>
@@ -361,21 +361,20 @@
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="section-padding"
-            style="background: linear-gradient(to bottom, var(--bg-primary), var(--bg-secondary));">
+        <section id="contact" class="section-padding contact-section">
             <div class="container">
                 <h2>Let's <span class="gradient-text">Automate</span> Your Business</h2>
-                <p style="text-align: center; margin-bottom: 3rem;">Ready to transform your operations? Send us a
+                <p class="contact-intro">Ready to transform your operations? Send us a
                     message.</p>
 
-                <form id="contactForm" class="contact-form" action="https://formspree.io/f/xblbaqdn" method="POST">
+                <form id="contactForm" class="contact-form" action="https://formspree.io/f/xblbaqdn" method="POST" aria-label="Contact form">
                     <div class="form-group">
                         <label for="name" class="form-label">Name</label>
-                        <input type="text" id="name" name="name" class="form-input" required placeholder="John Doe">
+                        <input type="text" id="name" name="name" class="form-input" required autocomplete="name" placeholder="John Doe">
                     </div>
                     <div class="form-group">
                         <label for="email" class="form-label">Email</label>
-                        <input type="email" id="email" name="email" class="form-input" required
+                        <input type="email" id="email" name="email" class="form-input" required autocomplete="email"
                             placeholder="john@company.com">
                     </div>
                     <div class="form-group">
@@ -383,7 +382,7 @@
                         <textarea id="message" name="message" class="form-textarea" required
                             placeholder="Tell us about your project..."></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                    <button type="submit" class="btn btn-primary btn-block">Send Message</button>
                 </form>
             </div>
         </section>
@@ -392,9 +391,9 @@
     <footer>
         <div class="container">
             <p>&copy; 2026 Christopher Fox Enterprises. All rights reserved.</p>
-            <div style="margin-top: 1rem; font-size: 0.875rem; color: var(--text-secondary);">
-                <a href="#" style="margin: 0 10px;">Privacy Policy</a>
-                <a href="#" style="margin: 0 10px;">Terms of Service</a>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
             </div>
         </div>
     </footer>
