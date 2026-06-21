@@ -297,6 +297,59 @@ nav {
     background: linear-gradient(135deg, #111827 0%, #172554 100%);
 }
 
+.project-hero {
+    min-height: 54vh;
+}
+
+.resource-list {
+    max-width: 860px;
+    margin: 3rem auto 0;
+    display: grid;
+    gap: 1rem;
+}
+
+.resource-link {
+    display: grid;
+    grid-template-columns: 2.5rem 1fr auto;
+    gap: 1rem;
+    align-items: center;
+    padding: 1.25rem;
+    background: var(--bg-secondary);
+    border: 1px solid var(--glass-border);
+    border-radius: 1rem;
+    transition: all 0.3s ease;
+}
+
+.resource-link:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent-primary);
+    box-shadow: var(--shadow-md);
+}
+
+.resource-link i {
+    color: var(--accent-primary);
+    font-size: 1.25rem;
+}
+
+.resource-link strong {
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.resource-link span {
+    color: var(--text-secondary);
+}
+
+.project-note {
+    max-width: 860px;
+    margin: 3rem auto 0;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--glass-border);
+    border-radius: 1rem;
+    color: var(--text-secondary);
+}
+
 /* Services Grid */
 .services-grid {
     display: grid;
@@ -586,5 +639,11 @@ footer {
     }
     .contact-form {
         padding: 2rem;
+    }
+    .resource-link {
+        grid-template-columns: 2rem 1fr;
+    }
+    .resource-link .fa-arrow-right {
+        display: none;
     }
 }

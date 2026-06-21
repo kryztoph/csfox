@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sector Rotation Tracker</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f8fa;
+      --text: #18202a;
+      --muted: #657181;
+      --line: #d9dee6;
+      --panel: #ffffff;
+      --leading: #1f8f5f;
+      --weakening: #c47b20;
+      --lagging: #b64747;
+      --improving: #3478b8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.4;
+    }
+    main {
+      width: min(1280px, calc(100vw - 32px));
+      margin: 0 auto;
+      padding: 24px 0 32px;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+    h1 {
+      margin: 0;
+      font-size: 28px;
+      font-weight: 720;
+      letter-spacing: 0;
+    }
+    .meta {
+      color: var(--muted);
+      font-size: 14px;
+      text-align: right;
+    }
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 460px;
+      gap: 18px;
+      align-items: start;
+    }
+    .chart-wrap, .side {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+    .chart-wrap { padding: 14px; }
+    canvas {
+      display: block;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+    }
+    .toolbar {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 10px;
+      align-items: center;
+      margin-top: 12px;
+    }
+    button {
+      border: 1px solid #b8c1cc;
+      background: #ffffff;
+      color: var(--text);
+      border-radius: 6px;
+      height: 36px;
+      min-width: 44px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    button:hover { border-color: #7d8998; }
+    input[type="range"] { width: 100%; }
+    .frame-label {
+      color: var(--muted);
+      font-size: 14px;
+      min-width: 150px;
+      text-align: right;
+    }
+    .side { padding: 14px; }
+    .side h2 {
+      margin: 0 0 10px;
+      font-size: 16px;
+      letter-spacing: 0;
+    }
+    .legend {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 16px;
+      font-size: 13px;
+    }
+    .legend span {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: var(--muted);
+    }
+    .swatch {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .snapshot-controls {
+      display: flex;
+      gap: 8px;
+      margin: 2px 0 10px;
+    }
+    .snapshot-controls button {
+      height: 30px;
+      min-width: 72px;
+      font-size: 12px;
+    }
+    .row-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      min-width: 0;
+      cursor: pointer;
+    }
+    .row-toggle input {
+      flex: 0 0 auto;
+      width: 14px;
+      height: 14px;
+      margin: 0;
+    }
+    .sector-code {
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .name-cell {
+      min-width: 190px;
+      white-space: nowrap;
+      color: var(--muted);
+    }
+    .sector-line {
+      width: 14px;
+      height: 3px;
+      border-radius: 2px;
+      display: inline-block;
+      margin-right: 6px;
+      vertical-align: middle;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    th, td {
+      border-bottom: 1px solid #edf0f4;
+      padding: 7px 4px;
+      text-align: left;
+      white-space: nowrap;
+    }
+    th {
+      color: var(--muted);
+      font-weight: 620;
+    }
+    td.num, th.num { text-align: right; }
+    tr.hidden-sector td {
+      color: #9aa3af;
+    }
+    .note {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    @media (max-width: 900px) {
+      header { align-items: start; flex-direction: column; }
+      .meta { text-align: left; }
+      .layout { grid-template-columns: 1fr; }
+      .toolbar { grid-template-columns: auto 1fr; }
+      .frame-label { grid-column: 1 / -1; text-align: left; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div>
+        <h1>Sector Rotation Tracker</h1>
+      </div>
+      <div class="meta">
+        <div id="asOf">Frames: 14</div>
+        <div>Trail length: 12 snapshots</div>
+      </div>
+    </header>
+    <section class="layout" aria-label="Sector rotation tracker">
+      <div class="chart-wrap">
+        <canvas id="chart" width="900" height="900" aria-label="Four quadrant sector rotation chart"></canvas>
+        <div class="toolbar">
+          <button id="play" type="button" title="Play or pause">Play</button>
+          <input id="slider" type="range" min="0" max="13" value="13">
+          <div class="frame-label" id="frameLabel"></div>
+        </div>
+      </div>
+      <aside class="side">
+        <h2>Quadrants</h2>
+        <div class="legend">
+          <span><i class="swatch" style="background: var(--leading)"></i>Leading</span>
+          <span><i class="swatch" style="background: var(--weakening)"></i>Weakening</span>
+          <span><i class="swatch" style="background: var(--lagging)"></i>Lagging</span>
+          <span><i class="swatch" style="background: var(--improving)"></i>Improving</span>
+        </div>
+        <h2>Selected Snapshot</h2>
+        <div class="snapshot-controls">
+          <button id="showAll" type="button">Show All</button>
+          <button id="hideAll" type="button">Hide All</button>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Sector</th>
+              <th>Name</th>
+              <th class="num">RS</th>
+              <th class="num">Mom</th>
+            </tr>
+          </thead>
+          <tbody id="rows"></tbody>
+        </table>
+        <p class="note">X-axis is relative strength score. Y-axis is change in score versus the prior snapshot. Sector trails show the recent path through time.</p>
+      </aside>
+    </section>
+  </main>
+  <script>
+    const SERIES = {"generatedAt":"20260619T213019Z","frameCount":14,"sectorCount":11,"sectors":[{"symbol":"XLB","name":"Materials"},{"symbol":"XLC","name":"Communication Services"},{"symbol":"XLE","name":"Energy"},{"symbol":"XLF","name":"Financials"},{"symbol":"XLI","name":"Industrials"},{"symbol":"XLK","name":"Technology"},{"symbol":"XLP","name":"Consumer Staples"},{"symbol":"XLRE","name":"Real Estate"},{"symbol":"XLU","name":"Utilities"},{"symbol":"XLV","name":"Health Care"},{"symbol":"XLY","name":"Consumer Discretionary"}],"frames":[{"index":0,"createdAt":"backfill-weekly-2026-04-24","asOf":"2026-04-24","provider":"yfinance-weekly-backfill","points":[{"symbol":"XLB","name":"Materials","x":34.0,"y":0.0,"rank":3,"signal":"IMPROVING","score":34.0,"momentum":0.0,"relative21d":-0.036165,"trend":"bullish"},{"symbol":"XLC","name":"Communication Services","x":-37.0,"y":0.0,"rank":10,"signal":"WEAKENING","score":-37.0,"momentum":0.0,"relative21d":-0.050173,"trend":"constructive"},{"symbol":"XLE","name":"Energy","x":-8.0,"y":0.0,"rank":7,"signal":"WEAKENING","score":-8.0,"momentum":0.0,"relative21d":-0.148051,"trend":"mixed"},{"symbol":"XLF","name":"Financials","x":-21.0,"y":0.0,"rank":9,"signal":"WEAKENING","score":-21.0,"momentum":0.0,"relative21d":-0.044808,"trend":"bullish"},{"symbol":"XLI","name":"Industrials","x":10.0,"y":0.0,"rank":4,"signal":"IMPROVING","score":10.0,"momentum":0.0,"relative21d":-0.042325,"trend":"constructive"},{"symbol":"XLK","name":"Technology","x":75.0,"y":0.0,"rank":1,"signal":"LEADING","score":75.0,"momentum":0.0,"relative21d":0.084577,"trend":"bullish"},{"symbol":"XLP","name":"Consumer Staples","x":-7.0,"y":0.0,"rank":6,"signal":"WEAKENING","score":-7.0,"momentum":0.0,"relative21d":-0.065863,"trend":"mixed"},{"symbol":"XLRE","name":"Real Estate","x":44.0,"y":0.0,"rank":2,"signal":"LEADING","score":44.0,"momentum":0.0,"relative21d":0.001439,"trend":"constructive"},{"symbol":"XLU","name":"Utilities","x":0.0,"y":0.0,"rank":5,"signal":"WEAKENING","score":0.0,"momentum":0.0,"relative21d":-0.066412,"trend":"mixed"},{"symbol":"XLV","name":"Health Care","x":-81.0,"y":0.0,"rank":11,"signal":"LAGGING","score":-81.0,"momentum":0.0,"relative21d":-0.101051,"trend":"weak"},{"symbol":"XLY","name":"Consumer Discretionary","x":-9.0,"y":0.0,"rank":8,"signal":"WEAKENING","score":-9.0,"momentum":0.0,"relative21d":-0.015078,"trend":"constructive"}]},{"index":1,"createdAt":"backfill-weekly-2026-05-01","asOf":"2026-05-01","provider":"yfinance-weekly-backfill","points":[{"symbol":"XLB","name":"Materials","x":-32.0,"y":-66.0,"rank":10,"signal":"WEAKENING","score":-32.0,"momentum":-66.0,"relative21d":-0.082188,"trend":"constructive"},{"symbol":"XLC","name":"Communication Services","x":-1.0,"y":36.0,"rank":5,"signal":"WEAKENING","score":-1.0,"momentum":36.0,"relative21d":-0.050563,"trend":"bullish"},{"symbol":"XLE","name":"Energy","x":1.0,"y":9.0,"rank":4,"signal":"IMPROVING","score":1.0,"momentum":9.0,"relative21d":-0.101861,"trend":"constructive"},{"symbol":"XLF","name":"Financials","x":-1.0,"y":20.0,"rank":6,"signal":"WEAKENING","score":-1.0,"momentum":20.0,"relative21d":-0.049664,"trend":"bullish"},{"symbol":"XLI","name":"Industrials","x":5.0,"y":-5.0,"rank":3,"signal":"IMPROVING","score":5.0,"momentum":-5.0,"relative21d":-0.04795,"trend":"bullish"},{"symbol":"XLK","name":"Technology","x":69.0,"y":-6.0,"rank":1,"signal":"LEADING","score":69.0,"momentum":-6.0,"relative21d":0.100011,"trend":"bullish"},{"symbol":"XLP","name":"Consumer Staples","x":-2.0,"y":5.0,"rank":7,"signal":"WEAKENING","score":-2.0,"momentum":5.0,"relative21d":-0.066558,"trend":"constructive"},{"symbol":"XLRE","name":"Real Estate","x":62.0,"y":18.0,"rank":2,"signal":"IMPROVING","score":62.0,"momentum":18.0,"relative21d":-0.017531,"trend":"bullish"},{"symbol":"XLU","name":"Utilities","x":-14.0,"y":-14.0,"rank":9,"signal":"WEAKENING","score":-14.0,"momentum":-14.0,"relative21d":-0.090284,"trend":"constructive"},{"symbol":"XLV","name":"Health Care","x":-78.0,"y":3.0,"rank":11,"signal":"LAGGING","score":-78.0,"momentum":3.0,"relative21d":-0.117223,"trend":"weak"},{"symbol":"XLY","name":"Consumer Discretionary","x":-9.0,"y":0.0,"rank":8,"signal":"WEAKENING","score":-9.0,"momentum":0.0,"relative21d":-0.019407,"trend":"bullish"}]},{"index":2,"createdAt":"backfill-weekly-2026-05-08","asOf":"2026-05-08","provider":"yfinance-weekly-backfill","points":[{"symbol":"XLB","name":"Materials","x":0.0,"y":32.0,"rank":5,"signal":"WEAKENING","score":0.0,"momentum":32.0,"relative21d":-0.086427,"trend":"constructive"},{"symbol":"XLC","name":"Communication Services","x":28.0,"y":29.0,"rank":4,"signal":"IMPROVING","score":28.0,"momentum":29.0,"relative21d":-0.061513,"trend":"bullish"},{"symbol":"XLE","name":"Energy","x":-46.0,"y":-47.0,"rank":9,"signal":"LAGGING","score":-46.0,"momentum":-47.0,"relative21d":-0.113311,"trend":"weak"},{"symbol":"XLF","name":"Financials","x":-38.0,"y":-37.0,"rank":8,"signal":"WEAKENING","score":-38.0,"momentum":-37.0,"relative21d":-0.086632,"trend":"constructive"},{"symbol":"XLI","name":"Industrials","x":-10.0,"y":-15.0,"rank":7,"signal":"WEAKENING","score":-10.0,"momentum":-15.0,"relative21d":-0.079013,"trend":"bullish"},{"symbol":"XLK","name":"Technology","x":82.0,"y":13.0,"rank":1,"signal":"LEADING","score":82.0,"momentum":13.0,"relative21d":0.150568,"trend":"bullish"},{"symbol":"XLP","name":"Consumer Staples","x":-10.0,"y":-8.0,"rank":6,"signal":"WEAKENING","score":-10.0,"momentum":-8.0,"relative21d":-0.076131,"trend":"constructive"},{"symbol":"XLRE","name":"Real Estate","x":59.0,"y":-3.0,"rank":2,"signal":"IMPROVING","score":59.0,"momentum":-3.0,"relative21d":-0.045562,"trend":"bullish"},{"symbol":"XLU","name":"Utilities","x":-51.0,"y":-37.0,"rank":10,"signal":"LAGGING","score":-51.0,"momentum":-37.0,"relative21d":-0.136417,"trend":"weak"},{"symbol":"XLV","name":"Health Care","x":-65.0,"y":13.0,"rank":11,"signal":"LAGGING","score":-65.0,"momentum":13.0,"relative21d":-0.123987,"trend":"weak"},{"symbol":"XLY","name":"Consumer Discretionary","x":51.0,"y":60.0,"rank":3,"signal":"IMPROVING","score":51.0,"momentum":60.0,"relative21d":-0.018709,"trend":"bullish"}]},{"index":3,"createdAt":"backfill-weekly-2026-05-15","asOf":"2026-05-15","provider":"yfinance-weekly-backfill","points":[{"symbol":"XLB","name":"Materials","x":-63.0,"y":-63.0,"rank":10,"signal":"LAGGING","score":-63.0,"momentum":-63.0,"relative21d":-0.081478,"trend":"mixed"},{"symbol":"XLC","name":"Communication Services","x":-2.0,"y":-30.0,"rank":7,"signal":"WEAKENING","score":-2.0,"momentum":-30.0,"relative21d":-0.076601,"trend":"constructive"},{"symbol":"XLE","name":"Energy","x":58.0,"y":104.0,"rank":2,"signal":"IMPROVING","score":58.0,"momentum":104.0,"relative21d":-0.002911,"trend":"constructive"},{"symbol":"XLF","name":"Financials","x":2.0,"y":40.0,"rank":5,"signal":"IMPROVING","score":2.0,"momentum":40.0,"relative21d":-0.071333,"trend":"constructive"},{"symbol":"XLI","name":"Industrials","x":3.0,"y":13.0,"rank":4,"signal":"IMPROVING","score":3.0,"momentum":13.0,"relative21d":-0.047177,"trend":"constructive"},{"symbol":"XLK","name":"Technology","x":70.0,"y":-12.0,"rank":1,"signal":"LEADING","score":70.0,"momentum":-12.0,"relative21d":0.105994,"trend":"bullish"},{"symbol":"XLP","name":"Consumer Staples","x":37.0,"y":47.0,"rank":3,"signal":"IMPROVING","score":37.0,"momentum":47.0,"relative21d":-0.014039,"trend":"bullish"},{"symbol":"XLRE","name":"Real Estate","x":-12.0,"y":-71.0,"rank":8,"signal":"WEAKENING","score":-12.0,"momentum":-71.0,"relative21d":-0.066698,"trend":"constructive"},{"symbol":"XLU","name":"Utilities","x":-75.0,"y":-24.0,"rank":11,"signal":"LAGGING","score":-75.0,"momentum":-24.0,"relative21d":-0.106965,"trend":"weak"},{"symbol":"XLV","name":"Health Care","x":-17.0,"y":48.0,"rank":9,"signal":"WEAKENING","score":-17.0,"momentum":48.0,"relative21d":-0.063758,"trend":"weak"},{"symbol":"XLY","name":"Consumer Discretionary","x":-1.0,"y":-52.0,"rank":6,"signal":"WEAKENING","score":-1.0,"momentum":-52.0,"relative21d":-0.06281,"trend":"constructive"}]},{"index":4,"createdAt":"backfill-weekly-2026-05-22","asOf":"2026-05-22","provider":"yfinance-weekly-backfill","points":[{"symbol":"XLB","name":"Materials","x":-87.0,"y":-24.0,"rank":11,"signal":"LAGGING","score":-87.0,"momentum":-24.0,"relative21d":-0.081833,"trend":"mixed"},{"symbol":"XLC","name":"Communication Services","x":-46.0,"y":-44.0,"rank":10,"signal":"WEAKENING","score":-46.0,"momentum":-44.0,"relative21d":-0.068936,"trend":"constructive"},{"symbol":"XLE","name":"Energy","x":30.0,"y":-28.0,"rank":3,"signal":"IMPROVING","score":30.0,"momentum":-28.0,"relative21d":-0.008444,"trend":"bullish"},{"symbol":"XLF","name":"Financials","x":19.0,"y":17.0,"rank":5,"signal":"IMPROVING","score":19.0,"momentum":17.0,"relative21d":-0.049792,"trend":"bullish"},{"symbol":"XLI","name":"Industrials","x":-29.0,"y":-32.0,"rank":9,"signal":"WEAKENING","score":-29.0,"momentum":-32.0,"relative21d":-0.065708,"trend":"constructive"},{"symbol":"XLK","name":"Technology","x":70.0,"y":0.0,"rank":1,"signal":"LEADING","score":70.0,"momentum":0.0,"relative21d":0.105039,"trend":"bullish"},{"symbol":"XLP","name":"Consumer Staples","x":-1.0,"y":-38.0,"rank":7,"signal":"WEAKENING","score":-1.0,"momentum":-38.0,"relative21d":-0.036683,"trend":"bullish"},{"symbol":"XLRE","name":"Real Estate","x":36.0,"y":48.0,"rank":2,"signal":"IMPROVING","score":36.0,"momentum":48.0,"relative21d":-0.038846,"trend":"bullish"},{"symbol":"XLU","name":"Utilities","x":-21.0,"y":54.0,"rank":8,"signal":"LAGGING","score":-21.0,"momentum":54.0,"relative21d":-0.06855,"trend":"mixed"},{"symbol":"XLV","name":"Health Care","x":10.0,"y":27.0,"rank":6,"signal":"IMPROVING","score":10.0,"momentum":27.0,"relative21d":-0.027536,"trend":"constructive"},{"symbol":"XLY","name":"Consumer Discretionary","x":19.0,"y":20.0,"rank":4,"signal":"IMPROVING","score":19.0,"momentum":20.0,"relative21d":-0.040265,"trend":"bullish"}]},{"index":5,"createdAt":"backfill-weekly-2026-05-29","asOf":"2026-05-29","provider":"yfinance-weekly-backfill","points":[{"symbol":"XLB","name":"Materials","x":8.0,"y":95.0,"rank":6,"signal":"IMPROVING","score":8.0,"momentum":95.0,"relative21d":-0.059371,"trend":"bullish"},{"symbol":"XLC","name":"Communication Services","x":-7.0,"y":39.0,"rank":8,"signal":"WEAKENING","score":-7.0,"momentum":39.0,"relative21d":-0.059629,"trend":"constructive"},{"symbol":"XLE","name":"Energy","x":-60.0,"y":-90.0,"rank":10,"signal":"LAGGING","score":-60.0,"momentum":-90.0,"relative21d":-0.109516,"trend":"weak"},{"symbol":"XLF","name":"Financials","x":-4.0,"y":-23.0,"rank":7,"signal":"WEAKENING","score":-4.0,"momentum":-23.0,"relative21d":-0.069647,"trend":"bullish"},{"symbol":"XLI","name":"Industrials","x":19.0,"y":48.0,"rank":4,"signal":"IMPROVING","score":19.0,"momentum":48.0,"relative21d":-0.044268,"trend":"bullish"},{"symbol":"XLK","name":"Technology","x":82.0,"y":12.0,"rank":1,"signal":"LEADING","score":82.0,"momentum":12.0,"relative21d":0.137454,"trend":"bullish"},{"symbol":"XLP","name":"Consumer Staples","x":-57.0,"y":-56.0,"rank":9,"signal":"LAGGING","score":-57.0,"momentum":-56.0,"relative21d":-0.063219,"trend":"mixed"},{"symbol":"XLRE","name":"Real Estate","x":13.0,"y":-23.0,"rank":5,"signal":"IMPROVING","score":13.0,"momentum":-23.0,"relative21d":-0.055079,"trend":"constructive"},{"symbol":"XLU","name":"Utilities","x":-70.0,"y":-49.0,"rank":11,"signal":"LAGGING","score":-70.0,"momentum":-49.0,"relative21d":-0.090682,"trend":"weak"},{"symbol":"XLV","name":"Health Care","x":23.0,"y":13.0,"rank":3,"signal":"IMPROVING","score":23.0,"momentum":13.0,"relative21d":-0.016683,"trend":"bullish"},{"symbol":"XLY","name":"Consumer Discretionary","x":53.0,"y":34.0,"rank":2,"signal":"IMPROVING","score":53.0,"momentum":34.0,"relative21d":-0.028607,"trend":"bullish"}]},{"index":6,"createdAt":"backfill-weekly-2026-06-05","asOf":"2026-06-05","provider":"yfinance-weekly-backfill","points":[{"symbol":"XLB","name":"Materials","x":-45.0,"y":-53.0,"rank":8,"signal":"LAGGING","score":-45.0,"momentum":-53.0,"relative21d":-0.039032,"trend":"weak"},{"symbol":"XLC","name":"Communication Services","x":-63.0,"y":-56.0,"rank":11,"signal":"LAGGING","score":-63.0,"momentum":-56.0,"relative21d":-0.053471,"trend":"mixed"},{"symbol":"XLE","name":"Energy","x":36.0,"y":96.0,"rank":4,"signal":"IMPROVING","score":36.0,"momentum":96.0,"relative21d":0.006685,"trend":"mixed"},{"symbol":"XLF","name":"Financials","x":47.0,"y":51.0,"rank":2,"signal":"LEADING","score":47.0,"momentum":51.0,"relative21d":0.003804,"trend":"bullish"},{"symbol":"XLI","name":"Industrials","x":15.0,"y":-4.0,"rank":6,"signal":"IMPROVING","score":15.0,"momentum":-4.0,"relative21d":-0.020278,"trend":"bullish"},{"symbol":"XLK","name":"Technology","x":32.0,"y":-50.0,"rank":5,"signal":"LEADING","score":32.0,"momentum":-50.0,"relative21d":0.055332,"trend":"constructive"},{"symbol":"XLP","name":"Consumer Staples","x":-9.0,"y":48.0,"rank":7,"signal":"WEAKENING","score":-9.0,"momentum":48.0,"relative21d":-0.014566,"trend":"constructive"},{"symbol":"XLRE","name":"Real Estate","x":57.0,"y":44.0,"rank":1,"signal":"IMPROVING","score":57.0,"momentum":44.0,"relative21d":-0.005963,"trend":"bullish"},{"symbol":"XLU","name":"Utilities","x":-55.0,"y":15.0,"rank":10,"signal":"LAGGING","score":-55.0,"momentum":15.0,"relative21d":-0.034822,"trend":"weak"},{"symbol":"XLV","name":"Health Care","x":40.0,"y":17.0,"rank":3,"signal":"LEADING","score":40.0,"momentum":17.0,"relative21d":0.047269,"trend":"bullish"},{"symbol":"XLY","name":"Consumer Discretionary","x":-55.0,"y":-108.0,"rank":9,"signal":"LAGGING","score":-55.0,"momentum":-108.0,"relative21d":-0.046865,"trend":"mixed"}]},{"index":7,"createdAt":"backfill-weekly-2026-06-12","asOf":"2026-06-12","provider":"yfinance-weekly-backfill","points":[{"symbol":"XLB","name":"Materials","x":10.0,"y":55.0,"rank":7,"signal":"IMPROVING","score":10.0,"momentum":55.0,"relative21d":0.003059,"trend":"constructive"},{"symbol":"XLC","name":"Communication Services","x":-71.0,"y":-8.0,"rank":11,"signal":"LAGGING","score":-71.0,"momentum":-8.0,"relative21d":-0.043011,"trend":"weak"},{"symbol":"XLE","name":"Energy","x":-63.0,"y":-99.0,"rank":10,"signal":"LAGGING","score":-63.0,"momentum":-99.0,"relative21d":-0.000634,"trend":"mixed"},{"symbol":"XLF","name":"Financials","x":66.0,"y":19.0,"rank":1,"signal":"LEADING","score":66.0,"momentum":19.0,"relative21d":0.046842,"trend":"bullish"},{"symbol":"XLI","name":"Industrials","x":15.0,"y":0.0,"rank":5,"signal":"IMPROVING","score":15.0,"momentum":0.0,"relative21d":0.015499,"trend":"bullish"},{"symbol":"XLK","name":"Technology","x":58.0,"y":26.0,"rank":2,"signal":"LEADING","score":58.0,"momentum":26.0,"relative21d":0.045708,"trend":"bullish"},{"symbol":"XLP","name":"Consumer Staples","x":12.0,"y":21.0,"rank":6,"signal":"IMPROVING","score":12.0,"momentum":21.0,"relative21d":0.013738,"trend":"bullish"},{"symbol":"XLRE","name":"Real Estate","x":41.0,"y":-16.0,"rank":3,"signal":"LEADING","score":41.0,"momentum":-16.0,"relative21d":0.026767,"trend":"bullish"},{"symbol":"XLU","name":"Utilities","x":-62.0,"y":-7.0,"rank":9,"signal":"LAGGING","score":-62.0,"momentum":-7.0,"relative21d":-0.00238,"trend":"mixed"},{"symbol":"XLV","name":"Health Care","x":28.0,"y":-12.0,"rank":4,"signal":"LEADING","score":28.0,"momentum":-12.0,"relative21d":0.049149,"trend":"bullish"},{"symbol":"XLY","name":"Consumer Discretionary","x":-34.0,"y":21.0,"rank":8,"signal":"LAGGING","score":-34.0,"momentum":21.0,"relative21d":-0.017103,"trend":"mixed"}]},{"index":8,"createdAt":"20260618T145121Z","asOf":"2026-06-17","provider":"sample","points":[{"symbol":"XLB","name":"Materials","x":-28.0,"y":-38.0,"rank":8,"signal":"WEAKENING","score":-28.0,"momentum":-38.0,"relative21d":-0.024924,"trend":"bullish"},{"symbol":"XLC","name":"Communication Services","x":68.0,"y":139.0,"rank":2,"signal":"LEADING","score":68.0,"momentum":139.0,"relative21d":0.01706,"trend":"bullish"},{"symbol":"XLE","name":"Energy","x":18.0,"y":81.0,"rank":5,"signal":"IMPROVING","score":18.0,"momentum":81.0,"relative21d":-0.00197,"trend":"bullish"},{"symbol":"XLF","name":"Financials","x":38.0,"y":-28.0,"rank":4,"signal":"LEADING","score":38.0,"momentum":-28.0,"relative21d":0.005371,"trend":"bullish"},{"symbol":"XLI","name":"Industrials","x":60.0,"y":45.0,"rank":3,"signal":"LEADING","score":60.0,"momentum":45.0,"relative21d":0.010468,"trend":"bullish"},{"symbol":"XLK","name":"Technology","x":100.0,"y":42.0,"rank":1,"signal":"LEADING","score":100.0,"momentum":42.0,"relative21d":0.023654,"trend":"bullish"},{"symbol":"XLP","name":"Consumer Staples","x":-82.0,"y":-94.0,"rank":10,"signal":"LAGGING","score":-82.0,"momentum":-94.0,"relative21d":-0.037462,"trend":"weak"},{"symbol":"XLRE","name":"Real Estate","x":-98.0,"y":-139.0,"rank":11,"signal":"LAGGING","score":-98.0,"momentum":-139.0,"relative21d":-0.039364,"trend":"weak"},{"symbol":"XLU","name":"Utilities","x":-60.0,"y":2.0,"rank":9,"signal":"WEAKENING","score":-60.0,"momentum":2.0,"relative21d":-0.031073,"trend":"constructive"},{"symbol":"XLV","name":"Health Care","x":-14.0,"y":-42.0,"rank":7,"signal":"WEAKENING","score":-14.0,"momentum":-42.0,"relative21d":-0.020916,"trend":"bullish"},{"symbol":"XLY","name":"Consumer Discretionary","x":-2.0,"y":32.0,"rank":6,"signal":"WEAKENING","score":-2.0,"momentum":32.0,"relative21d":-0.007352,"trend":"bullish"}]},{"index":9,"createdAt":"20260618T151221Z","asOf":"2026-06-17","provider":"sample","points":[{"symbol":"XLB","name":"Materials","x":-28.0,"y":0.0,"rank":8,"signal":"WEAKENING","score":-28.0,"momentum":0.0,"relative21d":-0.024924,"trend":"bullish"},{"symbol":"XLC","name":"Communication Services","x":68.0,"y":0.0,"rank":2,"signal":"LEADING","score":68.0,"momentum":0.0,"relative21d":0.01706,"trend":"bullish"},{"symbol":"XLE","name":"Energy","x":18.0,"y":0.0,"rank":5,"signal":"IMPROVING","score":18.0,"momentum":0.0,"relative21d":-0.00197,"trend":"bullish"},{"symbol":"XLF","name":"Financials","x":38.0,"y":0.0,"rank":4,"signal":"LEADING","score":38.0,"momentum":0.0,"relative21d":0.005371,"trend":"bullish"},{"symbol":"XLI","name":"Industrials","x":60.0,"y":0.0,"rank":3,"signal":"LEADING","score":60.0,"momentum":0.0,"relative21d":0.010468,"trend":"bullish"},{"symbol":"XLK","name":"Technology","x":100.0,"y":0.0,"rank":1,"signal":"LEADING","score":100.0,"momentum":0.0,"relative21d":0.023654,"trend":"bullish"},{"symbol":"XLP","name":"Consumer Staples","x":-82.0,"y":0.0,"rank":10,"signal":"LAGGING","score":-82.0,"momentum":0.0,"relative21d":-0.037462,"trend":"weak"},{"symbol":"XLRE","name":"Real Estate","x":-98.0,"y":0.0,"rank":11,"signal":"LAGGING","score":-98.0,"momentum":0.0,"relative21d":-0.039364,"trend":"weak"},{"symbol":"XLU","name":"Utilities","x":-60.0,"y":0.0,"rank":9,"signal":"WEAKENING","score":-60.0,"momentum":0.0,"relative21d":-0.031073,"trend":"constructive"},{"symbol":"XLV","name":"Health Care","x":-14.0,"y":0.0,"rank":7,"signal":"WEAKENING","score":-14.0,"momentum":0.0,"relative21d":-0.020916,"trend":"bullish"},{"symbol":"XLY","name":"Consumer Discretionary","x":-2.0,"y":0.0,"rank":6,"signal":"WEAKENING","score":-2.0,"momentum":0.0,"relative21d":-0.007352,"trend":"bullish"}]},{"index":10,"createdAt":"20260618T151349Z","asOf":"2026-06-17","provider":"sample","points":[{"symbol":"XLB","name":"Materials","x":-28.0,"y":0.0,"rank":8,"signal":"WEAKENING","score":-28.0,"momentum":0.0,"relative21d":-0.024924,"trend":"bullish"},{"symbol":"XLC","name":"Communication Services","x":68.0,"y":0.0,"rank":2,"signal":"LEADING","score":68.0,"momentum":0.0,"relative21d":0.01706,"trend":"bullish"},{"symbol":"XLE","name":"Energy","x":18.0,"y":0.0,"rank":5,"signal":"IMPROVING","score":18.0,"momentum":0.0,"relative21d":-0.00197,"trend":"bullish"},{"symbol":"XLF","name":"Financials","x":38.0,"y":0.0,"rank":4,"signal":"LEADING","score":38.0,"momentum":0.0,"relative21d":0.005371,"trend":"bullish"},{"symbol":"XLI","name":"Industrials","x":60.0,"y":0.0,"rank":3,"signal":"LEADING","score":60.0,"momentum":0.0,"relative21d":0.010468,"trend":"bullish"},{"symbol":"XLK","name":"Technology","x":100.0,"y":0.0,"rank":1,"signal":"LEADING","score":100.0,"momentum":0.0,"relative21d":0.023654,"trend":"bullish"},{"symbol":"XLP","name":"Consumer Staples","x":-82.0,"y":0.0,"rank":10,"signal":"LAGGING","score":-82.0,"momentum":0.0,"relative21d":-0.037462,"trend":"weak"},{"symbol":"XLRE","name":"Real Estate","x":-98.0,"y":0.0,"rank":11,"signal":"LAGGING","score":-98.0,"momentum":0.0,"relative21d":-0.039364,"trend":"weak"},{"symbol":"XLU","name":"Utilities","x":-60.0,"y":0.0,"rank":9,"signal":"WEAKENING","score":-60.0,"momentum":0.0,"relative21d":-0.031073,"trend":"constructive"},{"symbol":"XLV","name":"Health Care","x":-14.0,"y":0.0,"rank":7,"signal":"WEAKENING","score":-14.0,"momentum":0.0,"relative21d":-0.020916,"trend":"bullish"},{"symbol":"XLY","name":"Consumer Discretionary","x":-2.0,"y":0.0,"rank":6,"signal":"WEAKENING","score":-2.0,"momentum":0.0,"relative21d":-0.007352,"trend":"bullish"}]},{"index":11,"createdAt":"20260618T152100Z","asOf":"2026-06-17","provider":"sample","points":[{"symbol":"XLB","name":"Materials","x":-28.0,"y":0.0,"rank":8,"signal":"WEAKENING","score":-28.0,"momentum":0.0,"relative21d":-0.024924,"trend":"bullish"},{"symbol":"XLC","name":"Communication Services","x":68.0,"y":0.0,"rank":2,"signal":"LEADING","score":68.0,"momentum":0.0,"relative21d":0.01706,"trend":"bullish"},{"symbol":"XLE","name":"Energy","x":18.0,"y":0.0,"rank":5,"signal":"IMPROVING","score":18.0,"momentum":0.0,"relative21d":-0.00197,"trend":"bullish"},{"symbol":"XLF","name":"Financials","x":38.0,"y":0.0,"rank":4,"signal":"LEADING","score":38.0,"momentum":0.0,"relative21d":0.005371,"trend":"bullish"},{"symbol":"XLI","name":"Industrials","x":60.0,"y":0.0,"rank":3,"signal":"LEADING","score":60.0,"momentum":0.0,"relative21d":0.010468,"trend":"bullish"},{"symbol":"XLK","name":"Technology","x":100.0,"y":0.0,"rank":1,"signal":"LEADING","score":100.0,"momentum":0.0,"relative21d":0.023654,"trend":"bullish"},{"symbol":"XLP","name":"Consumer Staples","x":-82.0,"y":0.0,"rank":10,"signal":"LAGGING","score":-82.0,"momentum":0.0,"relative21d":-0.037462,"trend":"weak"},{"symbol":"XLRE","name":"Real Estate","x":-98.0,"y":0.0,"rank":11,"signal":"LAGGING","score":-98.0,"momentum":0.0,"relative21d":-0.039364,"trend":"weak"},{"symbol":"XLU","name":"Utilities","x":-60.0,"y":0.0,"rank":9,"signal":"WEAKENING","score":-60.0,"momentum":0.0,"relative21d":-0.031073,"trend":"constructive"},{"symbol":"XLV","name":"Health Care","x":-14.0,"y":0.0,"rank":7,"signal":"WEAKENING","score":-14.0,"momentum":0.0,"relative21d":-0.020916,"trend":"bullish"},{"symbol":"XLY","name":"Consumer Discretionary","x":-2.0,"y":0.0,"rank":6,"signal":"WEAKENING","score":-2.0,"momentum":0.0,"relative21d":-0.007352,"trend":"bullish"}]},{"index":12,"createdAt":"20260618T213015Z","asOf":"2026-06-18","provider":"yfinance","points":[{"symbol":"XLB","name":"Materials","x":35.0,"y":63.0,"rank":4,"signal":"LEADING","score":35.0,"momentum":63.0,"relative21d":0.038753,"trend":"constructive"},{"symbol":"XLC","name":"Communication Services","x":-57.0,"y":-125.0,"rank":10,"signal":"LAGGING","score":-57.0,"momentum":-125.0,"relative21d":-0.072975,"trend":"weak"},{"symbol":"XLE","name":"Energy","x":-94.0,"y":-112.0,"rank":11,"signal":"LAGGING","score":-94.0,"momentum":-112.0,"relative21d":-0.140427,"trend":"weak"},{"symbol":"XLF","name":"Financials","x":57.0,"y":19.0,"rank":3,"signal":"LEADING","score":57.0,"momentum":19.0,"relative21d":0.030605,"trend":"bullish"},{"symbol":"XLI","name":"Industrials","x":70.0,"y":10.0,"rank":2,"signal":"LEADING","score":70.0,"momentum":10.0,"relative21d":0.054391,"trend":"bullish"},{"symbol":"XLK","name":"Technology","x":80.0,"y":-20.0,"rank":1,"signal":"LEADING","score":80.0,"momentum":-20.0,"relative21d":0.087325,"trend":"bullish"},{"symbol":"XLP","name":"Consumer Staples","x":-33.0,"y":49.0,"rank":9,"signal":"LAGGING","score":-33.0,"momentum":49.0,"relative21d":-0.050139,"trend":"mixed"},{"symbol":"XLRE","name":"Real Estate","x":-22.0,"y":76.0,"rank":8,"signal":"LAGGING","score":-22.0,"momentum":76.0,"relative21d":-0.019552,"trend":"mixed"},{"symbol":"XLU","name":"Utilities","x":-19.0,"y":41.0,"rank":7,"signal":"WEAKENING","score":-19.0,"momentum":41.0,"relative21d":-0.008259,"trend":"mixed"},{"symbol":"XLV","name":"Health Care","x":-15.0,"y":-1.0,"rank":6,"signal":"WEAKENING","score":-15.0,"momentum":-1.0,"relative21d":-0.003612,"trend":"constructive"},{"symbol":"XLY","name":"Consumer Discretionary","x":-2.0,"y":0.0,"rank":5,"signal":"WEAKENING","score":-2.0,"momentum":0.0,"relative21d":0.000786,"trend":"weak"}]},{"index":13,"createdAt":"20260619T213019Z","asOf":"2026-06-18","provider":"yfinance","points":[{"symbol":"XLB","name":"Materials","x":35.0,"y":0.0,"rank":4,"signal":"LEADING","score":35.0,"momentum":0.0,"relative21d":0.038753,"trend":"constructive"},{"symbol":"XLC","name":"Communication Services","x":-57.0,"y":0.0,"rank":10,"signal":"LAGGING","score":-57.0,"momentum":0.0,"relative21d":-0.072975,"trend":"weak"},{"symbol":"XLE","name":"Energy","x":-94.0,"y":0.0,"rank":11,"signal":"LAGGING","score":-94.0,"momentum":0.0,"relative21d":-0.140427,"trend":"weak"},{"symbol":"XLF","name":"Financials","x":57.0,"y":0.0,"rank":3,"signal":"LEADING","score":57.0,"momentum":0.0,"relative21d":0.030605,"trend":"bullish"},{"symbol":"XLI","name":"Industrials","x":70.0,"y":0.0,"rank":2,"signal":"LEADING","score":70.0,"momentum":0.0,"relative21d":0.054391,"trend":"bullish"},{"symbol":"XLK","name":"Technology","x":80.0,"y":0.0,"rank":1,"signal":"LEADING","score":80.0,"momentum":0.0,"relative21d":0.087325,"trend":"bullish"},{"symbol":"XLP","name":"Consumer Staples","x":-33.0,"y":0.0,"rank":9,"signal":"LAGGING","score":-33.0,"momentum":0.0,"relative21d":-0.050139,"trend":"mixed"},{"symbol":"XLRE","name":"Real Estate","x":-22.0,"y":0.0,"rank":8,"signal":"LAGGING","score":-22.0,"momentum":0.0,"relative21d":-0.019552,"trend":"mixed"},{"symbol":"XLU","name":"Utilities","x":-19.0,"y":0.0,"rank":7,"signal":"WEAKENING","score":-19.0,"momentum":0.0,"relative21d":-0.008259,"trend":"mixed"},{"symbol":"XLV","name":"Health Care","x":-15.0,"y":0.0,"rank":6,"signal":"WEAKENING","score":-15.0,"momentum":0.0,"relative21d":-0.003612,"trend":"constructive"},{"symbol":"XLY","name":"Consumer Discretionary","x":-2.0,"y":0.0,"rank":5,"signal":"WEAKENING","score":-2.0,"momentum":0.0,"relative21d":0.000786,"trend":"weak"}]}],"axes":{"x":"Relative strength score","y":"Daily score momentum versus previous snapshot"}};
+    const TRAIL_LENGTH = 12;
+  </script>
+  <script>
+    const canvas = document.getElementById("chart");
+    const ctx = canvas.getContext("2d");
+    const slider = document.getElementById("slider");
+    const play = document.getElementById("play");
+    const frameLabel = document.getElementById("frameLabel");
+    const asOf = document.getElementById("asOf");
+    const rows = document.getElementById("rows");
+    const showAll = document.getElementById("showAll");
+    const hideAll = document.getElementById("hideAll");
+    const colors = {
+      LEADING: "#1f8f5f",
+      WEAKENING: "#c47b20",
+      LAGGING: "#b64747",
+      IMPROVING: "#3478b8"
+    };
+    const sectorColors = ["#2563eb", "#16a34a", "#dc2626", "#9333ea", "#ca8a04", "#0891b2", "#be123c", "#4d7c0f", "#7c3aed", "#ea580c", "#0f766e"];
+    const colorBySymbol = Object.fromEntries((SERIES.sectors || []).map((s, i) => [s.symbol, sectorColors[i % sectorColors.length]]));
+    const visibleSymbols = new Set((SERIES.sectors || []).map(s => s.symbol));
+    let timer = null;
+
+    function quadrant(point) {
+      if (point.x >= 0 && point.y >= 0) return "LEADING";
+      if (point.x >= 0 && point.y < 0) return "WEAKENING";
+      if (point.x < 0 && point.y < 0) return "LAGGING";
+      return "IMPROVING";
+    }
+
+    function bounds() {
+      const all = SERIES.frames.flatMap(f => f.points).filter(p => visibleSymbols.has(p.symbol));
+      const maxX = Math.max(20, ...all.map(p => Math.abs(p.x || 0)));
+      const maxY = Math.max(5, ...all.map(p => Math.abs(p.y || 0)));
+      return { x: Math.ceil(maxX / 10) * 10, y: Math.ceil(maxY / 5) * 5 };
+    }
+
+    function resizeCanvas() {
+      const rect = canvas.getBoundingClientRect();
+      const scale = window.devicePixelRatio || 1;
+      canvas.width = Math.max(1, Math.floor(rect.width * scale));
+      canvas.height = Math.max(1, Math.floor(rect.height * scale));
+      ctx.setTransform(scale, 0, 0, scale, 0, 0);
+    }
+
+    function project(point, b) {
+      const rect = canvas.getBoundingClientRect();
+      const pad = 58;
+      const w = rect.width;
+      const h = rect.height;
+      return {
+        x: pad + ((point.x + b.x) / (2 * b.x)) * (w - pad * 2),
+        y: h - pad - ((point.y + b.y) / (2 * b.y)) * (h - pad * 2)
+      };
+    }
+
+    function draw(index) {
+      resizeCanvas();
+      const rect = canvas.getBoundingClientRect();
+      ctx.clearRect(0, 0, rect.width, rect.height);
+      const b = bounds();
+      drawBackground(rect, b);
+      drawTrails(index, b);
+      drawPoints(index, b);
+      updateTable(index);
+    }
+
+    function drawBackground(rect, b) {
+      const midX = rect.width / 2;
+      const midY = rect.height / 2;
+      ctx.fillStyle = "#ffffff";
+      ctx.fillRect(0, 0, rect.width, rect.height);
+      fillQuadrant(58, 58, midX - 58, midY - 58, "rgba(52,120,184,.08)", "Improving");
+      fillQuadrant(midX, 58, midX - 58, midY - 58, "rgba(31,143,95,.08)", "Leading");
+      fillQuadrant(58, midY, midX - 58, midY - 58, "rgba(182,71,71,.08)", "Lagging");
+      fillQuadrant(midX, midY, midX - 58, midY - 58, "rgba(196,123,32,.08)", "Weakening");
+      ctx.strokeStyle = "#c7ced8";
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(midX, 42);
+      ctx.lineTo(midX, rect.height - 42);
+      ctx.moveTo(42, midY);
+      ctx.lineTo(rect.width - 42, midY);
+      ctx.stroke();
+      ctx.fillStyle = "#657181";
+      ctx.font = "13px system-ui, sans-serif";
+      ctx.fillText("-" + b.x, 46, midY - 8);
+      ctx.fillText("+" + b.x, rect.width - 84, midY - 8);
+      ctx.fillText("+" + b.y, midX + 8, 54);
+      ctx.fillText("-" + b.y, midX + 8, rect.height - 48);
+      ctx.fillStyle = "#18202a";
+      ctx.font = "14px system-ui, sans-serif";
+      ctx.fillText("Relative strength", rect.width - 170, midY + 24);
+      ctx.save();
+      ctx.translate(midX - 24, 170);
+      ctx.rotate(-Math.PI / 2);
+      ctx.fillText("Momentum", 0, 0);
+      ctx.restore();
+    }
+
+    function fillQuadrant(x, y, w, h, fill, label) {
+      ctx.fillStyle = fill;
+      ctx.fillRect(x, y, w, h);
+      ctx.fillStyle = "#657181";
+      ctx.font = "15px system-ui, sans-serif";
+      ctx.fillText(label, x + 14, y + 26);
+    }
+
+    function drawTrails(index, b) {
+      const start = Math.max(0, index - TRAIL_LENGTH + 1);
+      for (const sector of SERIES.sectors || []) {
+        if (!visibleSymbols.has(sector.symbol)) continue;
+        const trail = [];
+        for (let i = start; i <= index; i++) {
+          const point = (SERIES.frames[i]?.points || []).find(p => p.symbol === sector.symbol);
+          if (point) trail.push(project(point, b));
+        }
+        if (trail.length < 2) continue;
+        ctx.strokeStyle = colorBySymbol[sector.symbol] || "#334155";
+        ctx.lineWidth = 2;
+        ctx.globalAlpha = 0.42;
+        ctx.beginPath();
+        trail.forEach((p, i) => i ? ctx.lineTo(p.x, p.y) : ctx.moveTo(p.x, p.y));
+        ctx.stroke();
+        ctx.globalAlpha = 1;
+      }
+    }
+
+    function drawPoints(index, b) {
+      const frame = SERIES.frames[index];
+      for (const point of frame.points) {
+        if (!visibleSymbols.has(point.symbol)) continue;
+        const p = project(point, b);
+        const q = quadrant(point);
+        ctx.fillStyle = colors[q];
+        ctx.strokeStyle = "#ffffff";
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, 9, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.stroke();
+        ctx.fillStyle = "#18202a";
+        ctx.font = "700 13px system-ui, sans-serif";
+        ctx.fillText(point.symbol, p.x + 12, p.y + 4);
+      }
+    }
+
+    function updateTable(index) {
+      const frame = SERIES.frames[index];
+      frameLabel.textContent = `${index + 1} / ${SERIES.frames.length}`;
+      asOf.textContent = `As of: ${frame.asOf} | Created: ${frame.createdAt}`;
+      rows.innerHTML = "";
+      for (const point of [...frame.points].sort((a, b) => b.x - a.x)) {
+        const checked = visibleSymbols.has(point.symbol) ? "checked" : "";
+        const hiddenClass = visibleSymbols.has(point.symbol) ? "" : " class='hidden-sector'";
+        const tr = document.createElement("tr");
+        tr.innerHTML = `<td><label class="row-toggle"><input type="checkbox" value="${point.symbol}" ${checked}><span class="sector-line" style="background:${colorBySymbol[point.symbol] || "#334155"}"></span><span class="sector-code">${point.symbol}</span></label></td><td class="name-cell" title="${point.name}">${point.name}</td><td class="num">${point.x.toFixed(1)}</td><td class="num">${point.y.toFixed(1)}</td>`;
+        if (hiddenClass) tr.className = "hidden-sector";
+        rows.appendChild(tr);
+      }
+    }
+
+    function setAllSectors(checked) {
+      for (const sector of SERIES.sectors || []) {
+        if (checked) {
+          visibleSymbols.add(sector.symbol);
+        } else {
+          visibleSymbols.delete(sector.symbol);
+        }
+      }
+      draw(Number(slider.value));
+    }
+
+    slider.addEventListener("input", () => draw(Number(slider.value)));
+    rows.addEventListener("change", (event) => {
+      const input = event.target;
+      if (!input.matches("input[type='checkbox']")) return;
+      if (input.checked) {
+        visibleSymbols.add(input.value);
+      } else {
+        visibleSymbols.delete(input.value);
+      }
+      draw(Number(slider.value));
+    });
+    showAll.addEventListener("click", () => setAllSectors(true));
+    hideAll.addEventListener("click", () => setAllSectors(false));
+    play.addEventListener("click", () => {
+      if (timer) {
+        clearInterval(timer);
+        timer = null;
+        play.textContent = "Play";
+        return;
+      }
+      play.textContent = "Pause";
+      timer = setInterval(() => {
+        const next = Number(slider.value) >= SERIES.frames.length - 1 ? 0 : Number(slider.value) + 1;
+        slider.value = String(next);
+        draw(next);
+      }, 850);
+    });
+    window.addEventListener("resize", () => draw(Number(slider.value)));
+    draw(Number(slider.value));
+  </script>
+</body>
+</html>
