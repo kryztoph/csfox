@@ -228,6 +228,75 @@ nav {
     display: block;
 }
 
+.finance-hero {
+    min-height: 86vh;
+    background:
+        linear-gradient(rgba(15, 23, 42, 0.78), rgba(15, 23, 42, 0.92)),
+        radial-gradient(circle at 25% 25%, rgba(59, 130, 246, 0.24), transparent 34%),
+        radial-gradient(circle at 78% 42%, rgba(16, 185, 129, 0.16), transparent 30%),
+        var(--bg-primary);
+}
+
+.hero-actions {
+    margin-top: 2rem;
+}
+
+.finance-overview {
+    background: linear-gradient(to bottom, var(--bg-primary), var(--bg-secondary));
+}
+
+.finance-split {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+    gap: 3rem;
+    align-items: center;
+}
+
+.finance-split h2 {
+    text-align: left;
+}
+
+.finance-lead {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.finance-panel {
+    background: var(--bg-secondary);
+    border: 1px solid var(--glass-border);
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: var(--shadow-lg);
+}
+
+.signal-row {
+    display: grid;
+    grid-template-columns: 2rem 1fr;
+    gap: 1rem;
+    align-items: center;
+    padding: 1rem 0;
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.signal-row:first-child {
+    padding-top: 0;
+}
+
+.signal-row:last-child {
+    padding-bottom: 0;
+    border-bottom: 0;
+}
+
+.signal-row i {
+    color: var(--accent-primary);
+    font-size: 1.1rem;
+}
+
+.finance-cta {
+    background: linear-gradient(135deg, #111827 0%, #172554 100%);
+}
+
 /* Services Grid */
 .services-grid {
     display: grid;
@@ -509,4 +578,13 @@ footer {
     h2 { font-size: 2rem; }
     .nav-links { display: none; } /* Mobile menu implementation needed if complex, keeping simple for now */
     .hero { padding-top: 60px; }
+    .finance-split {
+        grid-template-columns: 1fr;
+    }
+    .finance-split h2 {
+        text-align: center;
+    }
+    .contact-form {
+        padding: 2rem;
+    }
 }
