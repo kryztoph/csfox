@@ -14,9 +14,10 @@
     <header>
         <div class="container">
             <nav aria-label="Primary">
-                <a href="../index.html#top" class="logo" aria-label="CSFox home"><span class="gradient-text">CSFox</span>.com</a>
+                <a href="../index.html#top" class="logo" aria-label="CSFox home"><img src="../assets/logo.png" alt="" class="logo-image" width="330" height="330"><span class="logo-text"><span class="gradient-text">CSFox</span>.com</span></a>
                 <ul class="nav-links">
                     <li><a href="../financial-services.html">Financial Services</a></li>
+                    <li><a href="#snapshot">Snapshot</a></li>
                     <li><a href="#outputs">Outputs</a></li>
                     <li><a href="../index.html#contact" class="btn btn-primary">Get in Touch</a></li>
                 </ul>
@@ -30,19 +31,55 @@
                 <span class="hero-subtitle">Relative Strength and Market Rotation</span>
                 <h1>Sector Rotation <span class="gradient-text">Tracker</span></h1>
                 <p>Static dashboards and Markdown briefs that summarize sector momentum, rotation score, and week-over-week market leadership changes.</p>
+                <div class="button-row hero-actions">
+                    <a href="../reports/sectors/sector_rotation_tracker.html" class="btn btn-primary">Open Dashboard</a>
+                    <a href="../reports/sectors/sector_charts.html" class="btn btn-outline">Open Charts</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="snapshot" class="section-padding daily-updates-section">
+            <div class="container">
+                <div class="snapshot-layout">
+                    <div>
+                        <span class="specialty-badge">Latest generated brief</span>
+                        <h2>Daily Sector <span class="gradient-text">Snapshot</span></h2>
+                        <p class="finance-lead">As of 2026-06-25, the latest generated brief highlights Industrials, Health Care, and Financials as leading sectors, with Consumer Discretionary, Energy, and Communication Services lagging.</p>
+                    </div>
+                    <div class="finance-panel snapshot-panel">
+                        <div class="signal-row">
+                            <i class="fa-solid fa-arrow-trend-up"></i>
+                            <span><strong>Leaders:</strong> XLI, XLV, XLF</span>
+                        </div>
+                        <div class="signal-row">
+                            <i class="fa-solid fa-arrow-trend-down"></i>
+                            <span><strong>Laggards:</strong> XLY, XLE, XLC</span>
+                        </div>
+                        <div class="signal-row">
+                            <i class="fa-solid fa-calendar-day"></i>
+                            <span><strong>Charts:</strong> refreshed through 2026-06-26</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
         <section id="outputs" class="section-padding">
             <div class="container">
-                <h2>Generated <span class="gradient-text">Static Content</span></h2>
+                <h2>Daily Update <span class="gradient-text">Outputs</span></h2>
+                <p class="section-intro">Use these direct links for the current sector dashboard, chart book, and generated Markdown brief.</p>
                 <div class="resource-list">
                     <a href="../reports/sectors/sector_rotation_tracker.html" class="resource-link">
                         <i class="fa-solid fa-chart-area"></i>
                         <span><strong>Sector Rotation Tracker</strong> Static HTML dashboard for sector momentum review.</span>
                         <i class="fa-solid fa-arrow-right"></i>
                     </a>
-                    <a href="../reports/sectors/20260619T213019Z-brief.md" class="resource-link">
+                    <a href="../reports/sectors/sector_charts.html" class="resource-link">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <span><strong>Sector Charts</strong> Daily candlestick and relative strength charts for every sector.</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <a href="../reports/sectors/latest-brief.md" class="resource-link">
                         <i class="fa-solid fa-file-lines"></i>
                         <span><strong>Latest Sector Brief</strong> Markdown snapshot from the latest published report copy.</span>
                         <i class="fa-solid fa-arrow-right"></i>
