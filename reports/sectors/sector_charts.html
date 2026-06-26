@@ -35,8 +35,25 @@
       display: flex;
       justify-content: space-between;
       gap: 18px;
-      align-items: end;
+      align-items: center;
       margin-bottom: 18px;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text);
+      text-decoration: none;
+      margin-bottom: 8px;
+    }
+    .brand-logo {
+      width: 46px;
+      height: auto;
+      display: block;
+    }
+    .brand-text {
+      font-size: 18px;
+      font-weight: 750;
     }
     h1 {
       margin: 4px 0 4px;
@@ -147,6 +164,14 @@
     }
     .panel-title { font-weight: 700; }
     .date.end { text-anchor: end; }
+    .report-footer {
+      margin-top: 18px;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+    }
     @media (max-width: 760px) {
       header { display: block; }
       .stats {
@@ -161,6 +186,10 @@
   <main>
     <header>
       <div>
+        <a class="brand" href="../../index.html" aria-label="CSFox home">
+          <img class="brand-logo" src="../../assets/logo.png" alt="">
+          <span class="brand-text">CSFox.com</span>
+        </a>
         <h1>Sector Charts</h1>
         <p>Daily candlestick charts with volume, moving averages, relative strength, and trendlines. As of 2026-06-26.</p>
       </div>
@@ -179,6 +208,7 @@
 <tr><td><a href="charts/XLK.html">XLK</a></td><td>Technology</td></tr>
 <tr><td><a href="charts/XLU.html">XLU</a></td><td>Utilities</td></tr></tbody>
     </table>
+    <footer class="report-footer">Copyright &copy; 2026 csfox.com. All rights reserved.</footer>
   </main>
 </body>
 </html>

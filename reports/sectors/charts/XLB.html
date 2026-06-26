@@ -35,8 +35,25 @@
       display: flex;
       justify-content: space-between;
       gap: 18px;
-      align-items: end;
+      align-items: center;
       margin-bottom: 18px;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text);
+      text-decoration: none;
+      margin-bottom: 8px;
+    }
+    .brand-logo {
+      width: 46px;
+      height: auto;
+      display: block;
+    }
+    .brand-text {
+      font-size: 18px;
+      font-weight: 750;
     }
     h1 {
       margin: 4px 0 4px;
@@ -147,6 +164,14 @@
     }
     .panel-title { font-weight: 700; }
     .date.end { text-anchor: end; }
+    .report-footer {
+      margin-top: 18px;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+    }
     @media (max-width: 760px) {
       header { display: block; }
       .stats {
@@ -161,6 +186,10 @@
   <main>
     <header>
       <div>
+        <a class="brand" href="../../../index.html" aria-label="CSFox home">
+          <img class="brand-logo" src="../../../assets/logo.png" alt="">
+          <span class="brand-text">CSFox.com</span>
+        </a>
         <a href="../sector_charts.html">Sector charts</a>
         <h1>XLB - Materials</h1>
         <p>As of 2026-06-26 from yfinance.</p>
@@ -179,198 +208,393 @@
 <rect class="panel" x="66" y="36" width="1012" height="390" aria-label="XLB candlestick with 20d and 50d moving averages"/>
 <rect class="panel" x="66" y="458" width="1012" height="104" aria-label="Volume and 20d volume MA"/>
 <rect class="panel" x="66" y="604" width="1012" height="130" aria-label="Relative strength versus SPY"/>
-<text class="axis" x="54" y="41" text-anchor="end">53.58</text>
-<text class="axis" x="54" y="430" text-anchor="end">48.62</text>
+<text class="axis" x="54" y="41" text-anchor="end">54.67</text>
+<text class="axis" x="54" y="430" text-anchor="end">44.74</text>
 <line class="grid" x1="66" x2="1078" y1="231.00" y2="231.00"/>
-<text class="axis" x="54" y="609" text-anchor="end">100.79</text>
-<text class="axis" x="54" y="738" text-anchor="end">86.00</text>
+<text class="axis" x="54" y="609" text-anchor="end">118.12</text>
+<text class="axis" x="54" y="738" text-anchor="end">98.50</text>
 <line class="grid" x1="66" x2="1078" y1="669.00" y2="669.00"/>
-<line class="wick up" x1="66.00" x2="66.00" y1="265.66" y2="304.27"/>
-<rect class="candle up" x="61.50" y="281.42" width="9.00" height="9.45"/>
-<rect class="volume up" x="61.50" y="477.37" width="9.00" height="84.63"/>
-<line class="wick up" x1="83.15" x2="83.15" y1="245.18" y2="324.75"/>
-<rect class="candle up" x="78.65" y="285.36" width="9.00" height="26.00"/>
-<rect class="volume up" x="78.65" y="503.51" width="9.00" height="58.49"/>
-<line class="wick up" x1="100.31" x2="100.31" y1="283.78" y2="329.48"/>
-<rect class="candle up" x="95.81" y="300.33" width="9.00" height="1.00"/>
-<rect class="volume up" x="95.81" y="524.34" width="9.00" height="37.66"/>
-<line class="wick down" x1="117.46" x2="117.46" y1="292.45" y2="342.87"/>
-<rect class="candle down" x="112.96" y="308.21" width="9.00" height="3.15"/>
-<rect class="volume down" x="112.96" y="519.81" width="9.00" height="42.19"/>
-<line class="wick up" x1="134.61" x2="134.61" y1="177.43" y2="257.00"/>
-<rect class="candle up" x="130.11" y="179.79" width="9.00" height="52.78"/>
-<rect class="volume up" x="130.11" y="501.16" width="9.00" height="60.84"/>
-<line class="wick up" x1="151.76" x2="151.76" y1="154.58" y2="201.85"/>
-<rect class="candle up" x="147.26" y="186.09" width="9.00" height="8.67"/>
-<rect class="volume up" x="147.26" y="529.54" width="9.00" height="32.46"/>
-<line class="wick up" x1="168.92" x2="168.92" y1="142.76" y2="169.55"/>
-<rect class="candle up" x="164.42" y="163.25" width="9.00" height="2.36"/>
-<rect class="volume up" x="164.42" y="535.98" width="9.00" height="26.02"/>
-<line class="wick up" x1="186.07" x2="186.07" y1="139.61" y2="194.76"/>
-<rect class="candle up" x="181.57" y="145.13" width="9.00" height="39.39"/>
-<rect class="volume up" x="181.57" y="520.08" width="9.00" height="41.92"/>
-<line class="wick down" x1="203.22" x2="203.22" y1="139.61" y2="187.67"/>
-<rect class="candle down" x="198.72" y="139.61" width="9.00" height="19.70"/>
-<rect class="volume down" x="198.72" y="526.93" width="9.00" height="35.07"/>
-<line class="wick down" x1="220.37" x2="220.37" y1="167.97" y2="219.97"/>
-<rect class="candle down" x="215.87" y="167.97" width="9.00" height="40.97"/>
-<rect class="volume down" x="215.87" y="475.96" width="9.00" height="86.04"/>
-<line class="wick up" x1="237.53" x2="237.53" y1="162.46" y2="200.28"/>
-<rect class="candle up" x="233.03" y="179.79" width="9.00" height="18.12"/>
-<rect class="volume up" x="233.03" y="509.52" width="9.00" height="52.48"/>
-<line class="wick up" x1="254.68" x2="254.68" y1="130.95" y2="201.85"/>
-<rect class="candle up" x="250.18" y="169.55" width="9.00" height="22.06"/>
-<rect class="volume up" x="250.18" y="512.00" width="9.00" height="50.00"/>
-<line class="wick up" x1="271.83" x2="271.83" y1="128.58" y2="186.09"/>
-<rect class="candle up" x="267.33" y="141.98" width="9.00" height="30.72"/>
-<rect class="volume up" x="267.33" y="525.73" width="9.00" height="36.27"/>
-<line class="wick down" x1="288.98" x2="288.98" y1="115.19" y2="188.46"/>
-<rect class="candle down" x="284.48" y="140.40" width="9.00" height="37.82"/>
-<rect class="volume down" x="284.48" y="521.49" width="9.00" height="40.51"/>
-<line class="wick down" x1="306.14" x2="306.14" y1="127.01" y2="183.73"/>
-<rect class="candle down" x="301.64" y="141.19" width="9.00" height="32.30"/>
-<rect class="volume down" x="301.64" y="524.14" width="9.00" height="37.86"/>
-<line class="wick up" x1="323.29" x2="323.29" y1="167.97" y2="216.82"/>
-<rect class="candle up" x="318.79" y="175.07" width="9.00" height="7.88"/>
-<rect class="volume up" x="318.79" y="503.82" width="9.00" height="58.18"/>
-<line class="wick up" x1="340.44" x2="340.44" y1="160.10" y2="212.88"/>
-<rect class="candle up" x="335.94" y="166.40" width="9.00" height="13.39"/>
-<rect class="volume up" x="335.94" y="530.55" width="9.00" height="31.45"/>
-<line class="wick down" x1="357.59" x2="357.59" y1="145.92" y2="190.82"/>
-<rect class="candle down" x="353.09" y="160.10" width="9.00" height="17.33"/>
-<rect class="volume down" x="353.09" y="527.98" width="9.00" height="34.02"/>
-<line class="wick down" x1="374.75" x2="374.75" y1="161.67" y2="238.09"/>
-<rect class="candle down" x="370.25" y="169.55" width="9.00" height="37.82"/>
-<rect class="volume down" x="370.25" y="523.55" width="9.00" height="38.45"/>
-<line class="wick down" x1="391.90" x2="391.90" y1="198.70" y2="247.54"/>
-<rect class="candle down" x="387.40" y="200.28" width="9.00" height="41.75"/>
-<rect class="volume down" x="387.40" y="532.11" width="9.00" height="29.89"/>
-<line class="wick up" x1="409.05" x2="409.05" y1="182.94" y2="254.63"/>
-<rect class="candle up" x="404.55" y="201.85" width="9.00" height="43.33"/>
-<rect class="volume up" x="404.55" y="497.23" width="9.00" height="64.77"/>
-<line class="wick down" x1="426.20" x2="426.20" y1="178.22" y2="212.09"/>
-<rect class="candle down" x="421.70" y="188.46" width="9.00" height="22.85"/>
-<rect class="volume down" x="421.70" y="522.34" width="9.00" height="39.66"/>
-<line class="wick down" x1="443.36" x2="443.36" y1="218.40" y2="278.27"/>
-<rect class="candle down" x="438.86" y="226.27" width="9.00" height="40.18"/>
-<rect class="volume down" x="438.86" y="519.44" width="9.00" height="42.56"/>
-<line class="wick up" x1="460.51" x2="460.51" y1="176.64" y2="247.54"/>
-<rect class="candle up" x="456.01" y="197.12" width="9.00" height="38.60"/>
-<rect class="volume up" x="456.01" y="516.33" width="9.00" height="45.67"/>
-<line class="wick up" x1="477.66" x2="477.66" y1="107.31" y2="149.07"/>
-<rect class="candle up" x="473.16" y="127.80" width="9.00" height="7.09"/>
-<rect class="volume up" x="473.16" y="517.50" width="9.00" height="44.50"/>
-<line class="wick down" x1="494.81" x2="494.81" y1="99.43" y2="208.94"/>
-<rect class="candle down" x="490.31" y="112.83" width="9.00" height="94.54"/>
-<rect class="volume down" x="490.31" y="506.79" width="9.00" height="55.21"/>
-<line class="wick down" x1="511.97" x2="511.97" y1="167.19" y2="199.49"/>
-<rect class="candle down" x="507.47" y="175.07" width="9.00" height="17.33"/>
-<rect class="volume down" x="507.47" y="529.79" width="9.00" height="32.21"/>
-<line class="wick up" x1="529.12" x2="529.12" y1="127.80" y2="173.49"/>
-<rect class="candle up" x="524.62" y="139.61" width="9.00" height="31.51"/>
-<rect class="volume up" x="524.62" y="525.61" width="9.00" height="36.39"/>
-<line class="wick up" x1="546.27" x2="546.27" y1="137.25" y2="202.64"/>
-<rect class="candle up" x="541.77" y="149.07" width="9.00" height="11.03"/>
-<rect class="volume up" x="541.77" y="512.86" width="9.00" height="49.14"/>
-<line class="wick down" x1="563.42" x2="563.42" y1="119.13" y2="158.52"/>
-<rect class="candle down" x="558.92" y="149.86" width="9.00" height="5.51"/>
-<rect class="volume down" x="558.92" y="526.16" width="9.00" height="35.84"/>
-<line class="wick down" x1="580.58" x2="580.58" y1="140.40" y2="191.61"/>
-<rect class="candle down" x="576.08" y="150.64" width="9.00" height="35.45"/>
-<rect class="volume down" x="576.08" y="516.64" width="9.00" height="45.36"/>
-<line class="wick down" x1="597.73" x2="597.73" y1="223.91" y2="297.96"/>
-<rect class="candle down" x="593.23" y="238.09" width="9.00" height="55.93"/>
-<rect class="volume down" x="593.23" y="514.56" width="9.00" height="47.44"/>
-<line class="wick down" x1="614.88" x2="614.88" y1="260.94" y2="312.14"/>
-<rect class="candle down" x="610.38" y="291.66" width="9.00" height="8.67"/>
-<rect class="volume down" x="610.38" y="517.31" width="9.00" height="44.69"/>
-<line class="wick down" x1="632.03" x2="632.03" y1="328.69" y2="405.11"/>
-<rect class="candle down" x="627.53" y="334.99" width="9.00" height="58.30"/>
-<rect class="volume down" x="627.53" y="511.64" width="9.00" height="50.36"/>
-<line class="wick up" x1="649.19" x2="649.19" y1="334.99" y2="404.32"/>
-<rect class="candle up" x="644.69" y="339.72" width="9.00" height="57.51"/>
-<rect class="volume up" x="644.69" y="475.25" width="9.00" height="86.75"/>
-<line class="wick up" x1="666.34" x2="666.34" y1="297.96" y2="385.41"/>
-<rect class="candle up" x="661.84" y="316.08" width="9.00" height="37.82"/>
-<rect class="volume up" x="661.84" y="518.62" width="9.00" height="43.38"/>
-<line class="wick down" x1="683.49" x2="683.49" y1="278.27" y2="318.45"/>
-<rect class="candle down" x="678.99" y="291.66" width="9.00" height="3.15"/>
-<rect class="volume down" x="678.99" y="532.52" width="9.00" height="29.48"/>
-<line class="wick up" x1="700.64" x2="700.64" y1="225.49" y2="266.45"/>
-<rect class="candle up" x="696.14" y="239.67" width="9.00" height="24.42"/>
-<rect class="volume up" x="696.14" y="527.07" width="9.00" height="34.93"/>
-<line class="wick up" x1="717.80" x2="717.80" y1="209.73" y2="240.45"/>
-<rect class="candle up" x="713.30" y="224.70" width="9.00" height="13.39"/>
-<rect class="volume up" x="713.30" y="523.81" width="9.00" height="38.19"/>
-<line class="wick up" x1="734.95" x2="734.95" y1="201.85" y2="269.60"/>
-<rect class="candle up" x="730.45" y="210.52" width="9.00" height="22.85"/>
-<rect class="volume up" x="730.45" y="517.22" width="9.00" height="44.78"/>
-<line class="wick down" x1="752.10" x2="752.10" y1="193.18" y2="230.21"/>
-<rect class="candle down" x="747.60" y="216.82" width="9.00" height="10.24"/>
-<rect class="volume down" x="747.60" y="512.29" width="9.00" height="49.71"/>
-<line class="wick up" x1="769.25" x2="769.25" y1="234.94" y2="307.42"/>
-<rect class="candle up" x="764.75" y="245.18" width="9.00" height="21.27"/>
-<rect class="volume up" x="764.75" y="458.00" width="9.00" height="104.00"/>
-<line class="wick up" x1="786.41" x2="786.41" y1="186.09" y2="260.94"/>
-<rect class="candle up" x="781.91" y="197.91" width="9.00" height="55.15"/>
-<rect class="volume up" x="781.91" y="477.54" width="9.00" height="84.46"/>
-<line class="wick up" x1="803.56" x2="803.56" y1="157.73" y2="219.97"/>
-<rect class="candle up" x="799.06" y="189.25" width="9.00" height="22.06"/>
-<rect class="volume up" x="799.06" y="509.28" width="9.00" height="52.72"/>
-<line class="wick down" x1="820.71" x2="820.71" y1="144.34" y2="204.21"/>
-<rect class="candle down" x="816.21" y="173.49" width="9.00" height="16.54"/>
-<rect class="volume down" x="816.21" y="520.93" width="9.00" height="41.07"/>
-<line class="wick down" x1="837.86" x2="837.86" y1="187.67" y2="278.27"/>
-<rect class="candle down" x="833.36" y="206.58" width="9.00" height="61.45"/>
-<rect class="volume down" x="833.36" y="509.46" width="9.00" height="52.54"/>
-<line class="wick down" x1="855.02" x2="855.02" y1="253.85" y2="324.75"/>
-<rect class="candle down" x="850.52" y="269.60" width="9.00" height="51.21"/>
-<rect class="volume down" x="850.52" y="515.40" width="9.00" height="46.60"/>
-<line class="wick up" x1="872.17" x2="872.17" y1="253.06" y2="330.26"/>
-<rect class="candle up" x="867.67" y="257.00" width="9.00" height="14.18"/>
-<rect class="volume up" x="867.67" y="504.74" width="9.00" height="57.26"/>
-<line class="wick down" x1="889.32" x2="889.32" y1="249.91" y2="351.54"/>
-<rect class="candle down" x="884.82" y="258.57" width="9.00" height="90.60"/>
-<rect class="volume down" x="884.82" y="520.99" width="9.00" height="41.01"/>
-<line class="wick up" x1="906.47" x2="906.47" y1="212.88" y2="317.66"/>
-<rect class="candle up" x="901.97" y="221.55" width="9.00" height="90.60"/>
-<rect class="volume up" x="901.97" y="509.26" width="9.00" height="52.74"/>
-<line class="wick up" x1="923.63" x2="923.63" y1="131.74" y2="197.91"/>
-<rect class="candle up" x="919.13" y="145.92" width="9.00" height="37.03"/>
-<rect class="volume up" x="919.13" y="497.60" width="9.00" height="64.40"/>
-<line class="wick down" x1="940.78" x2="940.78" y1="65.56" y2="123.07"/>
-<rect class="candle down" x="936.28" y="91.56" width="9.00" height="29.15"/>
-<rect class="volume down" x="936.28" y="498.45" width="9.00" height="63.55"/>
-<line class="wick up" x1="957.93" x2="957.93" y1="74.22" y2="109.68"/>
-<rect class="candle up" x="953.43" y="103.37" width="9.00" height="2.36"/>
-<rect class="volume up" x="953.43" y="526.27" width="9.00" height="35.73"/>
-<line class="wick down" x1="975.08" x2="975.08" y1="56.89" y2="171.13"/>
-<rect class="candle down" x="970.58" y="119.13" width="9.00" height="39.39"/>
-<rect class="volume down" x="970.58" y="493.22" width="9.00" height="68.78"/>
-<line class="wick down" x1="992.24" x2="992.24" y1="126.22" y2="179.00"/>
-<rect class="candle down" x="987.74" y="142.76" width="9.00" height="32.30"/>
-<rect class="volume down" x="987.74" y="511.42" width="9.00" height="50.58"/>
-<line class="wick up" x1="1009.39" x2="1009.39" y1="174.28" y2="227.06"/>
-<rect class="candle up" x="1004.89" y="190.03" width="9.00" height="34.66"/>
-<rect class="volume up" x="1004.89" y="523.48" width="9.00" height="38.52"/>
-<line class="wick down" x1="1026.54" x2="1026.54" y1="201.06" y2="255.42"/>
-<rect class="candle down" x="1022.04" y="233.36" width="9.00" height="15.76"/>
-<rect class="volume down" x="1022.04" y="518.46" width="9.00" height="43.54"/>
-<line class="wick up" x1="1043.69" x2="1043.69" y1="197.12" y2="255.42"/>
-<rect class="candle up" x="1039.19" y="226.27" width="9.00" height="22.85"/>
-<rect class="volume up" x="1039.19" y="509.34" width="9.00" height="52.66"/>
-<line class="wick up" x1="1060.85" x2="1060.85" y1="145.13" y2="217.61"/>
-<rect class="candle up" x="1056.35" y="172.70" width="9.00" height="33.88"/>
-<rect class="volume up" x="1056.35" y="521.08" width="9.00" height="40.92"/>
-<line class="wick down" x1="1078.00" x2="1078.00" y1="169.55" y2="206.97"/>
-<rect class="candle down" x="1073.50" y="193.97" width="9.00" height="7.88"/>
-<rect class="volume down" x="1073.50" y="542.38" width="9.00" height="19.62"/>
-<polyline class="ma20" points="391.90,201.61 409.05,197.64 426.20,193.93 443.36,192.24 460.51,186.53 477.66,183.93 494.81,184.99 511.97,186.45 529.12,186.17 546.27,185.66 563.42,182.98 580.58,183.30 597.73,189.52 614.88,197.44 632.03,208.19 649.19,216.50 666.34,223.56 683.49,229.98 700.64,233.09 717.80,233.95 734.95,232.38 752.10,233.64 769.25,235.33 786.41,231.91 803.56,231.51 820.71,234.62 837.86,237.66 855.02,244.08 872.17,249.95 889.32,259.95 906.47,263.26 923.63,261.25 940.78,252.59 957.93,242.74 975.08,231.00 992.24,222.77 1009.39,216.46 1026.54,214.18 1043.69,213.51 1060.85,210.91 1078.00,210.48"/>
-<polyline class="ma50" points="906.47,222.92 923.63,220.21 940.78,216.91 957.93,212.97 975.08,209.92 992.24,209.82 1009.39,209.90 1026.54,211.62 1043.69,213.24 1060.85,213.51 1078.00,213.37"/>
-<polyline class="volume-ma" points="391.90,516.28 409.05,517.27 426.20,518.21 443.36,517.97 460.51,517.79 477.66,518.61 494.81,517.47 511.97,517.16 529.12,517.44 546.27,516.74 563.42,519.25 580.58,519.60 597.73,519.73 614.88,519.31 632.03,518.82 649.19,516.37 666.34,517.11 683.49,517.21 700.64,517.17 717.80,517.18 734.95,516.43 752.10,517.19 769.25,513.97 786.41,511.88 803.56,511.52 820.71,511.70 837.86,511.83 855.02,511.11 872.17,510.07 889.32,510.47 906.47,509.63 923.63,508.68 940.78,507.87 957.93,508.32 975.08,507.40 992.24,509.21 1009.39,509.45 1026.54,508.75 1043.69,507.86 1060.85,507.72 1078.00,508.98"/>
-<polyline class="rs-line" points="66.00,610.96 83.15,612.62 100.31,620.04 117.46,622.85 134.61,616.19 151.76,622.54 168.92,617.10 186.07,621.72 203.22,635.12 220.37,652.08 237.53,648.12 254.68,656.08 271.83,648.77 288.98,650.68 306.14,658.13 323.29,655.22 340.44,659.87 357.59,663.53 374.75,665.59 391.90,672.51 409.05,672.47 426.20,676.62 443.36,684.76 460.51,677.29 477.66,674.74 494.81,687.99 511.97,691.61 529.12,683.09 546.27,683.72 563.42,689.43 580.58,701.65 597.73,713.20 614.88,713.89 632.03,727.04 649.19,724.31 666.34,721.21 683.49,720.09 700.64,714.52 717.80,711.50 734.95,713.05 752.10,718.15 769.25,723.70 786.41,715.73 803.56,708.59 820.71,711.68 837.86,706.39 855.02,718.50 872.17,703.69 889.32,709.50 906.47,697.49 923.63,686.98 940.78,696.05 957.93,687.95 975.08,688.59 992.24,698.00 1009.39,698.41 1026.54,698.42 1043.69,693.54 1060.85,684.12 1078.00,689.72"/>
-<line class="trendline price-trend" x1="66.00" y1="211.22" x2="1078.00" y2="218.43"/>
-<line class="trendline rs-trend" x1="66.00" y1="635.48" x2="1078.00" y2="725.43"/>
+<line class="wick up" x1="66.00" x2="66.00" y1="370.95" y2="381.95"/>
+<rect class="candle up" x="63.65" y="372.13" width="4.70" height="6.28"/>
+<rect class="volume up" x="63.65" y="547.40" width="4.70" height="14.60"/>
+<line class="wick up" x1="74.16" x2="74.16" y1="381.95" y2="394.51"/>
+<rect class="candle up" x="71.81" y="386.66" width="4.70" height="1.00"/>
+<rect class="volume up" x="71.81" y="543.53" width="4.70" height="18.47"/>
+<line class="wick down" x1="82.32" x2="82.32" y1="382.34" y2="390.97"/>
+<rect class="candle down" x="79.97" y="383.91" width="4.70" height="3.14"/>
+<rect class="volume down" x="79.97" y="549.15" width="4.70" height="12.85"/>
+<line class="wick down" x1="90.48" x2="90.48" y1="389.40" y2="402.75"/>
+<rect class="candle down" x="88.14" y="391.76" width="4.70" height="10.21"/>
+<rect class="volume down" x="88.14" y="545.47" width="4.70" height="16.53"/>
+<line class="wick up" x1="98.65" x2="98.65" y1="369.38" y2="405.11"/>
+<rect class="candle up" x="96.30" y="371.74" width="4.70" height="23.55"/>
+<rect class="volume up" x="96.30" y="509.73" width="4.70" height="52.27"/>
+<line class="wick up" x1="106.81" x2="106.81" y1="347.79" y2="376.45"/>
+<rect class="candle up" x="104.46" y="353.68" width="4.70" height="21.98"/>
+<rect class="volume up" x="104.46" y="498.13" width="4.70" height="63.87"/>
+<line class="wick up" x1="114.97" x2="114.97" y1="312.46" y2="349.36"/>
+<rect class="candle up" x="112.62" y="317.56" width="4.70" height="30.23"/>
+<rect class="volume up" x="112.62" y="508.81" width="4.70" height="53.19"/>
+<line class="wick down" x1="123.13" x2="123.13" y1="315.21" y2="351.72"/>
+<rect class="candle down" x="120.78" y="323.84" width="4.70" height="25.91"/>
+<rect class="volume down" x="120.78" y="512.83" width="4.70" height="49.17"/>
+<line class="wick up" x1="131.29" x2="131.29" y1="312.46" y2="365.85"/>
+<rect class="candle up" x="128.94" y="317.56" width="4.70" height="42.79"/>
+<rect class="volume up" x="128.94" y="518.76" width="4.70" height="43.24"/>
+<line class="wick up" x1="139.45" x2="139.45" y1="286.55" y2="315.21"/>
+<rect class="candle up" x="137.10" y="287.73" width="4.70" height="26.30"/>
+<rect class="volume up" x="137.10" y="527.88" width="4.70" height="34.12"/>
+<line class="wick up" x1="147.61" x2="147.61" y1="273.99" y2="290.08"/>
+<rect class="candle up" x="145.27" y="277.52" width="4.70" height="5.89"/>
+<rect class="volume up" x="145.27" y="525.27" width="4.70" height="36.73"/>
+<line class="wick up" x1="155.77" x2="155.77" y1="268.10" y2="282.62"/>
+<rect class="candle up" x="153.43" y="269.28" width="4.70" height="5.10"/>
+<rect class="volume up" x="153.43" y="530.70" width="4.70" height="31.30"/>
+<line class="wick up" x1="163.94" x2="163.94" y1="253.18" y2="273.20"/>
+<rect class="candle up" x="161.59" y="268.49" width="4.70" height="1.00"/>
+<rect class="volume up" x="161.59" y="515.54" width="4.70" height="46.46"/>
+<line class="wick up" x1="172.10" x2="172.10" y1="254.36" y2="273.99"/>
+<rect class="candle up" x="169.75" y="260.25" width="4.70" height="7.46"/>
+<rect class="volume up" x="169.75" y="510.16" width="4.70" height="51.84"/>
+<line class="wick up" x1="180.26" x2="180.26" y1="269.67" y2="283.80"/>
+<rect class="candle up" x="177.91" y="271.24" width="4.70" height="4.32"/>
+<rect class="volume up" x="177.91" y="530.78" width="4.70" height="31.22"/>
+<line class="wick down" x1="188.42" x2="188.42" y1="277.52" y2="297.15"/>
+<rect class="candle down" x="186.07" y="284.19" width="4.70" height="6.28"/>
+<rect class="volume down" x="186.07" y="511.67" width="4.70" height="50.33"/>
+<line class="wick up" x1="196.58" x2="196.58" y1="243.76" y2="271.63"/>
+<rect class="candle up" x="194.23" y="249.25" width="4.70" height="16.49"/>
+<rect class="volume up" x="194.23" y="512.90" width="4.70" height="49.10"/>
+<line class="wick up" x1="204.74" x2="204.74" y1="226.09" y2="244.94"/>
+<rect class="candle up" x="202.39" y="238.26" width="4.70" height="5.89"/>
+<rect class="volume up" x="202.39" y="519.54" width="4.70" height="42.46"/>
+<line class="wick up" x1="212.90" x2="212.90" y1="219.81" y2="244.54"/>
+<rect class="candle up" x="210.56" y="220.60" width="4.70" height="20.02"/>
+<rect class="volume up" x="210.56" y="505.33" width="4.70" height="56.67"/>
+<line class="wick down" x1="221.06" x2="221.06" y1="200.58" y2="218.63"/>
+<rect class="candle down" x="218.72" y="202.93" width="4.70" height="15.31"/>
+<rect class="volume down" x="218.72" y="521.71" width="4.70" height="40.29"/>
+<line class="wick up" x1="229.23" x2="229.23" y1="212.35" y2="231.98"/>
+<rect class="candle up" x="226.88" y="220.20" width="4.70" height="4.32"/>
+<rect class="volume up" x="226.88" y="532.65" width="4.70" height="29.35"/>
+<line class="wick down" x1="237.39" x2="237.39" y1="211.17" y2="237.48"/>
+<rect class="candle down" x="235.04" y="214.71" width="4.70" height="6.67"/>
+<rect class="volume down" x="235.04" y="522.82" width="4.70" height="39.18"/>
+<line class="wick down" x1="245.55" x2="245.55" y1="195.08" y2="247.29"/>
+<rect class="candle down" x="243.20" y="201.75" width="4.70" height="17.67"/>
+<rect class="volume down" x="243.20" y="502.57" width="4.70" height="59.43"/>
+<line class="wick up" x1="253.71" x2="253.71" y1="233.16" y2="266.14"/>
+<rect class="candle up" x="251.36" y="248.08" width="4.70" height="1.96"/>
+<rect class="volume up" x="251.36" y="480.60" width="4.70" height="81.40"/>
+<line class="wick up" x1="261.87" x2="261.87" y1="226.88" y2="250.83"/>
+<rect class="candle up" x="259.52" y="233.16" width="4.70" height="15.70"/>
+<rect class="volume up" x="259.52" y="489.08" width="4.70" height="72.92"/>
+<line class="wick up" x1="270.03" x2="270.03" y1="171.52" y2="217.06"/>
+<rect class="candle up" x="267.68" y="191.94" width="4.70" height="20.41"/>
+<rect class="volume up" x="267.68" y="463.22" width="4.70" height="98.78"/>
+<line class="wick up" x1="278.19" x2="278.19" y1="140.12" y2="179.77"/>
+<rect class="candle up" x="275.85" y="145.22" width="4.70" height="34.55"/>
+<rect class="volume up" x="275.85" y="458.00" width="4.70" height="104.00"/>
+<line class="wick down" x1="286.35" x2="286.35" y1="159.75" y2="205.29"/>
+<rect class="candle down" x="284.01" y="165.24" width="4.70" height="34.55"/>
+<rect class="volume down" x="284.01" y="487.60" width="4.70" height="74.40"/>
+<line class="wick up" x1="294.52" x2="294.52" y1="155.82" y2="185.66"/>
+<rect class="candle up" x="292.17" y="160.14" width="4.70" height="25.52"/>
+<rect class="volume up" x="292.17" y="520.35" width="4.70" height="41.65"/>
+<line class="wick up" x1="302.68" x2="302.68" y1="128.73" y2="169.56"/>
+<rect class="candle up" x="300.33" y="133.84" width="4.70" height="27.87"/>
+<rect class="volume up" x="300.33" y="526.27" width="4.70" height="35.73"/>
+<line class="wick up" x1="310.84" x2="310.84" y1="102.04" y2="136.19"/>
+<rect class="candle up" x="308.49" y="105.18" width="4.70" height="29.84"/>
+<rect class="volume up" x="308.49" y="508.72" width="4.70" height="53.28"/>
+<line class="wick up" x1="319.00" x2="319.00" y1="75.34" y2="97.33"/>
+<rect class="candle up" x="316.65" y="77.31" width="4.70" height="20.02"/>
+<rect class="volume up" x="316.65" y="489.85" width="4.70" height="72.15"/>
+<line class="wick down" x1="327.16" x2="327.16" y1="56.89" y2="111.85"/>
+<rect class="candle down" x="324.81" y="75.34" width="4.70" height="32.98"/>
+<rect class="volume down" x="324.81" y="474.73" width="4.70" height="87.27"/>
+<line class="wick up" x1="335.32" x2="335.32" y1="76.52" y2="123.63"/>
+<rect class="candle up" x="332.97" y="89.48" width="4.70" height="30.23"/>
+<rect class="volume up" x="332.97" y="504.26" width="4.70" height="57.74"/>
+<line class="wick up" x1="343.48" x2="343.48" y1="102.82" y2="137.76"/>
+<rect class="candle up" x="341.14" y="113.42" width="4.70" height="1.00"/>
+<rect class="volume up" x="341.14" y="502.85" width="4.70" height="59.15"/>
+<line class="wick up" x1="351.65" x2="351.65" y1="88.30" y2="111.85"/>
+<rect class="candle up" x="349.30" y="100.86" width="4.70" height="1.00"/>
+<rect class="volume up" x="349.30" y="527.24" width="4.70" height="34.76"/>
+<line class="wick up" x1="359.81" x2="359.81" y1="94.97" y2="124.02"/>
+<rect class="candle up" x="357.46" y="108.32" width="4.70" height="7.07"/>
+<rect class="volume up" x="357.46" y="508.84" width="4.70" height="53.16"/>
+<line class="wick up" x1="367.97" x2="367.97" y1="91.83" y2="128.34"/>
+<rect class="candle up" x="365.62" y="103.22" width="4.70" height="13.35"/>
+<rect class="volume up" x="365.62" y="510.37" width="4.70" height="51.63"/>
+<line class="wick up" x1="376.13" x2="376.13" y1="97.72" y2="126.77"/>
+<rect class="candle up" x="373.78" y="103.22" width="4.70" height="18.45"/>
+<rect class="volume up" x="373.78" y="511.70" width="4.70" height="50.30"/>
+<line class="wick up" x1="384.29" x2="384.29" y1="82.02" y2="105.18"/>
+<rect class="candle up" x="381.94" y="87.51" width="4.70" height="15.70"/>
+<rect class="volume up" x="381.94" y="523.01" width="4.70" height="38.99"/>
+<line class="wick down" x1="392.45" x2="392.45" y1="72.20" y2="114.60"/>
+<rect class="candle down" x="390.10" y="72.99" width="4.70" height="26.30"/>
+<rect class="volume down" x="390.10" y="526.12" width="4.70" height="35.88"/>
+<line class="wick up" x1="400.61" x2="400.61" y1="96.94" y2="127.16"/>
+<rect class="candle up" x="398.27" y="101.65" width="4.70" height="4.32"/>
+<rect class="volume up" x="398.27" y="516.65" width="4.70" height="45.35"/>
+<line class="wick up" x1="408.77" x2="408.77" y1="82.41" y2="114.60"/>
+<rect class="candle up" x="406.43" y="85.55" width="4.70" height="21.59"/>
+<rect class="volume up" x="406.43" y="526.86" width="4.70" height="35.14"/>
+<line class="wick up" x1="416.94" x2="416.94" y1="86.34" y2="120.88"/>
+<rect class="candle up" x="414.59" y="91.83" width="4.70" height="7.07"/>
+<rect class="volume up" x="414.59" y="505.64" width="4.70" height="56.36"/>
+<line class="wick up" x1="425.10" x2="425.10" y1="137.37" y2="192.33"/>
+<rect class="candle up" x="422.75" y="143.26" width="4.70" height="10.60"/>
+<rect class="volume up" x="422.75" y="482.84" width="4.70" height="79.16"/>
+<line class="wick down" x1="433.26" x2="433.26" y1="125.99" y2="153.47"/>
+<rect class="candle down" x="430.91" y="128.34" width="4.70" height="15.70"/>
+<rect class="volume down" x="430.91" y="512.31" width="4.70" height="49.69"/>
+<line class="wick down" x1="441.42" x2="441.42" y1="149.54" y2="199.40"/>
+<rect class="candle down" x="439.07" y="156.61" width="4.70" height="30.23"/>
+<rect class="volume down" x="439.07" y="504.32" width="4.70" height="57.68"/>
+<line class="wick down" x1="449.58" x2="449.58" y1="205.29" y2="241.40"/>
+<rect class="candle down" x="447.23" y="207.25" width="4.70" height="17.67"/>
+<rect class="volume down" x="447.23" y="494.84" width="4.70" height="67.16"/>
+<line class="wick up" x1="457.74" x2="457.74" y1="211.96" y2="274.38"/>
+<rect class="candle up" x="455.39" y="219.81" width="4.70" height="28.66"/>
+<rect class="volume up" x="455.39" y="496.89" width="4.70" height="65.11"/>
+<line class="wick down" x1="465.90" x2="465.90" y1="202.93" y2="233.94"/>
+<rect class="candle down" x="463.56" y="219.81" width="4.70" height="4.32"/>
+<rect class="volume down" x="463.56" y="506.30" width="4.70" height="55.70"/>
+<line class="wick up" x1="474.06" x2="474.06" y1="223.74" y2="247.68"/>
+<rect class="candle up" x="471.72" y="225.70" width="4.70" height="4.32"/>
+<rect class="volume up" x="471.72" y="525.56" width="4.70" height="36.44"/>
+<line class="wick down" x1="482.23" x2="482.23" y1="210.39" y2="233.94"/>
+<rect class="candle down" x="479.88" y="227.66" width="4.70" height="4.32"/>
+<rect class="volume down" x="479.88" y="505.26" width="4.70" height="56.74"/>
+<line class="wick down" x1="490.39" x2="490.39" y1="214.32" y2="258.28"/>
+<rect class="candle down" x="488.04" y="218.24" width="4.70" height="32.98"/>
+<rect class="volume down" x="488.04" y="512.03" width="4.70" height="49.97"/>
+<line class="wick down" x1="498.55" x2="498.55" y1="228.45" y2="255.14"/>
+<rect class="candle down" x="496.20" y="240.62" width="4.70" height="2.36"/>
+<rect class="volume down" x="496.20" y="516.66" width="4.70" height="45.34"/>
+<line class="wick down" x1="506.71" x2="506.71" y1="220.20" y2="239.83"/>
+<rect class="candle down" x="504.36" y="231.98" width="4.70" height="6.28"/>
+<rect class="volume down" x="504.36" y="524.98" width="4.70" height="37.02"/>
+<line class="wick down" x1="514.87" x2="514.87" y1="247.68" y2="279.09"/>
+<rect class="candle down" x="512.52" y="251.61" width="4.70" height="27.48"/>
+<rect class="volume down" x="512.52" y="514.37" width="4.70" height="47.63"/>
+<line class="wick up" x1="523.03" x2="523.03" y1="297.93" y2="328.55"/>
+<rect class="candle up" x="520.68" y="308.14" width="4.70" height="3.93"/>
+<rect class="volume up" x="520.68" y="493.75" width="4.70" height="68.25"/>
+<line class="wick down" x1="531.19" x2="531.19" y1="299.50" y2="347.79"/>
+<rect class="candle down" x="528.85" y="303.82" width="4.70" height="34.15"/>
+<rect class="volume down" x="528.85" y="504.79" width="4.70" height="57.21"/>
+<line class="wick up" x1="539.35" x2="539.35" y1="292.05" y2="323.06"/>
+<rect class="candle up" x="537.01" y="315.60" width="4.70" height="5.89"/>
+<rect class="volume up" x="537.01" y="506.32" width="4.70" height="55.68"/>
+<line class="wick up" x1="547.52" x2="547.52" y1="266.92" y2="327.77"/>
+<rect class="candle up" x="545.17" y="280.27" width="4.70" height="45.93"/>
+<rect class="volume up" x="545.17" y="516.16" width="4.70" height="45.84"/>
+<line class="wick up" x1="555.68" x2="555.68" y1="241.01" y2="271.63"/>
+<rect class="candle up" x="553.33" y="242.58" width="4.70" height="16.10"/>
+<rect class="volume up" x="553.33" y="518.38" width="4.70" height="43.62"/>
+<line class="wick up" x1="563.84" x2="563.84" y1="230.02" y2="259.85"/>
+<rect class="candle up" x="561.49" y="255.14" width="4.70" height="4.71"/>
+<rect class="volume up" x="561.49" y="524.60" width="4.70" height="37.40"/>
+<line class="wick down" x1="572.00" x2="572.00" y1="247.29" y2="267.31"/>
+<rect class="candle down" x="569.65" y="257.11" width="4.70" height="5.10"/>
+<rect class="volume down" x="569.65" y="530.85" width="4.70" height="31.15"/>
+<line class="wick down" x1="580.16" x2="580.16" y1="229.63" y2="262.60"/>
+<rect class="candle down" x="577.81" y="238.66" width="4.70" height="16.49"/>
+<rect class="volume down" x="577.81" y="513.84" width="4.70" height="48.16"/>
+<line class="wick up" x1="588.32" x2="588.32" y1="210.39" y2="247.29"/>
+<rect class="candle up" x="585.97" y="220.60" width="4.70" height="17.67"/>
+<rect class="volume up" x="585.97" y="502.61" width="4.70" height="59.39"/>
+<line class="wick up" x1="596.48" x2="596.48" y1="193.51" y2="212.75"/>
+<rect class="candle up" x="594.14" y="201.36" width="4.70" height="4.71"/>
+<rect class="volume up" x="594.14" y="504.12" width="4.70" height="57.88"/>
+<line class="wick up" x1="604.65" x2="604.65" y1="183.30" y2="222.95"/>
+<rect class="candle up" x="602.30" y="203.32" width="4.70" height="12.95"/>
+<rect class="volume up" x="602.30" y="522.00" width="4.70" height="40.00"/>
+<line class="wick up" x1="612.81" x2="612.81" y1="202.54" y2="225.31"/>
+<rect class="candle up" x="610.46" y="210.78" width="4.70" height="1.00"/>
+<rect class="volume up" x="610.46" y="536.24" width="4.70" height="25.76"/>
+<line class="wick down" x1="620.97" x2="620.97" y1="206.86" y2="231.98"/>
+<rect class="candle down" x="618.62" y="214.71" width="4.70" height="1.57"/>
+<rect class="volume down" x="618.62" y="533.15" width="4.70" height="28.85"/>
+<line class="wick up" x1="629.13" x2="629.13" y1="149.54" y2="189.19"/>
+<rect class="candle up" x="626.78" y="150.72" width="4.70" height="26.30"/>
+<rect class="volume up" x="626.78" y="520.39" width="4.70" height="41.61"/>
+<line class="wick up" x1="637.29" x2="637.29" y1="138.16" y2="161.71"/>
+<rect class="candle up" x="634.94" y="153.86" width="4.70" height="4.32"/>
+<rect class="volume up" x="634.94" y="539.80" width="4.70" height="22.20"/>
+<line class="wick up" x1="645.45" x2="645.45" y1="132.27" y2="145.61"/>
+<rect class="candle up" x="643.10" y="142.47" width="4.70" height="1.18"/>
+<rect class="volume up" x="643.10" y="544.21" width="4.70" height="17.79"/>
+<line class="wick up" x1="653.61" x2="653.61" y1="130.70" y2="158.18"/>
+<rect class="candle up" x="651.27" y="133.45" width="4.70" height="19.63"/>
+<rect class="volume up" x="651.27" y="533.33" width="4.70" height="28.67"/>
+<line class="wick down" x1="661.77" x2="661.77" y1="130.70" y2="154.64"/>
+<rect class="candle down" x="659.43" y="130.70" width="4.70" height="9.81"/>
+<rect class="volume down" x="659.43" y="538.02" width="4.70" height="23.98"/>
+<line class="wick down" x1="669.94" x2="669.94" y1="144.83" y2="170.74"/>
+<rect class="candle down" x="667.59" y="144.83" width="4.70" height="20.41"/>
+<rect class="volume down" x="667.59" y="503.16" width="4.70" height="58.84"/>
+<line class="wick up" x1="678.10" x2="678.10" y1="142.08" y2="160.93"/>
+<rect class="candle up" x="675.75" y="150.72" width="4.70" height="9.03"/>
+<rect class="volume up" x="675.75" y="526.11" width="4.70" height="35.89"/>
+<line class="wick up" x1="686.26" x2="686.26" y1="126.38" y2="161.71"/>
+<rect class="candle up" x="683.91" y="145.61" width="4.70" height="10.99"/>
+<rect class="volume up" x="683.91" y="527.81" width="4.70" height="34.19"/>
+<line class="wick up" x1="694.42" x2="694.42" y1="125.20" y2="153.86"/>
+<rect class="candle up" x="692.07" y="131.87" width="4.70" height="15.31"/>
+<rect class="volume up" x="692.07" y="537.19" width="4.70" height="24.81"/>
+<line class="wick down" x1="702.58" x2="702.58" y1="118.53" y2="155.04"/>
+<rect class="candle down" x="700.23" y="131.09" width="4.70" height="18.84"/>
+<rect class="volume down" x="700.23" y="534.30" width="4.70" height="27.70"/>
+<line class="wick down" x1="710.74" x2="710.74" y1="124.42" y2="152.68"/>
+<rect class="candle down" x="708.39" y="131.48" width="4.70" height="16.10"/>
+<rect class="volume down" x="708.39" y="536.11" width="4.70" height="25.89"/>
+<line class="wick up" x1="718.90" x2="718.90" y1="144.83" y2="169.17"/>
+<rect class="candle up" x="716.56" y="148.36" width="4.70" height="3.93"/>
+<rect class="volume up" x="716.56" y="522.21" width="4.70" height="39.79"/>
+<line class="wick up" x1="727.06" x2="727.06" y1="140.90" y2="167.21"/>
+<rect class="candle up" x="724.72" y="144.04" width="4.70" height="6.67"/>
+<rect class="volume up" x="724.72" y="540.49" width="4.70" height="21.51"/>
+<line class="wick down" x1="735.23" x2="735.23" y1="133.84" y2="156.21"/>
+<rect class="candle down" x="732.88" y="140.90" width="4.70" height="8.64"/>
+<rect class="volume down" x="732.88" y="538.74" width="4.70" height="23.26"/>
+<line class="wick down" x1="743.39" x2="743.39" y1="141.69" y2="179.77"/>
+<rect class="candle down" x="741.04" y="145.61" width="4.70" height="18.84"/>
+<rect class="volume down" x="741.04" y="535.70" width="4.70" height="26.30"/>
+<line class="wick down" x1="751.55" x2="751.55" y1="160.14" y2="184.48"/>
+<rect class="candle down" x="749.20" y="160.93" width="4.70" height="20.81"/>
+<rect class="volume down" x="749.20" y="541.55" width="4.70" height="20.45"/>
+<line class="wick up" x1="759.71" x2="759.71" y1="152.29" y2="188.01"/>
+<rect class="candle up" x="757.36" y="161.71" width="4.70" height="21.59"/>
+<rect class="volume up" x="757.36" y="517.70" width="4.70" height="44.30"/>
+<line class="wick down" x1="767.87" x2="767.87" y1="149.93" y2="166.81"/>
+<rect class="candle down" x="765.52" y="155.04" width="4.70" height="11.38"/>
+<rect class="volume down" x="765.52" y="534.87" width="4.70" height="27.13"/>
+<line class="wick down" x1="776.03" x2="776.03" y1="169.95" y2="199.79"/>
+<rect class="candle down" x="773.68" y="173.88" width="4.70" height="20.02"/>
+<rect class="volume down" x="773.68" y="532.89" width="4.70" height="29.11"/>
+<line class="wick up" x1="784.19" x2="784.19" y1="149.15" y2="184.48"/>
+<rect class="candle up" x="781.85" y="159.36" width="4.70" height="19.24"/>
+<rect class="volume up" x="781.85" y="530.77" width="4.70" height="31.23"/>
+<line class="wick up" x1="792.35" x2="792.35" y1="114.60" y2="135.41"/>
+<rect class="candle up" x="790.01" y="124.81" width="4.70" height="3.53"/>
+<rect class="volume up" x="790.01" y="531.56" width="4.70" height="30.44"/>
+<line class="wick down" x1="800.52" x2="800.52" y1="110.68" y2="165.24"/>
+<rect class="candle down" x="798.17" y="117.35" width="4.70" height="47.11"/>
+<rect class="volume down" x="798.17" y="524.24" width="4.70" height="37.76"/>
+<line class="wick down" x1="808.68" x2="808.68" y1="144.44" y2="160.53"/>
+<rect class="candle down" x="806.33" y="148.36" width="4.70" height="8.64"/>
+<rect class="volume down" x="806.33" y="539.97" width="4.70" height="22.03"/>
+<line class="wick up" x1="816.84" x2="816.84" y1="124.81" y2="147.58"/>
+<rect class="candle up" x="814.49" y="130.70" width="4.70" height="15.70"/>
+<rect class="volume up" x="814.49" y="537.11" width="4.70" height="24.89"/>
+<line class="wick up" x1="825.00" x2="825.00" y1="129.52" y2="162.10"/>
+<rect class="candle up" x="822.65" y="135.41" width="4.70" height="5.50"/>
+<rect class="volume up" x="822.65" y="528.39" width="4.70" height="33.61"/>
+<line class="wick down" x1="833.16" x2="833.16" y1="120.49" y2="140.12"/>
+<rect class="candle down" x="830.81" y="135.80" width="4.70" height="2.75"/>
+<rect class="volume down" x="830.81" y="537.49" width="4.70" height="24.51"/>
+<line class="wick down" x1="841.32" x2="841.32" y1="131.09" y2="156.61"/>
+<rect class="candle down" x="838.97" y="136.19" width="4.70" height="17.67"/>
+<rect class="volume down" x="838.97" y="530.97" width="4.70" height="31.03"/>
+<line class="wick down" x1="849.48" x2="849.48" y1="172.70" y2="209.60"/>
+<rect class="candle down" x="847.14" y="179.77" width="4.70" height="27.87"/>
+<rect class="volume down" x="847.14" y="529.56" width="4.70" height="32.44"/>
+<line class="wick down" x1="857.65" x2="857.65" y1="191.15" y2="216.67"/>
+<rect class="candle down" x="855.30" y="206.46" width="4.70" height="4.32"/>
+<rect class="volume down" x="855.30" y="531.44" width="4.70" height="30.56"/>
+<line class="wick down" x1="865.81" x2="865.81" y1="224.92" y2="262.99"/>
+<rect class="candle down" x="863.46" y="228.06" width="4.70" height="29.05"/>
+<rect class="volume down" x="863.46" y="527.56" width="4.70" height="34.44"/>
+<line class="wick up" x1="873.97" x2="873.97" y1="228.06" y2="262.60"/>
+<rect class="candle up" x="871.62" y="230.41" width="4.70" height="28.66"/>
+<rect class="volume up" x="871.62" y="502.67" width="4.70" height="59.33"/>
+<line class="wick up" x1="882.13" x2="882.13" y1="209.60" y2="253.18"/>
+<rect class="candle up" x="879.78" y="218.63" width="4.70" height="18.84"/>
+<rect class="volume up" x="879.78" y="532.33" width="4.70" height="29.67"/>
+<line class="wick down" x1="890.29" x2="890.29" y1="199.79" y2="219.81"/>
+<rect class="candle down" x="887.94" y="206.46" width="4.70" height="1.57"/>
+<rect class="volume down" x="887.94" y="541.84" width="4.70" height="20.16"/>
+<line class="wick up" x1="898.45" x2="898.45" y1="173.49" y2="193.90"/>
+<rect class="candle up" x="896.10" y="180.55" width="4.70" height="12.17"/>
+<rect class="volume up" x="896.10" y="538.11" width="4.70" height="23.89"/>
+<line class="wick up" x1="906.61" x2="906.61" y1="165.64" y2="180.95"/>
+<rect class="candle up" x="904.27" y="173.10" width="4.70" height="6.67"/>
+<rect class="volume up" x="904.27" y="535.88" width="4.70" height="26.12"/>
+<line class="wick up" x1="914.77" x2="914.77" y1="161.71" y2="195.47"/>
+<rect class="candle up" x="912.43" y="166.03" width="4.70" height="11.38"/>
+<rect class="volume up" x="912.43" y="531.37" width="4.70" height="30.63"/>
+<line class="wick down" x1="922.94" x2="922.94" y1="157.39" y2="175.84"/>
+<rect class="candle down" x="920.59" y="169.17" width="4.70" height="5.10"/>
+<rect class="volume down" x="920.59" y="528.00" width="4.70" height="34.00"/>
+<line class="wick up" x1="931.10" x2="931.10" y1="178.20" y2="214.32"/>
+<rect class="candle up" x="928.75" y="183.30" width="4.70" height="10.60"/>
+<rect class="volume up" x="928.75" y="490.87" width="4.70" height="71.13"/>
+<line class="wick up" x1="939.26" x2="939.26" y1="153.86" y2="191.15"/>
+<rect class="candle up" x="936.91" y="159.75" width="4.70" height="27.48"/>
+<rect class="volume up" x="936.91" y="504.24" width="4.70" height="57.76"/>
+<line class="wick up" x1="947.42" x2="947.42" y1="139.73" y2="170.74"/>
+<rect class="candle up" x="945.07" y="155.43" width="4.70" height="10.99"/>
+<rect class="volume up" x="945.07" y="525.94" width="4.70" height="36.06"/>
+<line class="wick down" x1="955.58" x2="955.58" y1="133.05" y2="162.89"/>
+<rect class="candle down" x="953.23" y="147.58" width="4.70" height="8.24"/>
+<rect class="volume down" x="953.23" y="533.91" width="4.70" height="28.09"/>
+<line class="wick down" x1="963.74" x2="963.74" y1="154.64" y2="199.79"/>
+<rect class="candle down" x="961.39" y="164.07" width="4.70" height="30.62"/>
+<rect class="volume down" x="961.39" y="526.07" width="4.70" height="35.93"/>
+<line class="wick down" x1="971.90" x2="971.90" y1="187.62" y2="222.95"/>
+<rect class="candle down" x="969.56" y="195.47" width="4.70" height="25.52"/>
+<rect class="volume down" x="969.56" y="530.13" width="4.70" height="31.87"/>
+<line class="wick up" x1="980.06" x2="980.06" y1="187.23" y2="225.70"/>
+<rect class="candle up" x="977.72" y="189.19" width="4.70" height="7.07"/>
+<rect class="volume up" x="977.72" y="522.84" width="4.70" height="39.16"/>
+<line class="wick down" x1="988.23" x2="988.23" y1="185.66" y2="236.30"/>
+<rect class="candle down" x="985.88" y="189.98" width="4.70" height="45.15"/>
+<rect class="volume down" x="985.88" y="533.95" width="4.70" height="28.05"/>
+<line class="wick up" x1="996.39" x2="996.39" y1="167.21" y2="219.42"/>
+<rect class="candle up" x="994.04" y="171.52" width="4.70" height="45.15"/>
+<rect class="volume up" x="994.04" y="525.93" width="4.70" height="36.07"/>
+<line class="wick up" x1="1004.55" x2="1004.55" y1="126.77" y2="159.75"/>
+<rect class="candle up" x="1002.20" y="133.84" width="4.70" height="18.45"/>
+<rect class="volume up" x="1002.20" y="517.96" width="4.70" height="44.04"/>
+<line class="wick down" x1="1012.71" x2="1012.71" y1="93.79" y2="122.45"/>
+<rect class="candle down" x="1010.36" y="106.75" width="4.70" height="14.53"/>
+<rect class="volume down" x="1010.36" y="518.54" width="4.70" height="43.46"/>
+<line class="wick up" x1="1020.87" x2="1020.87" y1="98.11" y2="115.78"/>
+<rect class="candle up" x="1018.52" y="112.64" width="4.70" height="1.18"/>
+<rect class="volume up" x="1018.52" y="537.56" width="4.70" height="24.44"/>
+<line class="wick down" x1="1029.03" x2="1029.03" y1="89.48" y2="146.40"/>
+<rect class="candle down" x="1026.68" y="120.49" width="4.70" height="19.63"/>
+<rect class="volume down" x="1026.68" y="514.96" width="4.70" height="47.04"/>
+<line class="wick down" x1="1037.19" x2="1037.19" y1="124.02" y2="150.33"/>
+<rect class="candle down" x="1034.85" y="132.27" width="4.70" height="16.10"/>
+<rect class="volume down" x="1034.85" y="527.41" width="4.70" height="34.59"/>
+<line class="wick up" x1="1045.35" x2="1045.35" y1="147.97" y2="174.27"/>
+<rect class="candle up" x="1043.01" y="155.82" width="4.70" height="17.27"/>
+<rect class="volume up" x="1043.01" y="535.66" width="4.70" height="26.34"/>
+<line class="wick down" x1="1053.52" x2="1053.52" y1="161.32" y2="188.41"/>
+<rect class="candle down" x="1051.17" y="177.41" width="4.70" height="7.85"/>
+<rect class="volume down" x="1051.17" y="532.22" width="4.70" height="29.78"/>
+<line class="wick up" x1="1061.68" x2="1061.68" y1="159.36" y2="188.41"/>
+<rect class="candle up" x="1059.33" y="173.88" width="4.70" height="11.38"/>
+<rect class="volume up" x="1059.33" y="525.98" width="4.70" height="36.02"/>
+<line class="wick up" x1="1069.84" x2="1069.84" y1="133.45" y2="169.56"/>
+<rect class="candle up" x="1067.49" y="147.19" width="4.70" height="16.88"/>
+<rect class="volume up" x="1067.49" y="534.01" width="4.70" height="27.99"/>
+<line class="wick down" x1="1078.00" x2="1078.00" y1="145.61" y2="164.26"/>
+<rect class="candle down" x="1075.65" y="157.78" width="4.70" height="3.93"/>
+<rect class="volume down" x="1075.65" y="548.58" width="4.70" height="13.42"/>
+<polyline class="ma20" points="221.06,305.47 229.23,297.88 237.39,289.61 245.55,281.23 253.71,273.54 261.87,266.61 270.03,258.52 278.19,249.90 286.35,242.40 294.52,234.53 302.68,226.84 310.84,218.22 319.00,208.62 327.16,200.61 335.32,192.08 343.48,184.19 351.65,174.70 359.81,167.66 367.97,160.91 376.13,155.04 384.29,148.50 392.45,142.45 400.61,136.47 408.77,129.77 416.94,121.96 425.10,117.47 433.26,115.07 441.42,117.15 449.58,118.41 457.74,121.39 465.90,125.91 474.06,131.93 482.23,139.67 490.39,146.81 498.55,154.49 506.71,160.73 514.87,169.64 523.03,179.63 531.19,191.37 539.35,201.99 547.52,211.63 555.68,218.79 563.84,226.47 572.00,235.30 580.16,243.46 588.32,247.33 596.48,250.20 604.65,251.02 612.81,250.31 620.97,250.14 629.13,246.47 637.29,242.88 645.45,238.40 653.61,232.51 661.77,227.39 669.94,223.74 678.10,217.32 686.26,209.19 694.42,198.89 702.58,190.60 710.74,183.97 718.90,179.26 727.06,173.70 735.23,168.07 743.39,163.54 751.55,161.59 759.71,159.61 767.87,157.77 776.03,156.92 784.19,154.07 792.35,152.78 800.52,153.31 808.68,154.04 816.84,153.90 825.00,153.64 833.16,152.31 841.32,152.47 849.48,155.57 857.65,159.51 865.81,164.87 873.97,169.01 882.13,172.53 890.29,175.73 898.45,177.28 906.61,177.71 914.77,176.92 922.94,177.55 931.10,178.39 939.26,176.69 947.42,176.49 955.58,178.04 963.74,179.55 971.90,182.75 980.06,185.68 988.23,190.66 996.39,192.31 1004.55,191.31 1012.71,186.99 1020.87,182.09 1029.03,176.24 1037.19,172.13 1045.35,168.99 1053.52,167.85 1061.68,167.52 1069.84,166.23 1078.00,166.01"/>
+<polyline class="ma50" points="465.90,212.02 474.06,209.09 482.23,205.99 490.39,203.28 498.55,200.10 506.71,197.43 514.87,195.94 523.03,195.75 531.19,195.51 539.35,195.47 547.52,195.32 555.68,194.62 563.84,194.34 572.00,194.22 580.16,194.11 588.32,193.10 596.48,191.32 604.65,190.40 612.81,189.85 620.97,189.76 629.13,188.41 637.29,187.09 645.45,185.51 653.61,183.79 661.77,181.64 669.94,180.28 678.10,179.45 686.26,179.46 694.42,178.10 702.58,177.90 710.74,178.18 718.90,179.04 727.06,180.37 735.23,181.20 743.39,182.70 751.55,184.06 759.71,185.28 767.87,186.44 776.03,188.26 784.19,189.38 792.35,190.13 800.52,191.43 808.68,192.54 816.84,193.44 825.00,194.31 833.16,194.22 841.32,194.41 849.48,194.83 857.65,194.55 865.81,195.29 873.97,195.42 882.13,195.28 890.29,194.80 898.45,193.38 906.61,191.99 914.77,190.54 922.94,188.44 931.10,185.95 939.26,182.38 947.42,179.18 955.58,176.69 963.74,175.73 971.90,175.05 980.06,173.59 988.23,173.19 996.39,172.21 1004.55,170.86 1012.71,169.22 1020.87,167.25 1029.03,165.73 1037.19,165.68 1045.35,165.72 1053.52,166.58 1061.68,167.39 1069.84,167.52 1078.00,167.45"/>
+<polyline class="volume-ma" points="221.06,522.26 229.23,521.53 237.39,520.49 245.55,518.16 253.71,514.92 261.87,513.89 270.03,512.14 278.19,509.60 286.35,508.34 294.52,508.42 302.68,508.34 310.84,507.51 319.00,505.47 327.16,503.43 335.32,503.13 343.48,501.74 351.65,502.51 359.81,502.31 367.97,501.85 376.13,502.17 384.29,502.24 392.45,501.91 400.61,501.60 408.77,502.82 416.94,504.07 425.10,503.76 433.26,506.21 441.42,508.53 449.58,508.89 457.74,507.72 465.90,506.72 474.06,507.56 482.23,508.33 490.39,510.19 498.55,510.81 506.71,511.92 514.87,511.28 523.03,510.52 531.19,510.24 539.35,509.98 547.52,509.63 555.68,509.25 563.84,509.64 572.00,509.84 580.16,510.25 588.32,511.24 596.48,510.83 604.65,511.72 612.81,513.79 620.97,515.60 629.13,516.30 637.29,517.02 645.45,518.96 653.61,520.03 661.77,521.10 669.94,520.00 678.10,520.59 686.26,522.29 694.42,523.91 702.58,525.31 710.74,526.31 718.90,526.50 727.06,527.30 735.23,527.69 743.39,528.78 751.55,530.73 759.71,531.41 767.87,532.05 776.03,531.89 784.19,531.77 792.35,532.33 800.52,531.55 808.68,531.34 816.84,531.52 825.00,531.04 833.16,532.76 841.32,533.00 849.48,533.09 857.65,532.80 865.81,532.47 873.97,530.79 882.13,531.30 890.29,531.37 898.45,531.34 906.61,531.35 914.77,530.84 922.94,531.35 931.10,529.15 939.26,527.72 947.42,527.48 955.58,527.60 963.74,527.69 971.90,527.20 980.06,526.48 988.23,526.76 996.39,526.18 1004.55,525.53 1012.71,524.98 1020.87,525.29 1029.03,524.66 1037.19,525.89 1045.35,526.06 1053.52,525.58 1061.68,524.97 1069.84,524.88 1078.00,525.74"/>
+<polyline class="rs-line" points="66.00,724.07 74.16,727.04 82.32,726.37 90.48,726.97 98.65,717.00 106.81,714.79 114.97,705.57 123.13,715.17 131.29,703.30 139.45,696.93 147.61,694.30 155.77,689.91 163.94,686.18 172.10,685.07 180.26,688.50 188.42,681.16 196.58,674.01 204.74,673.68 212.90,667.46 221.06,670.24 229.23,673.80 237.39,674.15 245.55,672.02 253.71,680.35 261.87,678.42 270.03,657.27 278.19,636.52 286.35,647.38 294.52,646.79 302.68,640.76 310.84,628.32 319.00,617.97 327.16,617.41 335.32,610.96 343.48,621.08 351.65,620.29 359.81,621.02 367.97,624.64 376.13,616.78 384.29,616.56 392.45,627.30 400.61,623.92 408.77,614.31 416.94,617.07 425.10,629.32 433.26,634.92 441.42,646.58 449.58,651.06 457.74,655.55 465.90,655.98 474.06,655.65 482.23,646.76 490.39,649.89 498.55,654.20 506.71,654.35 514.87,659.58 523.03,668.91 531.19,668.11 539.35,666.95 547.52,650.85 555.68,640.43 563.84,631.78 572.00,621.50 580.16,616.10 588.32,624.45 596.48,622.73 604.65,624.17 612.81,630.62 620.97,633.06 629.13,627.27 637.29,632.80 645.45,628.06 653.61,632.08 661.77,643.74 669.94,658.48 678.10,655.04 686.26,661.96 694.42,655.61 702.58,657.27 710.74,663.75 718.90,661.21 727.06,665.26 735.23,668.45 743.39,670.23 751.55,676.25 759.71,676.21 767.87,679.83 776.03,686.90 784.19,680.41 792.35,678.19 800.52,689.71 808.68,692.86 816.84,685.45 825.00,686.00 833.16,690.97 841.32,701.59 849.48,711.63 857.65,712.23 865.81,723.67 873.97,721.29 882.13,718.60 890.29,717.63 898.45,712.79 906.61,710.16 914.77,711.50 922.94,715.94 931.10,720.77 939.26,713.83 947.42,707.63 955.58,710.32 963.74,705.71 971.90,716.24 980.06,703.37 988.23,708.42 996.39,697.97 1004.55,688.84 1012.71,696.72 1020.87,689.68 1029.03,690.23 1037.19,698.42 1045.35,698.78 1053.52,698.78 1061.68,694.54 1069.84,686.35 1078.00,691.22"/>
+<line class="trendline price-trend" x1="66.00" y1="252.29" x2="1078.00" y2="141.92"/>
+<line class="trendline rs-trend" x1="66.00" y1="654.67" x2="1078.00" y2="686.54"/>
 <text class="panel-title" x="66" y="24">XLB price</text>
 <text class="panel-title" x="66" y="448">Volume moving average</text>
 <text class="panel-title" x="66" y="594">Relative strength vs SPY</text>
@@ -382,10 +606,11 @@
 <text class="legend" x="776" y="50">Trendline</text>
 <line class="rs-line" x1="920" x2="948" y1="46" y2="46"/>
 <text class="legend" x="956" y="50">Relative strength</text>
-<text class="date start" x="66" y="742">2026-04-01</text>
+<text class="date start" x="66" y="742">2025-12-26</text>
 <text class="date end" x="1078" y="742">2026-06-26</text>
 </svg>
     </section>
+    <footer class="report-footer">Copyright &copy; 2026 csfox.com. All rights reserved.</footer>
   </main>
 </body>
 </html>
