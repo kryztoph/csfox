@@ -427,7 +427,7 @@
 
     function updateTable(index) {
       const frame = SERIES.frames[index];
-      frameLabel.textContent = `${index + 1} / ${SERIES.frames.length}`;
+      frameLabel.textContent = `${frame.asOf} (${index + 1} / ${SERIES.frames.length})`;
       asOf.textContent = `As of: ${frame.asOf} | Created: ${frame.createdAt}`;
       rows.innerHTML = "";
       for (const point of [...frame.points].sort((a, b) => b.x - a.x)) {
