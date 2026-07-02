@@ -1,6 +1,6 @@
 # Sector Rotation Brief
 
-Created: 20260702T172832Z
+Created: 20260702T214223Z
 As of: 2026-07-02
 Provider: yfinance
 
@@ -13,17 +13,17 @@ Provider: yfinance
 
 | Rank | Sector | Symbol | Signal | Score | Rel 5d | Rel 21d | Rel 63d | Trend |
 | ---: | --- | --- | --- | ---: | ---: | ---: | ---: | --- |
-| 1 | Financials | XLF | LEADING | 76.00 | 2.44% | 9.80% | -1.35% | bullish |
-| 2 | Health Care | XLV | LEADING | 71.00 | 3.62% | 13.57% | -2.97% | bullish |
-| 3 | Industrials | XLI | LEADING | 28.00 | -1.83% | 7.18% | -2.14% | bullish |
-| 4 | Consumer Staples | XLP | IMPROVING | 14.00 | -0.27% | 5.69% | -9.38% | bullish |
-| 5 | Real Estate | XLRE | IMPROVING | 5.00 | -1.23% | 4.65% | -4.55% | constructive |
-| 6 | Utilities | XLU | WEAKENING | -3.00 | -2.01% | 5.74% | -14.75% | constructive |
-| 7 | Materials | XLB | WEAKENING | -15.00 | -1.61% | 2.36% | -11.08% | bullish |
-| 8 | Consumer Discretionary | XLY | WEAKENING | -18.00 | 2.13% | 1.77% | -6.72% | mixed |
-| 9 | Communication Services | XLC | LAGGING | -37.00 | 2.15% | -1.75% | -15.28% | weak |
-| 10 | Technology | XLK | WEAKENING | -42.00 | -3.54% | -6.89% | 20.14% | constructive |
-| 11 | Energy | XLE | LAGGING | -79.00 | -2.77% | -5.97% | -23.08% | weak |
+| 1 | Financials | XLF | LEADING | 76.00 | 2.63% | 10.03% | -1.17% | bullish |
+| 2 | Health Care | XLV | LEADING | 69.00 | 3.78% | 13.79% | -2.83% | bullish |
+| 3 | Industrials | XLI | LEADING | 26.00 | -1.54% | 7.53% | -1.82% | bullish |
+| 4 | Real Estate | XLRE | IMPROVING | 15.00 | -1.23% | 4.68% | -4.56% | bullish |
+| 5 | Consumer Staples | XLP | IMPROVING | 12.00 | -0.18% | 5.81% | -9.33% | bullish |
+| 6 | Utilities | XLU | WEAKENING | -7.00 | -1.62% | 6.18% | -14.42% | constructive |
+| 7 | Materials | XLB | WEAKENING | -13.00 | -1.10% | 2.90% | -10.59% | bullish |
+| 8 | Consumer Discretionary | XLY | WEAKENING | -18.00 | 1.90% | 1.55% | -7.00% | mixed |
+| 9 | Communication Services | XLC | LAGGING | -37.00 | 2.38% | -1.55% | -15.14% | weak |
+| 10 | Technology | XLK | WEAKENING | -44.00 | -3.58% | -6.94% | 20.19% | constructive |
+| 11 | Energy | XLE | LAGGING | -79.00 | -3.04% | -6.23% | -23.42% | weak |
 
 ## Notes
 
