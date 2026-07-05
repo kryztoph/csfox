@@ -316,6 +316,13 @@ nav {
     background: linear-gradient(to bottom, var(--bg-secondary), #111827);
 }
 
+.market-desk-section {
+    background:
+        radial-gradient(circle at 18% 20%, rgba(59, 130, 246, 0.18), transparent 30%),
+        radial-gradient(circle at 82% 35%, rgba(139, 92, 246, 0.14), transparent 28%),
+        linear-gradient(to bottom, #111827, var(--bg-secondary));
+}
+
 .updates-header {
     display: flex;
     align-items: end;
@@ -355,6 +362,16 @@ nav {
     transform: translateY(-4px);
     border-color: var(--accent-primary);
     box-shadow: var(--shadow-md);
+}
+
+.market-desk-grid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.update-card-featured {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.16), rgba(139, 92, 246, 0.14)), var(--bg-primary);
+    border-color: rgba(59, 130, 246, 0.45);
+    box-shadow: var(--shadow-lg);
 }
 
 .update-label {
