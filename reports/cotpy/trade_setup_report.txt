@@ -1,9 +1,12 @@
 COT TRADE SETUP REPORT
-Data as of: 2026-06-23
-Generated: 2026-07-05 12:06
+Data as of: 2026-06-30
+Generated: 2026-07-07 14:22
 
 Strong Bullish: 1 | Moderate Bullish: 5
-Strong Bearish: 0 | Moderate Bearish: 3
+Strong Bearish: 1 | Moderate Bearish: 3
 
 STRONG BULLISH:
   GBP/USD (Div: 100)
+
+STRONG BEARISH:
+  DOW JONES (Div: 1)
