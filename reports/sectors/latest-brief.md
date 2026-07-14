@@ -1,29 +1,29 @@
 # Sector Rotation Brief
 
-Created: 20260713T231259Z
-As of: 2026-07-13
+Created: 20260714T231252Z
+As of: 2026-07-14
 Provider: yfinance
 
 ## Summary
 
-- Leaders: XLF LEADING, XLV LEADING, XLU LEADING
-- Laggards: XLY LAGGING, XLE WEAKENING, XLB LAGGING
+- Leaders: XLF LEADING, XLK IMPROVING, XLU LEADING
+- Laggards: XLY LAGGING, XLP LAGGING, XLB LAGGING
 
 ## Rankings
 
 | Rank | Sector | Symbol | Signal | Score | Rel 5d | Rel 21d | Rel 63d | Trend |
 | ---: | --- | --- | --- | ---: | ---: | ---: | ---: | --- |
-| 1 | Financials | XLF | LEADING | 69.00 | 0.16% | 4.08% | 0.18% | bullish |
-| 2 | Health Care | XLV | LEADING | 38.00 | -0.06% | 2.33% | -0.69% | bullish |
-| 3 | Utilities | XLU | LEADING | 24.00 | 1.21% | 0.64% | -12.90% | bullish |
-| 4 | Industrials | XLI | IMPROVING | 16.00 | -2.52% | 3.04% | -5.10% | constructive |
-| 5 | Technology | XLK | IMPROVING | 10.00 | -0.97% | -0.64% | 16.85% | mixed |
-| 6 | Real Estate | XLRE | IMPROVING | 6.00 | 1.21% | -3.92% | -5.87% | bullish |
-| 7 | Communication Services | XLC | WEAKENING | -19.00 | 1.53% | -2.75% | -12.33% | mixed |
-| 8 | Consumer Staples | XLP | WEAKENING | -23.00 | 0.86% | -4.33% | -7.56% | bullish |
-| 9 | Consumer Discretionary | XLY | LAGGING | -28.00 | -1.39% | -1.03% | -7.47% | weak |
-| 10 | Energy | XLE | WEAKENING | -35.00 | 7.08% | -5.86% | -10.61% | constructive |
-| 11 | Materials | XLB | LAGGING | -58.00 | -2.41% | -1.30% | -12.92% | mixed |
+| 1 | Financials | XLF | LEADING | 79.00 | -0.32% | 4.86% | -0.83% | bullish |
+| 2 | Technology | XLK | IMPROVING | 42.00 | 1.93% | -1.68% | 16.52% | constructive |
+| 3 | Utilities | XLU | LEADING | 35.00 | -0.57% | 1.82% | -11.09% | bullish |
+| 4 | Industrials | XLI | LEADING | 31.00 | -1.61% | 1.12% | -5.11% | constructive |
+| 5 | Health Care | XLV | IMPROVING | 11.00 | -4.29% | 0.82% | -2.61% | bullish |
+| 6 | Energy | XLE | WEAKENING | 0.00 | 3.68% | -2.20% | -9.86% | constructive |
+| 7 | Real Estate | XLRE | WEAKENING | -8.00 | -1.46% | -2.89% | -6.19% | constructive |
+| 8 | Communication Services | XLC | LAGGING | -30.00 | -0.16% | -2.50% | -12.52% | mixed |
+| 9 | Consumer Discretionary | XLY | LAGGING | -34.00 | -1.82% | -2.25% | -7.84% | weak |
+| 10 | Consumer Staples | XLP | LAGGING | -57.00 | -2.25% | -4.08% | -7.29% | weak |
+| 11 | Materials | XLB | LAGGING | -69.00 | -2.24% | -3.04% | -12.55% | mixed |
 
 ## Notes
 
