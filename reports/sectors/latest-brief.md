@@ -1,29 +1,29 @@
 # Sector Rotation Brief
 
-Created: 20260717T215352Z
-As of: 2026-07-17
+Created: 20260720T230045Z
+As of: 2026-07-20
 Provider: yfinance
 
 ## Summary
 
-- Leaders: XLF LEADING, XLV LEADING, XLRE LEADING
-- Laggards: XLB LAGGING, XLY LAGGING, XLC LAGGING
+- Leaders: XLF LEADING, XLE LEADING, XLRE LEADING
+- Laggards: XLK LAGGING, XLB LAGGING, XLY LAGGING
 
 ## Rankings
 
 | Rank | Sector | Symbol | Signal | Score | Rel 5d | Rel 21d | Rel 63d | Trend |
 | ---: | --- | --- | --- | ---: | ---: | ---: | ---: | --- |
-| 1 | Financials | XLF | LEADING | 60.00 | 2.53% | 4.45% | 2.20% | bullish |
-| 2 | Health Care | XLV | LEADING | 59.00 | 1.70% | 6.27% | 3.94% | bullish |
-| 3 | Real Estate | XLRE | LEADING | 42.00 | 3.73% | 1.65% | -2.26% | bullish |
-| 4 | Energy | XLE | LEADING | 39.00 | 6.26% | 5.13% | -3.99% | constructive |
-| 5 | Consumer Staples | XLP | IMPROVING | 6.00 | 2.82% | 0.47% | -1.32% | constructive |
-| 6 | Industrials | XLI | IMPROVING | 6.00 | 0.16% | 0.69% | -0.60% | constructive |
-| 7 | Utilities | XLU | WEAKENING | -1.00 | 1.02% | 1.18% | -8.48% | constructive |
-| 8 | Technology | XLK | LAGGING | -44.00 | -3.94% | -4.88% | 9.57% | mixed |
-| 9 | Materials | XLB | LAGGING | -51.00 | 0.84% | -3.22% | -8.29% | weak |
-| 10 | Consumer Discretionary | XLY | LAGGING | -57.00 | 0.01% | -1.61% | -7.79% | weak |
-| 11 | Communication Services | XLC | LAGGING | -59.00 | 0.66% | -0.55% | -12.82% | mixed |
+| 1 | Financials | XLF | LEADING | 62.00 | 0.89% | 3.53% | 2.39% | bullish |
+| 2 | Energy | XLE | LEADING | 59.00 | 3.06% | 5.83% | 0.81% | constructive |
+| 3 | Real Estate | XLRE | LEADING | 41.00 | 2.13% | 2.71% | -2.81% | bullish |
+| 4 | Health Care | XLV | LEADING | 30.00 | -0.39% | 5.51% | 2.52% | constructive |
+| 5 | Consumer Staples | XLP | IMPROVING | 11.00 | 1.26% | 1.26% | -1.59% | constructive |
+| 6 | Communication Services | XLC | WEAKENING | -18.00 | 0.24% | 1.31% | -11.47% | mixed |
+| 7 | Utilities | XLU | WEAKENING | -19.00 | -0.76% | 0.93% | -7.14% | constructive |
+| 8 | Industrials | XLI | WEAKENING | -23.00 | -0.30% | -0.98% | -1.84% | constructive |
+| 9 | Technology | XLK | LAGGING | -46.00 | -2.13% | -5.58% | 9.34% | weak |
+| 10 | Materials | XLB | LAGGING | -47.00 | -0.14% | -3.98% | -8.06% | weak |
+| 11 | Consumer Discretionary | XLY | LAGGING | -50.00 | -0.29% | -0.91% | -9.32% | weak |
 
 ## Notes
 
