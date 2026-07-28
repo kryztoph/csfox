@@ -1,29 +1,29 @@
 # Sector Rotation Brief
 
-Created: 20260724T225113Z
-As of: 2026-07-24
+Created: 20260727T213342Z
+As of: 2026-07-27
 Provider: yfinance
 
 ## Summary
 
-- Leaders: XLE LEADING, XLV LEADING, XLF LEADING
-- Laggards: XLP LAGGING, XLC LAGGING, XLY LAGGING
+- Leaders: XLF LEADING, XLV LEADING, XLRE LEADING
+- Laggards: XLK LAGGING, XLC WEAKENING, XLY LAGGING
 
 ## Rankings
 
 | Rank | Sector | Symbol | Signal | Score | Rel 5d | Rel 21d | Rel 63d | Trend |
 | ---: | --- | --- | --- | ---: | ---: | ---: | ---: | --- |
-| 1 | Energy | XLE | LEADING | 60.00 | 3.95% | 10.52% | 0.33% | constructive |
-| 2 | Health Care | XLV | LEADING | 46.00 | 1.51% | 5.24% | 6.86% | bullish |
-| 3 | Financials | XLF | LEADING | 40.00 | 0.68% | 4.05% | 4.40% | bullish |
-| 4 | Industrials | XLI | LEADING | 34.00 | 2.40% | 0.58% | 0.63% | bullish |
-| 5 | Utilities | XLU | LEADING | 31.00 | 3.07% | 0.87% | -3.87% | bullish |
-| 6 | Real Estate | XLRE | LEADING | 30.00 | 1.75% | 2.46% | 0.22% | bullish |
-| 7 | Materials | XLB | WEAKENING | -14.00 | 2.03% | -0.58% | -5.36% | constructive |
-| 8 | Technology | XLK | LAGGING | -23.00 | 0.75% | -4.69% | 8.56% | weak |
-| 9 | Consumer Staples | XLP | LAGGING | -44.00 | -0.66% | -1.14% | -3.52% | mixed |
-| 10 | Communication Services | XLC | LAGGING | -69.00 | -3.34% | -1.00% | -13.75% | weak |
-| 11 | Consumer Discretionary | XLY | LAGGING | -91.00 | -4.64% | -5.69% | -11.38% | weak |
+| 1 | Financials | XLF | LEADING | 64.00 | 1.90% | 5.76% | 7.10% | bullish |
+| 2 | Health Care | XLV | LEADING | 58.00 | 3.01% | 4.34% | 9.81% | bullish |
+| 3 | Real Estate | XLRE | LEADING | 31.00 | 1.58% | 1.97% | 0.88% | bullish |
+| 4 | Industrials | XLI | IMPROVING | 30.00 | 3.26% | -1.15% | 2.70% | bullish |
+| 5 | Energy | XLE | LEADING | 25.00 | 1.13% | 7.24% | -0.90% | constructive |
+| 6 | Utilities | XLU | IMPROVING | 2.00 | 2.05% | -1.02% | -4.61% | bullish |
+| 7 | Consumer Staples | XLP | WEAKENING | -13.00 | 0.99% | 1.04% | -0.96% | bullish |
+| 8 | Materials | XLB | WEAKENING | -15.00 | 3.12% | -1.52% | -4.54% | constructive |
+| 9 | Technology | XLK | LAGGING | -48.00 | -0.40% | -6.22% | 5.27% | weak |
+| 10 | Communication Services | XLC | WEAKENING | -50.00 | -2.43% | 1.32% | -10.34% | weak |
+| 11 | Consumer Discretionary | XLY | LAGGING | -84.00 | -2.89% | -2.87% | -10.14% | weak |
 
 ## Notes
 
