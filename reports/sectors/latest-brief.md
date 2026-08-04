@@ -1,29 +1,29 @@
 # Sector Rotation Brief
 
-Created: 20260803T213026Z
-As of: 2026-08-03
+Created: 20260804T213021Z
+As of: 2026-08-04
 Provider: yfinance
 
 ## Summary
 
-- Leaders: XLF LEADING, XLE LEADING, XLRE IMPROVING
-- Laggards: XLK WEAKENING, XLB LAGGING, XLU LAGGING
+- Leaders: XLF LEADING, XLK IMPROVING, XLRE IMPROVING
+- Laggards: XLY WEAKENING, XLB WEAKENING, XLU LAGGING
 
 ## Rankings
 
 | Rank | Sector | Symbol | Signal | Score | Rel 5d | Rel 21d | Rel 63d | Trend |
 | ---: | --- | --- | --- | ---: | ---: | ---: | ---: | --- |
-| 1 | Financials | XLF | LEADING | 70.00 | -1.63% | 1.43% | 5.38% | bullish |
-| 2 | Energy | XLE | LEADING | 32.00 | -1.78% | 8.74% | -5.24% | bullish |
-| 3 | Real Estate | XLRE | IMPROVING | 19.00 | -3.78% | -0.61% | -3.20% | bullish |
-| 4 | Industrials | XLI | IMPROVING | 15.00 | -2.54% | -2.14% | 0.76% | bullish |
-| 5 | Health Care | XLV | IMPROVING | 11.00 | -3.22% | -2.65% | 6.63% | bullish |
-| 6 | Communication Services | XLC | IMPROVING | 7.00 | 0.90% | -0.14% | -9.75% | constructive |
-| 7 | Consumer Discretionary | XLY | IMPROVING | 7.00 | 4.14% | -0.80% | -5.49% | constructive |
-| 8 | Consumer Staples | XLP | WEAKENING | -6.00 | -3.10% | -1.88% | -4.32% | bullish |
-| 9 | Technology | XLK | WEAKENING | -14.00 | -0.37% | -3.14% | 4.85% | weak |
-| 10 | Materials | XLB | LAGGING | -63.00 | -3.25% | -3.65% | -5.80% | mixed |
-| 11 | Utilities | XLU | LAGGING | -78.00 | -5.40% | -4.79% | -9.84% | mixed |
+| 1 | Financials | XLF | LEADING | 62.00 | -3.63% | 0.43% | 4.79% | bullish |
+| 2 | Technology | XLK | IMPROVING | 47.00 | 5.13% | -0.85% | 7.91% | constructive |
+| 3 | Real Estate | XLRE | IMPROVING | 29.00 | -5.94% | -0.68% | -4.95% | bullish |
+| 4 | Energy | XLE | LEADING | 22.00 | -2.46% | 7.48% | -8.89% | bullish |
+| 5 | Industrials | XLI | IMPROVING | 21.00 | -1.97% | -2.22% | 1.59% | bullish |
+| 6 | Health Care | XLV | WEAKENING | -12.00 | -7.20% | -2.58% | 4.58% | bullish |
+| 7 | Communication Services | XLC | WEAKENING | -15.00 | -1.95% | -1.01% | -10.92% | constructive |
+| 8 | Consumer Staples | XLP | WEAKENING | -17.00 | -6.05% | -1.16% | -5.24% | bullish |
+| 9 | Consumer Discretionary | XLY | WEAKENING | -22.00 | 1.05% | -2.43% | -6.94% | constructive |
+| 10 | Materials | XLB | WEAKENING | -33.00 | -4.76% | -2.63% | -4.76% | constructive |
+| 11 | Utilities | XLU | LAGGING | -82.00 | -7.21% | -5.30% | -12.30% | mixed |
 
 ## Notes
 
