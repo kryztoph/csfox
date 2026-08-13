@@ -75,6 +75,11 @@
       padding: 12px;
       overflow-x: auto;
     }
+    .chart-hint {
+      margin: 8px 0 0;
+      text-align: center;
+      font-size: 12px;
+    }
     svg {
       display: block;
       width: 100%;
@@ -164,6 +169,35 @@
     }
     .panel-title { font-weight: 700; }
     .date.end { text-anchor: end; }
+    .crosshair[hidden] { display: none; }
+    .crosshair, .crosshair * { pointer-events: none; }
+    .crosshair-line {
+      stroke: #526071;
+      stroke-width: 1;
+      stroke-dasharray: 4 4;
+      vector-effect: non-scaling-stroke;
+    }
+    .crosshair-point {
+      fill: #ffffff;
+      stroke: #253244;
+      stroke-width: 1.5;
+      vector-effect: non-scaling-stroke;
+    }
+    .crosshair-tooltip rect {
+      fill: rgba(23, 32, 42, 0.94);
+      stroke: rgba(255, 255, 255, 0.5);
+      stroke-width: 1;
+    }
+    .crosshair-tooltip text {
+      fill: #ffffff;
+      font-size: 13px;
+    }
+    .crosshair-price { font-weight: 750; }
+    .crosshair-hitbox {
+      fill: transparent;
+      pointer-events: all;
+      cursor: crosshair;
+    }
     .report-footer {
       margin-top: 18px;
       padding-top: 14px;
@@ -203,7 +237,7 @@
       </section>
     </header>
     <section class="chart" aria-label="XLB candlestick chart">
-      <svg viewBox="0 0 1120 760" role="img" aria-label="XLB candlestick chart with volume moving average, relative strength, and trendlines">
+      <svg class="sector-chart" viewBox="0 0 1120 760" role="img" data-dates="[&quot;2026-02-11&quot;,&quot;2026-02-12&quot;,&quot;2026-02-13&quot;,&quot;2026-02-17&quot;,&quot;2026-02-18&quot;,&quot;2026-02-19&quot;,&quot;2026-02-20&quot;,&quot;2026-02-23&quot;,&quot;2026-02-24&quot;,&quot;2026-02-25&quot;,&quot;2026-02-26&quot;,&quot;2026-02-27&quot;,&quot;2026-03-02&quot;,&quot;2026-03-03&quot;,&quot;2026-03-04&quot;,&quot;2026-03-05&quot;,&quot;2026-03-06&quot;,&quot;2026-03-09&quot;,&quot;2026-03-10&quot;,&quot;2026-03-11&quot;,&quot;2026-03-12&quot;,&quot;2026-03-13&quot;,&quot;2026-03-16&quot;,&quot;2026-03-17&quot;,&quot;2026-03-18&quot;,&quot;2026-03-19&quot;,&quot;2026-03-20&quot;,&quot;2026-03-23&quot;,&quot;2026-03-24&quot;,&quot;2026-03-25&quot;,&quot;2026-03-26&quot;,&quot;2026-03-27&quot;,&quot;2026-03-30&quot;,&quot;2026-03-31&quot;,&quot;2026-04-01&quot;,&quot;2026-04-02&quot;,&quot;2026-04-06&quot;,&quot;2026-04-07&quot;,&quot;2026-04-08&quot;,&quot;2026-04-09&quot;,&quot;2026-04-10&quot;,&quot;2026-04-13&quot;,&quot;2026-04-14&quot;,&quot;2026-04-15&quot;,&quot;2026-04-16&quot;,&quot;2026-04-17&quot;,&quot;2026-04-20&quot;,&quot;2026-04-21&quot;,&quot;2026-04-22&quot;,&quot;2026-04-23&quot;,&quot;2026-04-24&quot;,&quot;2026-04-27&quot;,&quot;2026-04-28&quot;,&quot;2026-04-29&quot;,&quot;2026-04-30&quot;,&quot;2026-05-01&quot;,&quot;2026-05-04&quot;,&quot;2026-05-05&quot;,&quot;2026-05-06&quot;,&quot;2026-05-07&quot;,&quot;2026-05-08&quot;,&quot;2026-05-11&quot;,&quot;2026-05-12&quot;,&quot;2026-05-13&quot;,&quot;2026-05-14&quot;,&quot;2026-05-15&quot;,&quot;2026-05-18&quot;,&quot;2026-05-19&quot;,&quot;2026-05-20&quot;,&quot;2026-05-21&quot;,&quot;2026-05-22&quot;,&quot;2026-05-26&quot;,&quot;2026-05-27&quot;,&quot;2026-05-28&quot;,&quot;2026-05-29&quot;,&quot;2026-06-01&quot;,&quot;2026-06-02&quot;,&quot;2026-06-03&quot;,&quot;2026-06-04&quot;,&quot;2026-06-05&quot;,&quot;2026-06-08&quot;,&quot;2026-06-09&quot;,&quot;2026-06-10&quot;,&quot;2026-06-11&quot;,&quot;2026-06-12&quot;,&quot;2026-06-15&quot;,&quot;2026-06-16&quot;,&quot;2026-06-17&quot;,&quot;2026-06-18&quot;,&quot;2026-06-22&quot;,&quot;2026-06-23&quot;,&quot;2026-06-24&quot;,&quot;2026-06-25&quot;,&quot;2026-06-26&quot;,&quot;2026-06-29&quot;,&quot;2026-06-30&quot;,&quot;2026-07-01&quot;,&quot;2026-07-02&quot;,&quot;2026-07-06&quot;,&quot;2026-07-07&quot;,&quot;2026-07-08&quot;,&quot;2026-07-09&quot;,&quot;2026-07-10&quot;,&quot;2026-07-13&quot;,&quot;2026-07-14&quot;,&quot;2026-07-15&quot;,&quot;2026-07-16&quot;,&quot;2026-07-17&quot;,&quot;2026-07-20&quot;,&quot;2026-07-21&quot;,&quot;2026-07-22&quot;,&quot;2026-07-23&quot;,&quot;2026-07-24&quot;,&quot;2026-07-27&quot;,&quot;2026-07-28&quot;,&quot;2026-07-29&quot;,&quot;2026-07-30&quot;,&quot;2026-07-31&quot;,&quot;2026-08-03&quot;,&quot;2026-08-04&quot;,&quot;2026-08-05&quot;,&quot;2026-08-06&quot;,&quot;2026-08-07&quot;,&quot;2026-08-10&quot;,&quot;2026-08-11&quot;,&quot;2026-08-12&quot;]" data-price-min="46.28539955" data-price-max="54.58459938" aria-label="XLB interactive candlestick chart with volume moving average, relative strength, and trendlines">
 <rect class="svg-bg" x="0" y="0" width="1120" height="760"/>
 <rect class="panel" x="66" y="36" width="1012" height="390" aria-label="XLB candlestick with 20d and 50d moving averages"/>
 <rect class="panel" x="66" y="458" width="1012" height="104" aria-label="Volume and 20d volume MA"/>
@@ -611,9 +645,97 @@
 <text class="legend" x="956" y="50">Relative strength</text>
 <text class="date start" x="66" y="742">2026-02-11</text>
 <text class="date end" x="1078" y="742">2026-08-12</text>
+<g class="crosshair" hidden aria-hidden="true">
+  <line class="crosshair-line crosshair-x" x1="66" x2="66" y1="36" y2="734"/>
+  <line class="crosshair-line crosshair-y" x1="66" x2="1078" y1="36" y2="36"/>
+  <circle class="crosshair-point" cx="66" cy="36" r="3.5"/>
+  <g class="crosshair-tooltip">
+    <rect width="154" height="48" rx="5"/>
+    <text class="crosshair-date" x="10" y="18"></text>
+    <text class="crosshair-price" x="10" y="38"></text>
+  </g>
+</g>
+<rect class="crosshair-hitbox" x="66" y="36" width="1012" height="390" data-left="66" data-top="36" data-width="1012" data-height="390"/>
 </svg>
+      <p class="chart-hint">Hover over the price chart to inspect the date and price.</p>
     </section>
     <footer class="report-footer">Copyright &copy; 2026 csfox.com. All rights reserved.</footer>
   </main>
+  <script>
+    (() => {
+      const svg = document.querySelector("svg.sector-chart");
+      if (!svg) return;
+
+      const hitbox = svg.querySelector(".crosshair-hitbox");
+      const crosshair = svg.querySelector(".crosshair");
+      const vertical = svg.querySelector(".crosshair-x");
+      const horizontal = svg.querySelector(".crosshair-y");
+      const point = svg.querySelector(".crosshair-point");
+      const tooltip = svg.querySelector(".crosshair-tooltip");
+      const dateLabel = svg.querySelector(".crosshair-date");
+      const priceLabel = svg.querySelector(".crosshair-price");
+      if (!hitbox || !crosshair || !vertical || !horizontal || !point || !tooltip || !dateLabel || !priceLabel) return;
+
+      const dates = JSON.parse(svg.dataset.dates || "[]");
+      const priceMin = Number(svg.dataset.priceMin);
+      const priceMax = Number(svg.dataset.priceMax);
+      const left = Number(hitbox.dataset.left);
+      const top = Number(hitbox.dataset.top);
+      const width = Number(hitbox.dataset.width);
+      const height = Number(hitbox.dataset.height);
+      const priceFormatter = new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      });
+
+      function chartPoint(event) {
+        const point = svg.createSVGPoint();
+        point.x = event.clientX;
+        point.y = event.clientY;
+        return point.matrixTransform(svg.getScreenCTM().inverse());
+      }
+
+      function showAt(x, y) {
+        const clampedX = Math.max(left, Math.min(left + width, x));
+        const clampedY = Math.max(top, Math.min(top + height, y));
+        const ratioX = width ? (clampedX - left) / width : 0;
+        const index = Math.max(0, Math.min(dates.length - 1, Math.round(ratioX * (dates.length - 1))));
+        const price = priceMax - ((clampedY - top) / height) * (priceMax - priceMin);
+
+        vertical.setAttribute("x1", clampedX);
+        vertical.setAttribute("x2", clampedX);
+        horizontal.setAttribute("y1", clampedY);
+        horizontal.setAttribute("y2", clampedY);
+        point.setAttribute("cx", clampedX);
+        point.setAttribute("cy", clampedY);
+        dateLabel.textContent = dates[index] || "";
+        priceLabel.textContent = priceFormatter.format(price);
+
+        const tooltipWidth = 154;
+        const tooltipHeight = 48;
+        const tooltipX = clampedX + 12 + tooltipWidth <= left + width
+          ? clampedX + 12
+          : clampedX - tooltipWidth - 12;
+        const tooltipY = clampedY - 10 - tooltipHeight >= top
+          ? clampedY - tooltipHeight - 10
+          : clampedY + 10;
+        tooltip.setAttribute("transform", `translate(${tooltipX} ${tooltipY})`);
+        crosshair.removeAttribute("hidden");
+      }
+
+      hitbox.addEventListener("pointermove", (event) => {
+        const position = chartPoint(event);
+        showAt(position.x, position.y);
+      });
+      hitbox.addEventListener("pointerleave", () => { crosshair.setAttribute("hidden", ""); });
+      hitbox.addEventListener("pointerdown", (event) => {
+        const position = chartPoint(event);
+        showAt(position.x, position.y);
+      });
+      svg.addEventListener("blur", () => { crosshair.setAttribute("hidden", ""); });
+    })();
+    </script>
 </body>
 </html>

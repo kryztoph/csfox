@@ -75,6 +75,11 @@
       padding: 12px;
       overflow-x: auto;
     }
+    .chart-hint {
+      margin: 8px 0 0;
+      text-align: center;
+      font-size: 12px;
+    }
     svg {
       display: block;
       width: 100%;
@@ -164,6 +169,35 @@
     }
     .panel-title { font-weight: 700; }
     .date.end { text-anchor: end; }
+    .crosshair[hidden] { display: none; }
+    .crosshair, .crosshair * { pointer-events: none; }
+    .crosshair-line {
+      stroke: #526071;
+      stroke-width: 1;
+      stroke-dasharray: 4 4;
+      vector-effect: non-scaling-stroke;
+    }
+    .crosshair-point {
+      fill: #ffffff;
+      stroke: #253244;
+      stroke-width: 1.5;
+      vector-effect: non-scaling-stroke;
+    }
+    .crosshair-tooltip rect {
+      fill: rgba(23, 32, 42, 0.94);
+      stroke: rgba(255, 255, 255, 0.5);
+      stroke-width: 1;
+    }
+    .crosshair-tooltip text {
+      fill: #ffffff;
+      font-size: 13px;
+    }
+    .crosshair-price { font-weight: 750; }
+    .crosshair-hitbox {
+      fill: transparent;
+      pointer-events: all;
+      cursor: crosshair;
+    }
     .report-footer {
       margin-top: 18px;
       padding-top: 14px;
