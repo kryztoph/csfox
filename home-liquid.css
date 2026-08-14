@@ -1,0 +1,518 @@
+@property --liquid-angle {
+    syntax: "<angle>";
+    inherits: true;
+    initial-value: 135deg;
+}
+
+body.liquid-home {
+    --liquid-bg: #05060b;
+    --liquid-ink: #f7f5f2;
+    --liquid-muted: rgba(242, 240, 238, 0.66);
+    --liquid-line: rgba(255, 255, 255, 0.13);
+    --liquid-blue: #66b6ff;
+    --liquid-violet: #9b7bff;
+    --liquid-coral: #ff806e;
+    --liquid-aqua: #4fffd6;
+    --liquid-blur: 20px;
+    --liquid-opacity: 0.1;
+    --pointer-x: 50%;
+    --pointer-y: 50%;
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    min-width: 320px;
+    background: var(--liquid-bg);
+    color: var(--liquid-ink);
+}
+
+body.liquid-home::before {
+    content: "";
+    position: fixed;
+    z-index: -2;
+    inset: 0;
+    background:
+        radial-gradient(circle at var(--pointer-x) var(--pointer-y), rgba(102, 182, 255, 0.11), transparent 28rem),
+        linear-gradient(180deg, rgba(5, 6, 11, 0.06), rgba(5, 6, 11, 0.56) 58%, #05060b 92%);
+    pointer-events: none;
+}
+
+body.liquid-home p {
+    color: var(--liquid-muted);
+}
+
+#liquid-canvas,
+.liquid-noise {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+#liquid-canvas {
+    z-index: -4;
+    opacity: 0.96;
+}
+
+.liquid-noise {
+    z-index: 900;
+    opacity: 0.035;
+    background-image:
+        repeating-radial-gradient(circle at 17% 31%, transparent 0, rgba(255, 255, 255, 0.82) 0.55px, transparent 0.8px, transparent 3px),
+        repeating-radial-gradient(circle at 71% 61%, transparent 0, rgba(255, 255, 255, 0.62) 0.5px, transparent 0.8px, transparent 4px);
+    background-size: 7px 9px, 11px 13px;
+    mix-blend-mode: soft-light;
+}
+
+body.liquid-home main,
+body.liquid-home footer {
+    position: relative;
+    z-index: 1;
+}
+
+body.liquid-home .container {
+    max-width: 1240px;
+}
+
+body.liquid-home [data-glass] {
+    --mx: 50%;
+    --my: 50%;
+    --liquid-angle: 135deg;
+    position: relative;
+    isolation: isolate;
+    background:
+        linear-gradient(135deg, rgba(255, 255, 255, calc(var(--liquid-opacity) + 0.045)), rgba(255, 255, 255, calc(var(--liquid-opacity) * 0.25)) 45%, rgba(255, 255, 255, calc(var(--liquid-opacity) * 0.55))),
+        rgba(13, 15, 24, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.3),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.035),
+        0 18px 50px rgba(0, 0, 0, 0.22);
+    -webkit-backdrop-filter: blur(var(--liquid-blur)) saturate(155%) contrast(106%);
+    backdrop-filter: blur(var(--liquid-blur)) saturate(155%) contrast(106%);
+}
+
+body.liquid-home [data-glass]::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at var(--mx) var(--my), rgba(255, 255, 255, 0.27), transparent 25%),
+        linear-gradient(var(--liquid-angle), rgba(255, 255, 255, 0.15), transparent 28%, transparent 68%, rgba(120, 175, 255, 0.1));
+    opacity: 0.72;
+    mix-blend-mode: screen;
+}
+
+body.liquid-home .home-header {
+    position: fixed;
+    z-index: 1000;
+    top: 1rem;
+    left: 50%;
+    width: min(calc(100% - 2rem), 1240px);
+    min-height: 4.35rem;
+    padding: 0;
+    border-radius: 2.25rem;
+    transform: translateX(-50%);
+    transition: width 600ms var(--ease-out), top 600ms var(--ease-out), background 400ms ease;
+}
+
+body.liquid-home .home-header.is-scrolled {
+    top: 0.55rem;
+    width: min(calc(100% - 2rem), 1100px);
+    background-color: rgba(8, 10, 17, 0.56);
+}
+
+body.liquid-home .home-header .container {
+    width: 100%;
+    padding: 0.55rem 1rem 0.55rem 1.1rem;
+}
+
+body.liquid-home .home-header nav {
+    gap: 1.4rem;
+}
+
+body.liquid-home .logo {
+    font-size: 1.05rem;
+    letter-spacing: -0.03em;
+}
+
+body.liquid-home .logo-image {
+    width: 2.6rem;
+    height: 2.6rem;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 50%;
+    box-shadow: 0 0 26px rgba(102, 182, 255, 0.25);
+}
+
+body.liquid-home .nav-links {
+    align-items: center;
+    gap: clamp(0.7rem, 1.35vw, 1.45rem);
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+
+body.liquid-home .nav-links a:not(.btn) {
+    color: rgba(247, 245, 242, 0.68);
+}
+
+body.liquid-home .nav-links a:hover {
+    color: #fff;
+}
+
+body.liquid-home .gradient-text {
+    background: linear-gradient(115deg, #fff 3%, var(--liquid-blue) 38%, var(--liquid-violet) 69%, var(--liquid-coral));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+body.liquid-home .btn {
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 999px;
+    transition: transform 450ms var(--ease-out), box-shadow 450ms ease, background 300ms ease;
+}
+
+body.liquid-home .btn-primary {
+    background: linear-gradient(120deg, rgba(105, 188, 255, 0.94), rgba(132, 104, 255, 0.94) 58%, rgba(255, 128, 110, 0.88));
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 12px 36px rgba(80, 92, 255, 0.22);
+}
+
+body.liquid-home .btn-outline {
+    background: rgba(255, 255, 255, 0.055);
+    border-color: rgba(255, 255, 255, 0.2);
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+}
+
+body.liquid-home .btn:hover {
+    transform: translateY(-3px) scale(1.015);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.42), 0 18px 46px rgba(80, 92, 255, 0.25);
+}
+
+body.liquid-home .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.75fr);
+    gap: clamp(2rem, 6vw, 6rem);
+    width: min(calc(100% - 4rem), 1240px);
+    min-height: 100svh;
+    margin: 0 auto;
+    padding: 10rem 0 6rem;
+    overflow: visible;
+    text-align: left;
+}
+
+body.liquid-home .hero::before {
+    top: -20%;
+    left: 42%;
+    width: 58rem;
+    height: 58rem;
+    background: radial-gradient(circle, rgba(102, 182, 255, 0.12), rgba(143, 114, 255, 0.05) 38%, transparent 69%);
+    animation: liquid-breathe 9s ease-in-out infinite;
+}
+
+body.liquid-home .hero-content {
+    width: auto;
+    max-width: 730px;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+}
+
+body.liquid-home .hero-subtitle,
+body.liquid-home .specialty-badge,
+body.liquid-home .update-label {
+    color: rgba(198, 218, 255, 0.76);
+    letter-spacing: 0.15em;
+}
+
+body.liquid-home .hero h1 {
+    margin: 1rem 0 1.6rem;
+    font-size: clamp(4rem, 7.2vw, 7.6rem);
+    font-weight: 560;
+    line-height: 0.9;
+    letter-spacing: -0.075em;
+}
+
+body.liquid-home .hero-content > p {
+    max-width: 42rem;
+    font-size: clamp(1rem, 1.5vw, 1.22rem);
+    line-height: 1.75;
+}
+
+body.liquid-home .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+}
+
+.market-orb-wrap {
+    position: relative;
+    display: grid;
+    min-height: 34rem;
+    place-items: center;
+    perspective: 1200px;
+}
+
+.market-orb-wrap::before,
+.market-orb-wrap::after {
+    content: "";
+    position: absolute;
+    border: 1px solid rgba(160, 195, 255, 0.16);
+    border-radius: 50%;
+    animation: liquid-orbit 22s linear infinite;
+}
+
+.market-orb-wrap::before { width: 92%; aspect-ratio: 1; }
+.market-orb-wrap::after { width: 70%; aspect-ratio: 1; animation-direction: reverse; animation-duration: 15s; }
+
+.market-orb {
+    --tilt-x: 0deg;
+    --tilt-y: 0deg;
+    z-index: 2;
+    display: grid;
+    width: min(29rem, 38vw);
+    aspect-ratio: 1;
+    place-content: center;
+    padding: 3rem;
+    overflow: hidden;
+    border-radius: 50%;
+    text-align: center;
+    transform: rotateX(var(--tilt-y)) rotateY(var(--tilt-x));
+    transition: transform 700ms var(--ease-out);
+}
+
+.market-orb::after {
+    content: "";
+    position: absolute;
+    inset: 9%;
+    z-index: -1;
+    border-radius: 50%;
+    background: radial-gradient(circle at 34% 28%, rgba(255, 255, 255, 0.24), rgba(102, 182, 255, 0.12) 30%, rgba(143, 114, 255, 0.09) 58%, transparent 73%);
+    box-shadow: inset -24px -28px 64px rgba(2, 4, 12, 0.65), 0 0 90px rgba(102, 182, 255, 0.2);
+}
+
+.market-orb i {
+    margin-bottom: 1.2rem;
+    color: rgba(180, 221, 255, 0.95);
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    filter: drop-shadow(0 0 24px rgba(102, 182, 255, 0.52));
+}
+
+.market-orb strong {
+    font-size: clamp(1.4rem, 2.4vw, 2.2rem);
+    font-weight: 550;
+    line-height: 1.08;
+    letter-spacing: -0.04em;
+}
+
+.market-orb span {
+    margin-top: 0.8rem;
+    color: rgba(242, 240, 238, 0.52);
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.mobile-break {
+    display: none;
+}
+
+body.liquid-home .section-padding {
+    position: relative;
+    padding: clamp(6rem, 10vw, 10rem) 0;
+    background: transparent;
+}
+
+body.liquid-home .section-padding:nth-of-type(even) {
+    background: linear-gradient(180deg, transparent, rgba(15, 18, 31, 0.52) 32%, rgba(10, 12, 22, 0.34) 76%, transparent);
+}
+
+body.liquid-home h2 {
+    font-size: clamp(2.6rem, 5vw, 5.2rem);
+    font-weight: 560;
+    line-height: 0.98;
+    letter-spacing: -0.06em;
+}
+
+body.liquid-home .section-intro,
+body.liquid-home .section-subtitle,
+body.liquid-home .contact-intro {
+    max-width: 720px;
+    font-size: 1.05rem;
+    line-height: 1.75;
+}
+
+body.liquid-home .update-grid,
+body.liquid-home .services-grid,
+body.liquid-home .portfolio-grid {
+    gap: 1.25rem;
+}
+
+body.liquid-home .update-card,
+body.liquid-home .card,
+body.liquid-home .portfolio-item,
+body.liquid-home .tech-stack,
+body.liquid-home .about-content,
+body.liquid-home .contact-form {
+    overflow: hidden;
+    border-radius: 1.6rem;
+    transition: transform 600ms var(--ease-out), border-color 400ms ease, box-shadow 500ms ease;
+}
+
+body.liquid-home .update-card,
+body.liquid-home .card,
+body.liquid-home .portfolio-item {
+    min-height: 100%;
+    padding: 1.65rem;
+}
+
+body.liquid-home .card::after {
+    display: none;
+}
+
+body.liquid-home .update-card:hover,
+body.liquid-home .card:hover,
+body.liquid-home .portfolio-item:hover {
+    transform: translateY(-7px);
+    border-color: rgba(151, 195, 255, 0.36);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.32), 0 28px 70px rgba(0, 0, 0, 0.32);
+}
+
+body.liquid-home .card-icon {
+    color: var(--liquid-blue);
+    filter: drop-shadow(0 0 16px rgba(102, 182, 255, 0.32));
+}
+
+body.liquid-home .tech-stack,
+body.liquid-home .about-content,
+body.liquid-home .contact-form {
+    padding: clamp(2rem, 5vw, 4rem);
+}
+
+body.liquid-home .tech-tag,
+body.liquid-home .specialty-badge {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    color: rgba(242, 240, 238, 0.72);
+}
+
+body.liquid-home .stat {
+    border-color: var(--liquid-line);
+}
+
+body.liquid-home .form-input,
+body.liquid-home .form-textarea {
+    background: rgba(4, 6, 13, 0.46);
+    border-color: rgba(255, 255, 255, 0.13);
+}
+
+body.liquid-home footer {
+    background: rgba(5, 6, 11, 0.5);
+    border-top: 1px solid var(--liquid-line);
+    -webkit-backdrop-filter: blur(18px);
+    backdrop-filter: blur(18px);
+}
+
+.liquid-lab {
+    position: fixed;
+    z-index: 1200;
+    right: 1.25rem;
+    bottom: 1.25rem;
+}
+
+.liquid-lab-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    min-height: 3rem;
+    padding: 0.7rem 1rem;
+    border: 0;
+    border-radius: 999px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.liquid-lab-panel {
+    position: absolute;
+    right: 0;
+    bottom: calc(100% + 0.75rem);
+    width: min(19rem, calc(100vw - 2rem));
+    padding: 1rem;
+    border-radius: 1.25rem;
+}
+
+.liquid-lab-panel[hidden] { display: none; }
+.liquid-lab-panel strong { display: block; margin-bottom: 0.8rem; }
+.liquid-lab-panel label { display: grid; gap: 0.35rem; margin-top: 0.8rem; color: var(--liquid-muted); font-size: 0.78rem; }
+.liquid-lab-panel label span { display: flex; justify-content: space-between; }
+.liquid-lab-panel input { width: 100%; accent-color: var(--liquid-blue); }
+
+@keyframes liquid-breathe {
+    0%, 100% { transform: scale(0.95); opacity: 0.65; }
+    50% { transform: scale(1.08); opacity: 1; }
+}
+
+@keyframes liquid-orbit {
+    to { transform: rotate(360deg); }
+}
+
+@media (max-width: 1100px) {
+    body.liquid-home .nav-links li:nth-child(4),
+    body.liquid-home .nav-links li:nth-child(5),
+    body.liquid-home .nav-links li:nth-child(6) { display: none; }
+}
+
+@media (max-width: 820px) {
+    body.liquid-home .home-header { width: calc(100% - 1rem); }
+    body.liquid-home .home-header .container { padding-inline: 0.8rem; }
+    body.liquid-home .nav-links { display: flex; }
+    body.liquid-home .nav-links li { display: none; }
+    body.liquid-home .nav-links li:last-child { display: block; }
+    body.liquid-home .hero {
+        grid-template-columns: 1fr;
+        width: min(calc(100% - 2rem), 680px);
+        padding-top: 9rem;
+        text-align: center;
+    }
+    body.liquid-home .hero-content { margin-inline: auto; }
+    body.liquid-home .hero-content > p { margin-inline: auto; }
+    body.liquid-home .hero-actions { justify-content: center; }
+    .market-orb-wrap { min-height: 27rem; }
+    .market-orb { width: min(25rem, 76vw); }
+}
+
+@media (max-width: 560px) {
+    body.liquid-home .logo-text { font-size: 0.92rem; }
+    body.liquid-home .home-header .btn { padding: 0.65rem 0.9rem; font-size: 0.74rem; }
+    body.liquid-home .hero h1 {
+        max-width: 100%;
+        font-size: clamp(2.75rem, 10.5vw, 3.4rem);
+        overflow-wrap: normal;
+    }
+    .mobile-break { display: block; }
+    body.liquid-home .hero-content > p { font-size: 0.96rem; }
+    body.liquid-home .hero-actions { flex-direction: column; align-items: center; }
+    body.liquid-home .hero-actions .btn { width: min(100%, 18rem); text-align: center; }
+    body.liquid-home h2 { font-size: clamp(2.5rem, 13vw, 3.8rem); }
+    .liquid-lab { right: 0.75rem; bottom: 0.75rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body.liquid-home *,
+    body.liquid-home *::before,
+    body.liquid-home *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+    }
+}
+
+@media (prefers-contrast: more), (prefers-reduced-transparency: reduce) {
+    body.liquid-home { --liquid-opacity: 0.3; --liquid-blur: 28px; }
+    body.liquid-home [data-glass] { background-color: rgba(8, 10, 18, 0.84); }
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    body.liquid-home [data-glass] { background-color: rgba(13, 15, 24, 0.94); }
+}

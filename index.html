@@ -12,13 +12,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="home-liquid.css">
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
-<body>
+<body class="liquid-home">
 
-    <header>
+    <canvas id="liquid-canvas" aria-hidden="true"></canvas>
+    <div class="liquid-noise" aria-hidden="true"></div>
+
+    <header class="home-header" data-glass>
         <div class="container">
             <nav aria-label="Primary">
                 <a href="#top" class="logo" aria-label="CSFox home">
@@ -44,11 +48,18 @@
         <section class="hero">
             <div class="container hero-content">
                 <span class="hero-subtitle">CSFox Market Desk</span>
-                <h1>Daily Market Updates, <br><span class="gradient-text">Signals, and Tools</span></h1>
+                <h1>Daily Market Updates, <br><span class="gradient-text">Signals,<br class="mobile-break"> and Tools</span></h1>
                 <p>CSFox.com is now my daily starting point for market awareness: sector rotation, COT positioning, research links, and the financial automation work behind the dashboards.</p>
                 <div class="button-row hero-actions">
                     <a href="reports/sectors/latest-brief.html" class="btn btn-primary">Open Latest Brief</a>
                     <a href="financial-services.html" class="btn btn-outline">Explore Finance Tools</a>
+                </div>
+            </div>
+            <div class="market-orb-wrap" role="img" aria-label="Interactive market intelligence visualization">
+                <div class="market-orb" data-glass data-tilt>
+                    <i class="fa-solid fa-wave-square" aria-hidden="true"></i>
+                    <strong>Markets<br>in motion.</strong>
+                    <span>Move through the signal</span>
                 </div>
             </div>
         </section>
@@ -541,7 +552,27 @@
         </div>
     </footer>
 
+    <aside class="liquid-lab" aria-label="Liquid appearance controls">
+        <button class="liquid-lab-toggle" type="button" aria-expanded="false"
+            aria-controls="liquid-lab-panel" data-glass data-liquid-lab-toggle>
+            <i class="fa-solid fa-sliders" aria-hidden="true"></i>
+            <span>Glass Lab</span>
+        </button>
+        <div class="liquid-lab-panel" id="liquid-lab-panel" data-glass hidden>
+            <strong>Material controls</strong>
+            <label>
+                <span>Clarity <output data-liquid-output="clarity">58</output></span>
+                <input type="range" min="20" max="100" value="58" data-liquid-control="clarity">
+            </label>
+            <label>
+                <span>Motion <output data-liquid-output="motion">64</output></span>
+                <input type="range" min="0" max="100" value="64" data-liquid-control="motion">
+            </label>
+        </div>
+    </aside>
+
     <script src="script.js"></script>
+    <script src="home-liquid.js"></script>
 </body>
 
 </html>
