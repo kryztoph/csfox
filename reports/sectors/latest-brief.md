@@ -1,29 +1,29 @@
 # Sector Rotation Brief
 
-Created: 20260826T215745Z
-As of: 2026-08-26
+Created: 20260827T215931Z
+As of: 2026-08-27
 Provider: yfinance
 
 ## Summary
 
-- Leaders: XLF IMPROVING, XLB IMPROVING, XLV LEADING
-- Laggards: XLY WEAKENING, XLI LAGGING, XLU LAGGING
+- Leaders: XLK LEADING, XLF IMPROVING, XLV IMPROVING
+- Laggards: XLC WEAKENING, XLRE LAGGING, XLU LAGGING
 
 ## Rankings
 
 | Rank | Sector | Symbol | Signal | Score | Rel 5d | Rel 21d | Rel 63d | Trend |
 | ---: | --- | --- | --- | ---: | ---: | ---: | ---: | --- |
-| 1 | Financials | XLF | IMPROVING | 43.00 | 1.74% | -2.26% | 11.22% | bullish |
-| 2 | Materials | XLB | IMPROVING | 40.00 | 2.58% | -0.86% | 2.78% | bullish |
-| 3 | Health Care | XLV | LEADING | 25.00 | -0.83% | 0.35% | 14.55% | bullish |
-| 4 | Energy | XLE | IMPROVING | 18.00 | -1.42% | 5.04% | 7.46% | constructive |
-| 5 | Technology | XLK | IMPROVING | 6.00 | -0.05% | 3.46% | -2.94% | constructive |
-| 6 | Communication Services | XLC | WEAKENING | -2.00 | 1.55% | -0.72% | -5.22% | bullish |
-| 7 | Consumer Staples | XLP | WEAKENING | -4.00 | 0.08% | -4.31% | -0.08% | bullish |
-| 8 | Real Estate | XLRE | WEAKENING | -7.00 | 0.61% | -5.40% | -1.05% | bullish |
-| 9 | Consumer Discretionary | XLY | WEAKENING | -24.00 | -0.82% | 0.76% | -5.69% | constructive |
-| 10 | Industrials | XLI | LAGGING | -28.00 | -0.50% | -4.58% | 1.38% | mixed |
-| 11 | Utilities | XLU | LAGGING | -67.00 | -0.77% | -7.82% | -5.69% | weak |
+| 1 | Technology | XLK | LEADING | 55.00 | 1.89% | 7.52% | -1.24% | bullish |
+| 2 | Financials | XLF | IMPROVING | 52.00 | 0.52% | -3.59% | 10.71% | bullish |
+| 3 | Health Care | XLV | IMPROVING | 39.00 | -1.58% | -2.50% | 11.53% | constructive |
+| 4 | Materials | XLB | IMPROVING | 37.00 | 0.43% | -2.83% | 1.45% | bullish |
+| 5 | Energy | XLE | IMPROVING | 17.00 | -3.40% | 0.50% | 7.19% | constructive |
+| 6 | Industrials | XLI | WEAKENING | -19.00 | -1.65% | -4.50% | 0.69% | weak |
+| 7 | Consumer Discretionary | XLY | WEAKENING | -20.00 | -1.80% | -1.88% | -7.25% | mixed |
+| 8 | Consumer Staples | XLP | WEAKENING | -20.00 | -1.40% | -8.32% | -1.42% | constructive |
+| 9 | Communication Services | XLC | WEAKENING | -27.00 | -0.46% | -3.97% | -6.69% | constructive |
+| 10 | Real Estate | XLRE | LAGGING | -46.00 | -2.05% | -8.54% | -1.62% | mixed |
+| 11 | Utilities | XLU | LAGGING | -68.00 | -2.46% | -9.56% | -5.44% | weak |
 
 ## Notes
 
