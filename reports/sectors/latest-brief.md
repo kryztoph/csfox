@@ -1,6 +1,6 @@
 # Sector Rotation Brief
 
-Created: 20260904T221542Z
+Created: 20260907T230303Z
 As of: 2026-09-04
 Provider: yfinance
 
