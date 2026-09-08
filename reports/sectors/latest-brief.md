@@ -1,29 +1,29 @@
 # Sector Rotation Brief
 
-Created: 20260907T230303Z
-As of: 2026-09-04
+Created: 20260908T215852Z
+As of: 2026-09-08
 Provider: yfinance
 
 ## Summary
 
-- Leaders: XLE LEADING, XLV LEADING, XLK LEADING
+- Leaders: XLE LEADING, XLK LEADING, XLF LEADING
 - Laggards: XLI LAGGING, XLRE LAGGING, XLY LAGGING
 
 ## Rankings
 
 | Rank | Sector | Symbol | Signal | Score | Rel 5d | Rel 21d | Rel 63d | Trend |
 | ---: | --- | --- | --- | ---: | ---: | ---: | ---: | --- |
-| 1 | Energy | XLE | LEADING | 66.00 | 2.09% | 9.93% | 6.65% | bullish |
-| 2 | Health Care | XLV | LEADING | 57.00 | 0.06% | 4.04% | 7.63% | constructive |
-| 3 | Technology | XLK | LEADING | 49.00 | 0.75% | 0.84% | -0.55% | bullish |
-| 4 | Financials | XLF | LEADING | 42.00 | -0.11% | 0.29% | 6.66% | bullish |
-| 5 | Communication Services | XLC | IMPROVING | 2.00 | -0.96% | 0.55% | -4.10% | constructive |
-| 6 | Materials | XLB | WEAKENING | 0.00 | -1.50% | 0.31% | -0.85% | constructive |
-| 7 | Consumer Staples | XLP | WEAKENING | -13.00 | -1.13% | -0.83% | -3.06% | mixed |
-| 8 | Utilities | XLU | LAGGING | -25.00 | 0.71% | -0.90% | -7.29% | mixed |
-| 9 | Industrials | XLI | LAGGING | -50.00 | -1.16% | -5.35% | -3.80% | weak |
-| 10 | Real Estate | XLRE | LAGGING | -55.00 | -1.35% | -2.18% | -6.15% | weak |
-| 11 | Consumer Discretionary | XLY | LAGGING | -73.00 | -2.07% | -2.91% | -4.38% | mixed |
+| 1 | Energy | XLE | LEADING | 74.00 | 1.41% | 13.59% | 7.42% | bullish |
+| 2 | Technology | XLK | LEADING | 35.00 | 0.88% | 0.89% | -1.61% | bullish |
+| 3 | Financials | XLF | LEADING | 24.00 | -0.57% | 0.42% | 6.64% | constructive |
+| 4 | Health Care | XLV | LEADING | 23.00 | -1.86% | 1.82% | 5.87% | constructive |
+| 5 | Communication Services | XLC | IMPROVING | 15.00 | 0.20% | 1.19% | -3.23% | constructive |
+| 6 | Utilities | XLU | IMPROVING | 14.00 | 3.03% | 0.58% | -3.78% | mixed |
+| 7 | Materials | XLB | WEAKENING | -10.00 | -1.28% | -0.80% | 0.35% | constructive |
+| 8 | Consumer Staples | XLP | WEAKENING | -17.00 | -0.99% | -0.35% | -2.47% | mixed |
+| 9 | Industrials | XLI | LAGGING | -34.00 | -0.26% | -4.87% | -3.16% | weak |
+| 10 | Real Estate | XLRE | LAGGING | -39.00 | -0.33% | -1.46% | -3.91% | weak |
+| 11 | Consumer Discretionary | XLY | LAGGING | -85.00 | -2.09% | -3.95% | -4.83% | weak |
 
 ## Notes
 
