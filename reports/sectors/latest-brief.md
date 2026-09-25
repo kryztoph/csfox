@@ -1,7 +1,7 @@
 # Sector Rotation Brief
 
-Created: 20260923T213809Z
-As of: 2026-09-23
+Created: 20260924T231137Z
+As of: 2026-09-24
 Provider: yfinance
 
 ## Summary
@@ -13,17 +13,17 @@ Provider: yfinance
 
 | Rank | Sector | Symbol | Signal | Score | Rel 5d | Rel 21d | Rel 63d | Trend |
 | ---: | --- | --- | --- | ---: | ---: | ---: | ---: | --- |
-| 1 | Technology | XLK | LEADING | 70.00 | 4.49% | 5.99% | 1.34% | bullish |
-| 2 | Health Care | XLV | IMPROVING | 56.00 | -1.14% | -3.90% | 6.21% | bullish |
-| 3 | Communication Services | XLC | LEADING | 36.00 | -3.11% | 0.47% | 0.22% | constructive |
-| 4 | Energy | XLE | IMPROVING | 32.00 | -4.42% | -1.74% | 11.71% | constructive |
-| 5 | Industrials | XLI | IMPROVING | 5.00 | -1.08% | -6.20% | -9.23% | weak |
-| 6 | Materials | XLB | WEAKENING | -5.00 | -2.71% | -6.66% | -5.87% | weak |
-| 7 | Consumer Staples | XLP | WEAKENING | -6.00 | -3.38% | -4.71% | -6.26% | weak |
-| 8 | Financials | XLF | LAGGING | -24.00 | -4.31% | -6.89% | -3.19% | weak |
-| 9 | Consumer Discretionary | XLY | LAGGING | -30.00 | -2.03% | -6.81% | -7.45% | weak |
-| 10 | Real Estate | XLRE | LAGGING | -61.00 | -4.68% | -7.76% | -10.99% | weak |
-| 11 | Utilities | XLU | LAGGING | -73.00 | -5.62% | -7.63% | -16.52% | weak |
+| 1 | Technology | XLK | LEADING | 67.00 | 5.26% | 7.98% | 1.89% | bullish |
+| 2 | Health Care | XLV | IMPROVING | 60.00 | 0.65% | -2.93% | 6.30% | bullish |
+| 3 | Communication Services | XLC | LEADING | 51.00 | 0.28% | 1.32% | 2.51% | bullish |
+| 4 | Energy | XLE | LEADING | 28.00 | -3.52% | 0.70% | 11.26% | constructive |
+| 5 | Financials | XLF | WEAKENING | -3.00 | -3.02% | -6.65% | -2.46% | weak |
+| 6 | Industrials | XLI | WEAKENING | -4.00 | -0.53% | -5.85% | -10.79% | weak |
+| 7 | Consumer Staples | XLP | WEAKENING | -16.00 | -2.56% | -6.74% | -7.72% | weak |
+| 8 | Materials | XLB | LAGGING | -23.00 | -1.95% | -7.44% | -7.37% | weak |
+| 9 | Consumer Discretionary | XLY | LAGGING | -30.00 | -0.47% | -6.91% | -8.61% | weak |
+| 10 | Real Estate | XLRE | LAGGING | -50.00 | -3.31% | -8.28% | -10.90% | weak |
+| 11 | Utilities | XLU | LAGGING | -80.00 | -5.34% | -9.10% | -18.05% | weak |
 
 ## Notes
 
