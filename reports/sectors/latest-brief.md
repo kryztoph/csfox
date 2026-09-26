@@ -1,29 +1,29 @@
 # Sector Rotation Brief
 
-Created: 20260924T231137Z
-As of: 2026-09-24
+Created: 20260925T231220Z
+As of: 2026-09-25
 Provider: yfinance
 
 ## Summary
 
-- Leaders: XLK LEADING, XLV IMPROVING, XLC LEADING
-- Laggards: XLY LAGGING, XLRE LAGGING, XLU LAGGING
+- Leaders: XLK LEADING, XLV IMPROVING, XLC IMPROVING
+- Laggards: XLB LAGGING, XLRE LAGGING, XLU LAGGING
 
 ## Rankings
 
 | Rank | Sector | Symbol | Signal | Score | Rel 5d | Rel 21d | Rel 63d | Trend |
 | ---: | --- | --- | --- | ---: | ---: | ---: | ---: | --- |
-| 1 | Technology | XLK | LEADING | 67.00 | 5.26% | 7.98% | 1.89% | bullish |
-| 2 | Health Care | XLV | IMPROVING | 60.00 | 0.65% | -2.93% | 6.30% | bullish |
-| 3 | Communication Services | XLC | LEADING | 51.00 | 0.28% | 1.32% | 2.51% | bullish |
-| 4 | Energy | XLE | LEADING | 28.00 | -3.52% | 0.70% | 11.26% | constructive |
-| 5 | Financials | XLF | WEAKENING | -3.00 | -3.02% | -6.65% | -2.46% | weak |
-| 6 | Industrials | XLI | WEAKENING | -4.00 | -0.53% | -5.85% | -10.79% | weak |
-| 7 | Consumer Staples | XLP | WEAKENING | -16.00 | -2.56% | -6.74% | -7.72% | weak |
-| 8 | Materials | XLB | LAGGING | -23.00 | -1.95% | -7.44% | -7.37% | weak |
-| 9 | Consumer Discretionary | XLY | LAGGING | -30.00 | -0.47% | -6.91% | -8.61% | weak |
-| 10 | Real Estate | XLRE | LAGGING | -50.00 | -3.31% | -8.28% | -10.90% | weak |
-| 11 | Utilities | XLU | LAGGING | -80.00 | -5.34% | -9.10% | -18.05% | weak |
+| 1 | Technology | XLK | LEADING | 77.00 | 2.25% | 6.66% | 2.56% | bullish |
+| 2 | Health Care | XLV | IMPROVING | 51.00 | 0.10% | -2.32% | 0.65% | bullish |
+| 3 | Communication Services | XLC | IMPROVING | 48.00 | 0.67% | -0.38% | 0.57% | constructive |
+| 4 | Energy | XLE | IMPROVING | 30.00 | -4.80% | -1.31% | 9.42% | constructive |
+| 5 | Consumer Staples | XLP | IMPROVING | 3.00 | -2.16% | -5.57% | -8.94% | weak |
+| 6 | Industrials | XLI | IMPROVING | 1.00 | -0.87% | -6.18% | -11.75% | mixed |
+| 7 | Financials | XLF | WEAKENING | -19.00 | -3.09% | -6.56% | -3.44% | weak |
+| 8 | Consumer Discretionary | XLY | LAGGING | -26.00 | -1.69% | -6.32% | -9.14% | weak |
+| 9 | Materials | XLB | LAGGING | -33.00 | -1.65% | -7.90% | -9.30% | weak |
+| 10 | Real Estate | XLRE | LAGGING | -52.00 | -3.55% | -8.52% | -13.95% | weak |
+| 11 | Utilities | XLU | LAGGING | -80.00 | -5.14% | -9.88% | -20.29% | weak |
 
 ## Notes
 
