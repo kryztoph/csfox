@@ -2,7 +2,7 @@
 
 Created: 20261002T223828Z
 As of: 2026-10-02
-Provider: yfinance
+Provider: yfinance-core + Yahoo-chart-assets + State-Street-index-allocations
 
 ## Summary
 
@@ -24,6 +24,35 @@ Provider: yfinance
 | 9 | Real Estate | XLRE | LAGGING | -28.00 | -1.58% | -7.26% | -10.30% | weak |
 | 10 | Financials | XLF | LAGGING | -46.00 | -2.24% | -7.82% | -7.16% | weak |
 | 11 | Materials | XLB | LAGGING | -46.00 | -1.67% | -8.31% | -8.45% | weak |
+
+## S&P 500 sector weights
+
+Allocation as of: 2026-10-01
+Source: https://www.ssga.com/us/en/intermediary/etfs/state-street-spdr-sp-500-etf-trust-spy
+
+| Sector | Index weight |
+| --- | ---: |
+| Communication Services | 9.82% |
+| Consumer Discretionary | 8.58% |
+| Consumer Staples | 4.36% |
+| Energy | 3.46% |
+| Financials | 11.41% |
+| Health Care | 9.13% |
+| Industrials | 8.12% |
+| Materials | 1.61% |
+| Real Estate | 1.68% |
+| Technology | 39.96% |
+| Utilities | 1.89% |
+
+## Oil, 10-year notes and Bitcoin
+
+| Asset | Symbol | As of | 21 sessions | vs SPY |
+| --- | --- | --- | ---: | ---: |
+| WTI crude oil (continuous futures) | CL=F | 2026-10-02 | 0.11% | -0.48% |
+| 10-year Treasury note (continuous futures price) | ZN=F | 2026-10-02 | -3.08% | -3.66% |
+| Bitcoin (USD spot) | BTC-USD | 2026-10-02 | 9.31% | 8.72% |
+
+Assets use common SPY trading dates and are outside the sector ranks. Continuous futures rolls affect returns; ZN=F is a note price, not a yield.
 
 ## Notes
 
