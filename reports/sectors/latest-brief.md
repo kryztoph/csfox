@@ -1,56 +1,56 @@
 # Sector Rotation Brief
 
-Created: 20261021T213006Z
-As of: 2026-10-21
+Created: 20261022T213016Z
+As of: 2026-10-22
 Provider: yfinance
 
 ## Summary
 
-- Leaders: XLV LEADING, XLE LEADING, XLY LEADING
-- Laggards: XLK LAGGING, XLI LAGGING, XLC LAGGING
+- Leaders: XLP LEADING, XLE LEADING, XLV LEADING
+- Laggards: XLC LAGGING, XLI LAGGING, XLK LAGGING
 
 ## Rankings
 
 | Rank | Sector | Symbol | Signal | Score | Rel 5d | Rel 21d | Rel 63d | Trend |
 | ---: | --- | --- | --- | ---: | ---: | ---: | ---: | --- |
-| 1 | Health Care | XLV | LEADING | 64.00 | 2.41% | 5.36% | 6.11% | bullish |
-| 2 | Energy | XLE | LEADING | 56.00 | 0.33% | 10.36% | 10.06% | bullish |
-| 3 | Consumer Discretionary | XLY | LEADING | 46.00 | 3.16% | 2.89% | 1.50% | constructive |
-| 4 | Consumer Staples | XLP | LEADING | 34.00 | 0.77% | 5.33% | -0.04% | bullish |
-| 5 | Materials | XLB | IMPROVING | 14.00 | 2.87% | 1.60% | -2.68% | constructive |
-| 6 | Financials | XLF | WEAKENING | 0.00 | 2.33% | 2.30% | -4.35% | mixed |
-| 7 | Utilities | XLU | WEAKENING | -23.00 | 0.22% | 3.66% | -13.80% | constructive |
-| 8 | Real Estate | XLRE | LAGGING | -29.00 | 0.92% | -1.00% | -11.16% | mixed |
-| 9 | Technology | XLK | LAGGING | -46.00 | -1.45% | -3.90% | 0.92% | mixed |
-| 10 | Industrials | XLI | LAGGING | -49.00 | 0.31% | -1.11% | -12.22% | mixed |
-| 11 | Communication Services | XLC | LAGGING | -67.00 | -2.12% | -3.98% | -1.32% | weak |
+| 1 | Consumer Staples | XLP | LEADING | 72.00 | 4.83% | 9.67% | 3.58% | bullish |
+| 2 | Energy | XLE | LEADING | 53.00 | 2.53% | 8.84% | 9.95% | bullish |
+| 3 | Health Care | XLV | LEADING | 46.00 | 3.33% | 7.91% | 8.13% | bullish |
+| 4 | Utilities | XLU | LEADING | 24.00 | 3.94% | 8.35% | -10.78% | constructive |
+| 5 | Consumer Discretionary | XLY | IMPROVING | 17.00 | 2.43% | 4.44% | 1.73% | constructive |
+| 6 | Financials | XLF | IMPROVING | 12.00 | 3.51% | 4.37% | -2.78% | constructive |
+| 7 | Materials | XLB | IMPROVING | 2.00 | 3.25% | 3.31% | -2.55% | constructive |
+| 8 | Real Estate | XLRE | WEAKENING | -44.00 | 2.28% | 2.13% | -10.85% | mixed |
+| 9 | Communication Services | XLC | LAGGING | -58.00 | -3.45% | -4.06% | -2.33% | weak |
+| 10 | Industrials | XLI | LAGGING | -62.00 | 0.32% | -1.48% | -12.11% | weak |
+| 11 | Technology | XLK | LAGGING | -62.00 | -2.61% | -6.15% | 0.29% | weak |
 
 ## S&P 500 sector weights
 
-Allocation as of: 2026-10-20
+Allocation as of: 2026-10-21
 Source: https://www.ssga.com/us/en/intermediary/etfs/state-street-spdr-sp-500-etf-trust-spy
 
 | Sector | Index weight |
 | --- | ---: |
-| Communication Services | 9.58% |
-| Consumer Discretionary | 9.04% |
-| Consumer Staples | 4.80% |
-| Energy | 3.73% |
+| Communication Services | 9.40% |
+| Consumer Discretionary | 9.01% |
+| Consumer Staples | 4.74% |
+| Energy | 3.72% |
 | Financials | 11.80% |
-| Health Care | 9.79% |
-| Industrials | 7.98% |
-| Materials | 1.68% |
-| Real Estate | 1.74% |
-| Technology | 37.88% |
-| Utilities | 1.98% |
+| Health Care | 9.69% |
+| Industrials | 8.01% |
+| Materials | 1.67% |
+| Real Estate | 1.71% |
+| Technology | 38.27% |
+| Utilities | 1.97% |
 
 ## Oil, 10-year notes and Bitcoin
 
 | Asset | Symbol | As of | 21 sessions | vs SPY |
 | --- | --- | --- | ---: | ---: |
-| WTI crude oil (continuous futures) | CL=F | 2026-10-21 | 3.30% | 3.34% |
-| 10-year Treasury note (continuous futures price) | ZN=F | 2026-10-21 | -0.71% | -0.67% |
-| Bitcoin (USD spot) | BTC-USD | 2026-10-21 | -1.67% | -1.63% |
+| WTI crude oil (continuous futures) | CL=F | 2026-10-22 | 7.53% | 8.03% |
+| 10-year Treasury note (continuous futures price) | ZN=F | 2026-10-22 | 1.29% | 1.80% |
+| Bitcoin (USD spot) | BTC-USD | 2026-10-22 | -3.49% | -2.99% |
 
 Assets use common SPY trading dates and are outside the sector ranks. Continuous futures rolls affect returns; ZN=F is a note price, not a yield.
 
