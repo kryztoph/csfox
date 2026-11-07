@@ -1,6 +1,6 @@
 # Sector Rotation Brief
 
-Created: 20261106T223016Z
+Created: 20261107T142343Z
 As of: 2026-11-06
 Provider: yfinance
 
@@ -48,9 +48,9 @@ Source: https://www.ssga.com/us/en/intermediary/etfs/state-street-spdr-sp-500-et
 
 | Asset | Symbol | As of | 21 sessions | vs SPY |
 | --- | --- | --- | ---: | ---: |
-| WTI crude oil (continuous futures) | CL=F | 2026-11-06 | -1.26% | 3.74% |
-| 10-year Treasury note (continuous futures price) | ZN=F | 2026-11-06 | 2.30% | 7.29% |
-| Bitcoin (USD spot) | BTC-USD | 2026-11-06 | -7.02% | -2.03% |
+| WTI crude oil (continuous futures) | CL=F | 2026-11-06 | -0.72% | 4.27% |
+| 10-year Treasury note (continuous futures price) | ZN=F | 2026-11-06 | 2.28% | 7.28% |
+| Bitcoin (USD spot) | BTC-USD | 2026-11-06 | -7.26% | -2.27% |
 
 Assets use common SPY trading dates and are outside the sector ranks. Continuous futures rolls affect returns; ZN=F is a note price, not a yield.
 
