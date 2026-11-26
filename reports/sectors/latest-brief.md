@@ -1,6 +1,6 @@
 # Sector Rotation Brief
 
-Created: 20261125T223012Z
+Created: 20261126T223014Z
 As of: 2026-11-25
 Provider: yfinance
 
@@ -27,30 +27,30 @@ Provider: yfinance
 
 ## S&P 500 sector weights
 
-Allocation as of: 2026-11-24
+Allocation as of: 2026-11-25
 Source: https://www.ssga.com/us/en/intermediary/etfs/state-street-spdr-sp-500-etf-trust-spy
 
 | Sector | Index weight |
 | --- | ---: |
-| Communication Services | 8.90% |
-| Consumer Discretionary | 9.73% |
-| Consumer Staples | 5.39% |
-| Energy | 3.52% |
-| Financials | 12.71% |
-| Health Care | 10.75% |
-| Industrials | 8.26% |
-| Materials | 1.74% |
-| Real Estate | 1.90% |
-| Technology | 34.90% |
-| Utilities | 2.19% |
+| Communication Services | 8.92% |
+| Consumer Discretionary | 9.66% |
+| Consumer Staples | 5.42% |
+| Energy | 3.56% |
+| Financials | 12.83% |
+| Health Care | 10.72% |
+| Industrials | 8.35% |
+| Materials | 1.78% |
+| Real Estate | 1.92% |
+| Technology | 34.64% |
+| Utilities | 2.20% |
 
 ## Oil, 10-year notes and Bitcoin
 
 | Asset | Symbol | As of | 21 sessions | vs SPY |
 | --- | --- | --- | ---: | ---: |
-| WTI crude oil (continuous futures) | CL=F | 2026-11-25 | -15.77% | -8.88% |
-| 10-year Treasury note (continuous futures price) | ZN=F | 2026-11-25 | 0.90% | 7.78% |
-| Bitcoin (USD spot) | BTC-USD | 2026-11-25 | -25.70% | -18.82% |
+| WTI crude oil (continuous futures) | CL=F | 2026-11-25 | -16.24% | -9.36% |
+| 10-year Treasury note (continuous futures price) | ZN=F | 2026-11-25 | 1.08% | 7.96% |
+| Bitcoin (USD spot) | BTC-USD | 2026-11-25 | -25.28% | -18.40% |
 
 Assets use common SPY trading dates and are outside the sector ranks. Continuous futures rolls affect returns; ZN=F is a note price, not a yield.
 
